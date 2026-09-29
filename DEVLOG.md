@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.19](#v119) | 2026-09-30 | Gel Al tabelası iki satırlı kırmızı placard tasarımına geçirildi (yeşil/pixel kaldırıldı), tüm sayfa renkleri Gurman Usta logosunun kırmızısına (#e2010f) uyarlandı |
 | [v1.18](#v118) | 2026-09-30 | Arka plan koyuluğu bir tık açıldı, düz ve açıklama metinleri ile footer yazısı açık renk kırmızıya uyarlandı |
 | [v1.17](#v117) | 2026-09-30 | Gel Al fiyatları sola alındı, LED tabela tasarımına geçirildi, sayfa arka planı kırmızı/şarap tonuyla uyumlu koyu renge güncellendi |
 | [v1.16](#v116) | 2026-09-30 | Pixel fontu VT323'e geçirildi (büyük İ düzeltildi), font büyütüldü, İletişim başlığı kaldırıldı, fiyat seçimi engellendi, Gel Al hap tasarımları eklendi |
@@ -625,6 +626,39 @@
 
 ---
 
+## v1.19
+**📅 2026-09-30 02:22** · Gel-Al Kırmızı Fiyat Tabelası Tasarımı ve Gurman Usta Logo Kırmızısı (#e2010f) Entegrasyonu
+
+**Prompt:** tabeladan kastım pixel tabela değildi, ayrıca tabela rengi neden yeşil, kırmızı tonları uygun olurdu. tabeladan kastım gel al yazısı üstte, fiyat altında olacak bir tasarımdı. ayrıca genel olarak,  gurman usta logosunun kırmızısı ile sayfa genelinde kullanılan kırmızı farklı tonlarda, sayfa genelinde de logoya yakın bir kırmızı seçilmeli .
+
+**Yapılanlar:**
+- **Gurman Usta Logo Kırmızısı (#e2010f) Paleti:**
+  - `logo-gurman.png` dosyasından piksel analizi ile logonun ana kırmızı tonu (`#e2010f` / RGB 226, 1, 15 - Hue: 356°) doğrudan tespit edildi.
+  - Önceki soğuk ve pembe/mor kaçan kırmızılar kaldırıldı; sayfa genelindeki tüm stiller logonun Türk kırmızısı kimliğine tam uyarlandı:
+    - `--accent`: `#e2010f` (logonun orijinal canlı kırmızısı)
+    - `--accent-light`: `#ff4d58` (açık kırmızı vurgu)
+    - `--bg-primary`: `#260e10` (logo tonunda derin, zengin koyu kırmızı/şarap zemin)
+    - `--bg-secondary`: `#361215` (bordo gradyan durağı)
+    - Hero dip gradyanı: `#1a080a`
+    - `--text-muted`: `#ea969c` (logo kırmızısının açık pastel tonu, %100 uyumlu)
+    - `--text-secondary`: `#f4bec3`
+    - Menü kartları: `rgba(130, 16, 22, 0.45)` ve bordür `rgba(226, 1, 15, 0.15)`
+    - Hero kayan yazı tabelası çerçevesi: `rgba(226, 1, 15, 0.75)` ve neon kırmızı metin `#ff2636`
+- **Kırmızı İki Satırlı Gel-Al Fiyat Tabelası Tasarımı:**
+  - Yeşil renk ve piksel tabela/font tamamen kaldırıldı.
+  - Modern, şık ve logoyla uyumlu kırmızı tonlarında iki satırlı kompakt tabela (`.sign-gelal`) geliştirildi:
+    - **Üst Satır:** `GEL AL` rozet metni (`#ff525d`, kalın, 0.6rem)
+    - **Alt Satır:** `120 ₺` ve `130 ₺` fiyat metni (`#ffffff`, belirgin, 0.92rem)
+    - **Tabela Kasası:** `linear-gradient(135deg, rgba(226, 1, 15, 0.25), rgba(160, 8, 18, 0.35))` zemin, `1px solid rgba(226, 1, 15, 0.65)` kırmızı çerçeve, `border-radius: 6px`, hafif kırmızı gölge.
+    - **Yerleşim:** Solda iki satırlı kırmızı tabela, sağda ise standart altın sarısı salon fiyatı (`160 ₺` ve `170 ₺`).
+- Versiyon kuralı uygulandı (+0.01 ➔ v1.19).
+
+**Dosya Değişiklikleri:**
+- 📝 `index.html` güncellendi (Logo kırmızısı #e2010f paleti, iki satırlı kırmızı Gel-Al tabela tasarımı)
+- 📝 `DEVLOG.md` güncellendi (v1.19 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
@@ -643,18 +677,19 @@ gurman-qr/
 
 ---
 
-## 📊 Mevcut Durum (v1.18)
+## 📊 Mevcut Durum (v1.19)
 
 | Özellik | Durum |
 |---------|-------|
 | Menü HTML | ✅ Kusursuz çalışan koyu tema & kırmızı tonlu kartlı modern menü |
 | CSS Stilleri | 🌟 Sözdizimi %100 doğrulandı, tüm kartlar ve efektler aktif |
-| Sayfa Arka Planı | 🌟 Kırmızı/bordo tasarımla tam uyumlu, gözü yormayan dengeli koyu şarap tonları (`#251218`, `#361722`, `#1a0a10`) |
-| Tipografi & Düz Metinler | 🌟 Açık renk kırmızı / pastel gül kurusu (`#e494a2`); fiyat tarihi, ürün gramajları (100gr), nav linkleri ve footer metninde aktif |
+| Renk Paleti | 🌟 Gurman Usta logosu ile birebir eşleşen canlı Türk kırmızısı (`#e2010f`) ve uyumlu zemin/kart tonları |
+| Sayfa Arka Planı | 🌟 Logo kırmızısıyla tam uyumlu derin koyu kırmızı/şarap tonları (`#260e10`, `#361215`, `#1a080a`) |
+| Tipografi & Düz Metinler | 🌟 Logo kırmızısının açık pastel tonu (`#ea969c`); fiyat tarihi, ürün gramajları (100gr), nav linkleri ve footer metninde aktif |
+| Gel-Al Fiyat Tabelaları | 🌟 Solda kırmızı iki satırlı kompakt tabela (üstte 'GEL AL', altta fiyat), normal fiyatlar sağda |
 | Hero Bölümü | 🌟 Şeffaf logo + Glow Efektli Pixel Kayan Tabela + Fiyat Tarihi |
-| Pixel Kayan Tabela | 🌟 VT323 retro LED neon glow efektli, tam Türkçe 'İ' uyumlu, 1.25rem boyutunda, sonsuz döngü (DÖNER - TANTUNİ - KÖFTE - LAHMACUN - PİDE - ÇORBA) |
-| Seçenek Arka Planları | 🌟 Bordo/kırmızı gradyanlı kartlar, koyu şarap arka plan ile kusursuz bütünleşti |
-| Gel-Al Fiyat Tabelaları | 🌟 Solda yer alan LED dot-matrix mini fiyat tabelası (`GEL AL 120 ₺` ve `GEL AL 130 ₺`), normal fiyatlar sağda |
+| Pixel Kayan Tabela | 🌟 VT323 retro LED neon glow efektli, logo kırmızısı çerçeveli, sonsuz döngü (DÖNER - TANTUNİ - KÖFTE - LAHMACUN - PİDE - ÇORBA) |
+| Seçenek Arka Planları | 🌟 Logo kırmızısı bordürlü ve gradyanlı kartlar, arka planla kusursuz bütünleşti |
 | Fiyat Seçilebilirliği | 🌟 Seçim kilidi aktif (`user-select: none;` ile mobilde dokunulduğunda mavi seçim engellendi) |
 | Başlıklar & Hiyerarşi | 🌟 Et Tantuni ve Tavuk Tantuni bağımsız ana başlık; Et Döner önde |
 | İçecekler | ✅ Pepsi / Yedigün (Kutu / Şişe sıralaması), Büyük/Küçük Ayran |
@@ -665,7 +700,7 @@ gurman-qr/
 | Navigasyon & Scroll | 🚀 8 menü kategorisi + İletişim, akıcı kaydırma ve ortalama |
 | Logo | 🌟 Siyah sınırlı, şeffaf, yüksek çözünürlüklü |
 | Menü doğrulaması | ✅ 41/41 ürün incelendi, Gel-Al hariç 37 aktif ürün |
-| Gel-Al Fiyat Entegrasyonu | ✅ Belirtilen ürünlerde Gel Al fiyatları LED mini tabela olarak solda eklendi |
+| Gel-Al Fiyat Entegrasyonu | ✅ Belirtilen ürünlerde Gel Al fiyatları kırmızı iki satırlı tabela olarak solda eklendi |
 | GitHub CLI (gh) | ✅ Kuruldu ve Giriş Yapıldı |
 | GitHub Repo Push | ✅ Yüklendi (`gurmanusta/qr-menu`) |
 | GitHub Pages | 🚀 **CANLI YAYINDA:** `https://gurmanusta.github.io/qr-menu/` |

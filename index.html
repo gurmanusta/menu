@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta name="description" content="Gurman Usta - İyi Lezzetlerin Yeni Adresi | Döner, Kebap, Tantuni, Pide | Çankaya/Ankara">
-    <meta name="theme-color" content="#251218">
+    <meta name="theme-color" content="#260e10">
     <meta property="og:title" content="Gurman Usta Menü">
     <meta property="og:description" content="Döner • Kebap • Tantuni • Pide — İyi lezzetlerin yeni adresi">
     <meta property="og:type" content="website">
@@ -15,15 +15,15 @@
     <style>
         /* ===== CSS Variables ===== */
         :root {
-            --bg-primary: #251218;
-            --bg-secondary: #361722;
-            --bg-card: #601424;
-            --accent: #e94560;
-            --accent-light: #ff6b81;
+            --bg-primary: #260e10;
+            --bg-secondary: #361215;
+            --bg-card: #821016;
+            --accent: #e2010f;
+            --accent-light: #ff4d58;
             --gold: #f5c518;
             --text-primary: #ffffff;
-            --text-secondary: #f2bac2;
-            --text-muted: #e494a2;
+            --text-secondary: #f4bec3;
+            --text-muted: #ea969c;
             --shadow: 0 4px 20px rgba(0,0,0,0.3);
             --radius: 16px;
             --radius-sm: 10px;
@@ -51,7 +51,7 @@
             position: relative;
             text-align: center;
             padding: 48px 20px 14px;
-            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, #1a0a10 100%);
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, #1a080a 100%);
             overflow: hidden;
         }
 
@@ -62,8 +62,8 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle at 30% 50%, rgba(233, 69, 96, 0.08) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 50%, rgba(245, 197, 24, 0.05) 0%, transparent 50%);
+            background: radial-gradient(circle at 30% 50%, rgba(226, 1, 15, 0.12) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(245, 197, 24, 0.06) 0%, transparent 50%);
             animation: heroGlow 8s ease-in-out infinite alternate;
         }
 
@@ -98,12 +98,12 @@
             margin: 12px auto 0;
             padding: 8px 0;
             overflow: hidden;
-            background: #0d060a;
-            background-image: radial-gradient(rgba(233, 69, 96, 0.25) 1px, transparent 1px);
+            background: #0f0405;
+            background-image: radial-gradient(rgba(226, 1, 15, 0.25) 1px, transparent 1px);
             background-size: 4px 4px;
-            border: 2px solid rgba(233, 69, 96, 0.7);
+            border: 2px solid rgba(226, 1, 15, 0.75);
             border-radius: 8px;
-            box-shadow: 0 0 16px rgba(233, 69, 96, 0.4), inset 0 0 14px rgba(0, 0, 0, 0.95);
+            box-shadow: 0 0 16px rgba(226, 1, 15, 0.4), inset 0 0 14px rgba(0, 0, 0, 0.95);
             display: flex;
             align-items: center;
         }
@@ -121,12 +121,12 @@
 
         .pixel-marquee::before {
             left: 0;
-            background: linear-gradient(90deg, #0d060a 20%, transparent);
+            background: linear-gradient(90deg, #0f0405 20%, transparent);
         }
 
         .pixel-marquee::after {
             right: 0;
-            background: linear-gradient(-90deg, #0d060a 20%, transparent);
+            background: linear-gradient(-90deg, #0f0405 20%, transparent);
         }
 
         .pixel-marquee-track {
@@ -153,11 +153,11 @@
             font-weight: 400;
             letter-spacing: 2px;
             line-height: 1;
-            color: #ff3366;
+            color: #ff2636;
             text-shadow:
-                0 0 4px #ff3366,
-                0 0 10px rgba(255, 51, 102, 0.85),
-                0 0 20px rgba(233, 69, 96, 0.6);
+                0 0 4px #ff2636,
+                0 0 10px rgba(255, 38, 54, 0.85),
+                0 0 20px rgba(226, 1, 15, 0.6);
             white-space: nowrap;
             display: inline-block;
         }
@@ -175,10 +175,10 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(37, 18, 24, 0.95);
+            background: rgba(38, 14, 16, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(233, 69, 96, 0.2);
+            border-bottom: 1px solid rgba(226, 1, 15, 0.2);
             padding: 0;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
@@ -256,15 +256,15 @@
             justify-content: space-between;
             align-items: center;
             padding: 14px 16px;
-            background: linear-gradient(135deg, rgba(96, 20, 36, 0.5), rgba(62, 16, 28, 0.5));
-            border: 1px solid rgba(233, 69, 96, 0.12);
+            background: linear-gradient(135deg, rgba(130, 16, 22, 0.45), rgba(80, 10, 14, 0.45));
+            border: 1px solid rgba(226, 1, 15, 0.15);
             border-radius: var(--radius-sm);
             transition: all 0.3s ease;
         }
 
         .menu-item:hover {
-            background: linear-gradient(135deg, rgba(96, 20, 36, 0.8), rgba(62, 16, 28, 0.8));
-            border-color: rgba(233, 69, 96, 0.35);
+            background: linear-gradient(135deg, rgba(150, 18, 25, 0.7), rgba(95, 12, 16, 0.7));
+            border-color: rgba(226, 1, 15, 0.4);
             transform: translateX(4px);
         }
 
@@ -318,42 +318,50 @@
 
         .sign-gelal, .pill-gelal {
             display: inline-flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: #08160c;
-            background-image: radial-gradient(rgba(46, 204, 113, 0.35) 1px, transparent 1px);
-            background-size: 3px 3px;
-            border: 1.5px solid rgba(46, 204, 113, 0.85);
-            border-radius: 4px;
-            color: #2ecc71;
-            font-family: 'VT323', monospace;
-            font-size: 1.15rem;
-            font-weight: 400;
-            letter-spacing: 0.8px;
-            padding: 2px 8px;
+            background: linear-gradient(135deg, rgba(226, 1, 15, 0.25), rgba(160, 8, 18, 0.35));
+            border: 1px solid rgba(226, 1, 15, 0.65);
+            border-radius: 6px;
+            padding: 3px 8px;
+            min-width: 58px;
+            text-align: center;
             line-height: 1;
-            text-transform: uppercase;
-            white-space: nowrap;
             user-select: none;
             -webkit-user-select: none;
-            box-shadow: 0 0 10px rgba(46, 204, 113, 0.3), inset 0 0 6px rgba(0, 0, 0, 0.9);
-            text-shadow:
-                0 0 3px #2ecc71,
-                0 0 8px rgba(46, 204, 113, 0.65);
+            box-shadow: 0 2px 8px rgba(226, 1, 15, 0.25);
             transition: all 0.2s ease;
         }
 
         .sign-gelal:hover, .pill-gelal:hover {
-            border-color: #2ecc71;
-            box-shadow: 0 0 14px rgba(46, 204, 113, 0.5), inset 0 0 4px rgba(0, 0, 0, 0.8);
-            transform: scale(1.02);
+            border-color: #e2010f;
+            background: linear-gradient(135deg, rgba(226, 1, 15, 0.38), rgba(160, 8, 18, 0.48));
+            box-shadow: 0 4px 12px rgba(226, 1, 15, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .sign-gelal .sign-label {
+            font-size: 0.6rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #ff525d;
+            line-height: 1.1;
+            margin-bottom: 2px;
+        }
+
+        .sign-gelal .sign-price {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.1;
+            font-variant-numeric: tabular-nums;
         }
 
         @media (max-width: 380px) {
             .price-container {
-                flex-direction: column;
-                align-items: flex-end;
-                gap: 4px;
+                gap: 6px;
             }
         }
 
@@ -373,17 +381,17 @@
 
         .item-badge.popular {
             background: var(--gold);
-            color: #251218;
+            color: #260e10;
         }
 
         .item-badge.gel-al {
-            background: #27ae60;
+            background: #e2010f;
         }
 
         /* ===== Divider ===== */
         .section-divider {
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(233, 69, 96, 0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(226, 1, 15, 0.3), transparent);
             margin: 8px 0;
         }
 
@@ -403,8 +411,8 @@
         }
 
         .contact-card {
-            background: linear-gradient(135deg, rgba(96, 20, 36, 0.55), rgba(62, 16, 28, 0.55));
-            border: 1px solid rgba(233, 69, 96, 0.15);
+            background: linear-gradient(135deg, rgba(130, 16, 22, 0.5), rgba(80, 10, 14, 0.5));
+            border: 1px solid rgba(226, 1, 15, 0.18);
             border-radius: var(--radius);
             padding: 24px 20px;
             text-align: center;
@@ -730,7 +738,10 @@
                         <div class="item-name">Somun Tavuk Tantuni</div>
                     </div>
                     <div class="price-container">
-                        <span class="sign-gelal">Gel Al 120 ₺</span>
+                        <div class="sign-gelal">
+                            <span class="sign-label">Gel Al</span>
+                            <span class="sign-price">120 ₺</span>
+                        </div>
                         <span class="item-price">160 ₺</span>
                     </div>
                 </div>
@@ -795,7 +806,10 @@
                         <div class="item-desc">100gr</div>
                     </div>
                     <div class="price-container">
-                        <span class="sign-gelal">Gel Al 130 ₺</span>
+                        <div class="sign-gelal">
+                            <span class="sign-label">Gel Al</span>
+                            <span class="sign-price">130 ₺</span>
+                        </div>
                         <span class="item-price">170 ₺</span>
                     </div>
                 </div>
