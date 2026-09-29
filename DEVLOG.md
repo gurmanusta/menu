@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.05](#v105) | 2026-09-29 | CSS sözdizim hatası giderildi, tüm stiller ve render onarıldı |
 | [v1.04](#v104) | 2026-09-29 | Hero sadeleştirildi, başlık açıklamaları kaldırıldı, içecek formatları güncellendi |
 | [v1.03](#v103) | 2026-09-29 | Menü navigasyon kilidi düzeltildi, tüm metin simgeleri kaldırıldı |
 | [v1.02](#v102) | 2026-09-29 | Siyah sınırlı yüksek çözünürlüklü şeffaf logo entegrasyonu |
@@ -296,6 +297,25 @@
 
 ---
 
+## v1.05
+**📅 2026-09-29 23:47** · CSS Kural Onarımı & Render Doğrulaması
+
+**Prompt:** e bozdun tüm uygulamayı.
+
+**Yapılanlar:**
+- Sayfa derleme ve render hatası tespit edildi:
+  - Hero bölümü düzenlenirken CSS `<style>` bloğundaki eski `.hero-tagline` kuralının kapatma süslü parantezi (`}`) eksik kalmıştı.
+  - Bu tek sözdizim hatası yüzünden tarayıcı, stil dosyasının geri kalanını (kategori çubuğu, kart tasarımları, koyu tema, renkler) yok sayarak sayfayı ham/stilsiz metin olarak render etmekteydi.
+- CSS kuralı temizlendi, parantez eşleşmeleri programatik olarak doğrulandı (0 hata).
+- Headless tarayıcı motoruyla sayfa render edilerek dark tema, kart düzeni, yapışkan çubuk ve butonların eksiksiz çalıştığı görüntülendi.
+- Versiyon artış kuralı uygulandı (+0.01).
+
+**Dosya Değişiklikleri:**
+- 📝 `index.html` güncellendi (CSS kapatma parantezi onarıldı)
+- 📝 `DEVLOG.md` güncellendi (v1.05 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
@@ -308,11 +328,12 @@ gurman-qr/
 
 ---
 
-## 📊 Mevcut Durum (v1.04)
+## 📊 Mevcut Durum (v1.05)
 
 | Özellik | Durum |
 |---------|-------|
-| Menü HTML | ✅ Minimalist, doğrudan ürün ve fiyat odaklı temiz tasarım |
+| Menü HTML | ✅ Kusursuz çalışan koyu tema & kartlı modern menü |
+| CSS Stilleri | 🌟 Sözdizimi %100 doğrulandı, tüm kartlar ve efektler aktif |
 | Hero Bölümü | 🌟 Sadece şeffaf logo + Fiyat Güncelleme Tarihi |
 | Başlıklar | ✅ Alt açıklamasız, net kategori başlıkları |
 | İçecekler | ✅ Pepsi / Yedigün (Şişe/Kutu), Büyük/Küçük Ayran |
