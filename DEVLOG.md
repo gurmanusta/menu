@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.15](#v115) | 2026-09-30 | Tavuk Döner Ekmek Arası güncellendi, glow efektli pixel kayan tabela eklendi, kart arka planları kırmızı tona geçirildi |
 | [v1.14](#v114) | 2026-09-30 | Metin düzeltmeleri, Pepsi Kutu/Şişe yer değişimi, boşluk dengelemesi, sabit WhatsApp butonu kaldırıldı |
 | [v1.13](#v113) | 2026-09-30 | Tantuniler ana başlıklara ayrıldı, Et Döner öne alındı, butonlar büyütüldü ve harita simgesi uyarlandı |
 | [v1.12](#v112) | 2026-09-30 | İletişim butonları yan yana simgelere dönüştürüldü; Döner, Kebap, Tantuni, Pide etiketleri ve slogan eklendi |
@@ -514,6 +515,26 @@
 
 ---
 
+## v1.15
+**📅 2026-09-30 01:42** · Tavuk Döner Ekmek Arası, Glow Efektli Pixel Kayan Tabela ve Kırmızı Kart Arka Planı
+
+**Prompt:** sadece "Tavuk Döner" yazan seçeneği Tavuk Döner Ekmek Arası olarak güncelle. ayrıca DÖNER KEBAP TANTUNİ PİDE etiketlerini tek bir pixel kayan yazı animasyonuna çevir ve DÖNER - TANTUNİ - KÖFTE - LAHMACUN - PİDE - ÇORBA seçenekleri sonsuz bir şekilde kaymaya devam etsin. mümkünse glow efektli bir pixel tabela tasarımını deneyelim. ayrıca seçeneklerin mavi tonlu arka planını, aynı tonun kırmızı versiyonuna güncelle.
+
+**Yapılanlar:**
+- Tavuk Döner kategorisindeki yalnızca "Tavuk Döner" isimli ürün, Et Döner ile tutarlı olarak `"Tavuk Döner Ekmek Arası"` olarak güncellendi.
+- Hero bölümündeki statik Döner/Kebap/Tantuni/Pide hap etiketleri kaldırılarak yerine nostaljik ve modern **Glow Efektli Pixel Kayan Tabela** (`.pixel-marquee`) entegre edildi:
+  - **Tipografi:** Google Silkscreen pixel fontu kullanıldı.
+  - **İçerik:** `DÖNER - TANTUNİ - KÖFTE - LAHMACUN - PİDE - ÇORBA - ` sonsuz akıcı marquee animasyonu oluşturuldu.
+  - **Tabela Kasası:** 4px dot-matrix LED ızgara arka planı, 2px neon kırmızı çerçeve, iç gölge ve neon parlama (glow) efekti uygulandı. Kenar geçişleri için yumuşak karartma maskeleri eklendi.
+- Menü seçeneklerinin (`.menu-item`) ve iletişim kartının (`.contact-card`) lacivert/mavi tonlu arka planı, aynı koyuluk ve derinlikteki asil kırmızı/bordo tonu gradyanına (`rgba(96, 20, 36, 0.5)` / `rgba(62, 16, 28, 0.5)`) dönüştürüldü; sınır çizgileri ve hover efektleri kırmızı aksanla uyarlandı.
+- Versiyon kuralı uygulandı (+0.01 ➔ v1.15).
+
+**Dosya Değişiklikleri:**
+- 📝 `index.html` güncellendi (Silkscreen font, pixel tabela, kırmızı kart gradyanı, Tavuk Döner Ekmek Arası)
+- 📝 `DEVLOG.md` güncellendi (v1.15 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
@@ -532,20 +553,21 @@ gurman-qr/
 
 ---
 
-## 📊 Mevcut Durum (v1.14)
+## 📊 Mevcut Durum (v1.15)
 
 | Özellik | Durum |
 |---------|-------|
-| Menü HTML | ✅ Kusursuz çalışan koyu tema & kartlı modern menü |
+| Menü HTML | ✅ Kusursuz çalışan koyu tema & kırmızı tonlu kartlı modern menü |
 | CSS Stilleri | 🌟 Sözdizimi %100 doğrulandı, tüm kartlar ve efektler aktif |
-| Hero Bölümü | 🌟 Şeffaf logo + DÖNER, KEBAP, TANTUNİ, PİDE etiketleri + Simetrik Fiyat Tarihi Boşluğu |
+| Hero Bölümü | 🌟 Şeffaf logo + Glow Efektli Pixel Kayan Tabela + Fiyat Tarihi |
+| Pixel Kayan Tabela | 🌟 Silkscreen LED neon glow efektli, sonsuz döngü (DÖNER - TANTUNİ - KÖFTE - LAHMACUN - PİDE - ÇORBA) |
+| Seçenek Arka Planları | 🌟 Aynı tonun kırmızı/bordo versiyonuna güncellendi (asli kebap/ızgara kimliği) |
 | Başlıklar & Hiyerarşi | 🌟 Et Tantuni ve Tavuk Tantuni bağımsız ana başlık; Et Döner önde |
 | İçecekler | ✅ Pepsi / Yedigün (Kutu / Şişe sıralaması), Büyük/Küçük Ayran |
 | Spesiyaller | 🌟 Gurman Kapalı Pide ve Yaprak Şiş altın sarısı vurgulu |
 | İletişim Simge Butonları | 🌟 Büyütülmüş (56px) 4 simge: Ara, Instagram, Google Haritalar, WhatsApp |
 | Ödeme Logoları | 🌟 Visa, Mastercard, Pluxee, Sodexo, Ticket Restaurant, Setcard |
 | Footer & Slogan | 🌟 İletişim kartının hemen altında `© 2026 Gurman Usta — İyi lezzetlerin Yeni Adresi` |
-| Sabit WhatsApp Butonu | 🛑 Kaldırıldı (sadeleştirildi, iletişim bölümündeki simge aktif) |
 | Navigasyon & Scroll | 🚀 8 menü kategorisi + İletişim, akıcı kaydırma ve ortalama |
 | Logo | 🌟 Siyah sınırlı, şeffaf, yüksek çözünürlüklü |
 | Menü doğrulaması | ✅ 41/41 ürün incelendi, Gel-Al hariç 37 aktif ürün |
