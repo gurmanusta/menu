@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.20](#v120) | 2026-09-30 | Gel Al rozetinin satır yüksekliğini etkilemesi engellendi (26px flex kilidi), Gel Al yazısı büyütüldü (0.7rem), fiyat turuncu (#ff9f43) renge çevrildi |
 | [v1.19](#v119) | 2026-09-30 | Gel Al tabelası iki satırlı kırmızı placard tasarımına geçirildi (yeşil/pixel kaldırıldı), tüm sayfa renkleri Gurman Usta logosunun kırmızısına (#e2010f) uyarlandı |
 | [v1.18](#v118) | 2026-09-30 | Arka plan koyuluğu bir tık açıldı, düz ve açıklama metinleri ile footer yazısı açık renk kırmızıya uyarlandı |
 | [v1.17](#v117) | 2026-09-30 | Gel Al fiyatları sola alındı, LED tabela tasarımına geçirildi, sayfa arka planı kırmızı/şarap tonuyla uyumlu koyu renge güncellendi |
@@ -659,6 +660,29 @@
 
 ---
 
+## v1.20
+**📅 2026-09-30 02:35** · Gel-Al Rozeti Satır Yüksekliği Dengesi, Büyütülen Başlık ve Turuncu Fiyat Rengi
+
+**Prompt:** gel al rozetinin tasarımı, bulunduğu yemek satırının yüksekliğini etkilememeli. ayrıca gel az yazısı çok az daha büyük olabilir, ve gel al fiyatı da beyaz değil turuncu renk olursa iyi olur
+
+**Yapılanlar:**
+- **Yemek Satırı Yüksekliğinin Korunması (Zero Row Height Impact):**
+  - Gel Al rozetinin bulunduğu satırların ("Somun Tavuk Tantuni"), altındaki tek satırlı diğer ürünlere ("Dürüm Tavuk Tantuni") göre daha kalın/yüksek görünmesi sorunu çözüldü.
+  - `.price-container` bileşenine `height: 26px` atanarak, menü öğesi flex hesaplamasında standart tekli fiyat ile birebir aynı satır yüksekliğine kilitlendi.
+  - Rozet iç dolgusu (`2px 7px`) optimize edildi; kartın 14px iç boşluğu (padding) sayesinde rozet hiçbir satır kalınlaşması yaratmadan kusursuz şekilde dikey ortalandı (`h1 = h2 = 56px`).
+- **Gel-Al Başlığının Büyütülmesi:**
+  - `.sign-label` font boyutu `0.6rem`'den **`0.7rem`**'e yükseltildi (`font-weight: 800; letter-spacing: 0.5px`), "GEL AL" ifadesi çok daha okunaklı ve net kılındı.
+- **Turuncu Fiyat Rengi (#ff9f43):**
+  - Beyaz olan `.sign-price` metin rengi, iştah açıcı ve yüksek kontrastlı sıcak **turuncu** (`#ff9f43`) rengine dönüştürüldü.
+  - Böylece salon fiyatının altın sarısı (`#f5c518`), Gel Al fiyatının turuncusu (`#ff9f43`) ve rozet başlığının kırmızısı (`#ff525d`) menüde çok şık ve ayırt edici bir renk hiyerarşisi oluşturdu.
+- Versiyon kuralı uygulandı (+0.01 ➔ v1.20).
+
+**Dosya Değişiklikleri:**
+- 📝 `index.html` güncellendi (price-container height kilidi, sign-label 0.7rem, sign-price #ff9f43 turuncu)
+- 📝 `DEVLOG.md` güncellendi (v1.20 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
@@ -677,7 +701,7 @@ gurman-qr/
 
 ---
 
-## 📊 Mevcut Durum (v1.19)
+## 📊 Mevcut Durum (v1.20)
 
 | Özellik | Durum |
 |---------|-------|
@@ -686,7 +710,7 @@ gurman-qr/
 | Renk Paleti | 🌟 Gurman Usta logosu ile birebir eşleşen canlı Türk kırmızısı (`#e2010f`) ve uyumlu zemin/kart tonları |
 | Sayfa Arka Planı | 🌟 Logo kırmızısıyla tam uyumlu derin koyu kırmızı/şarap tonları (`#260e10`, `#361215`, `#1a080a`) |
 | Tipografi & Düz Metinler | 🌟 Logo kırmızısının açık pastel tonu (`#ea969c`); fiyat tarihi, ürün gramajları (100gr), nav linkleri ve footer metninde aktif |
-| Gel-Al Fiyat Tabelaları | 🌟 Solda kırmızı iki satırlı kompakt tabela (üstte 'GEL AL', altta fiyat), normal fiyatlar sağda |
+| Gel-Al Fiyat Tabelaları | 🌟 Satır yüksekliğini etkilemeyen (26px kilitli), üstte 0.7rem 'GEL AL' ve altta sıcak turuncu (`#ff9f43`) fiyatlı kompakt tabela |
 | Hero Bölümü | 🌟 Şeffaf logo + Glow Efektli Pixel Kayan Tabela + Fiyat Tarihi |
 | Pixel Kayan Tabela | 🌟 VT323 retro LED neon glow efektli, logo kırmızısı çerçeveli, sonsuz döngü (DÖNER - TANTUNİ - KÖFTE - LAHMACUN - PİDE - ÇORBA) |
 | Seçenek Arka Planları | 🌟 Logo kırmızısı bordürlü ve gradyanlı kartlar, arka planla kusursuz bütünleşti |
@@ -700,7 +724,7 @@ gurman-qr/
 | Navigasyon & Scroll | 🚀 8 menü kategorisi + İletişim, akıcı kaydırma ve ortalama |
 | Logo | 🌟 Siyah sınırlı, şeffaf, yüksek çözünürlüklü |
 | Menü doğrulaması | ✅ 41/41 ürün incelendi, Gel-Al hariç 37 aktif ürün |
-| Gel-Al Fiyat Entegrasyonu | ✅ Belirtilen ürünlerde Gel Al fiyatları kırmızı iki satırlı tabela olarak solda eklendi |
+| Gel-Al Fiyat Entegrasyonu | ✅ Belirtilen ürünlerde Gel Al fiyatları satırı genişletmeyen kırmızı tabela olarak solda eklendi |
 | GitHub CLI (gh) | ✅ Kuruldu ve Giriş Yapıldı |
 | GitHub Repo Push | ✅ Yüklendi (`gurmanusta/qr-menu`) |
 | GitHub Pages | 🚀 **CANLI YAYINDA:** `https://gurmanusta.github.io/qr-menu/` |
