@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.06](#v106) | 2026-09-30 | Gurman özel ürünlerinin etiketleri kaldırıldı, font rengi sarı yapıldı |
 | [v1.05](#v105) | 2026-09-29 | CSS sözdizim hatası giderildi, tüm stiller ve render onarıldı |
 | [v1.04](#v104) | 2026-09-29 | Hero sadeleştirildi, başlık açıklamaları kaldırıldı, içecek formatları güncellendi |
 | [v1.03](#v103) | 2026-09-29 | Menü navigasyon kilidi düzeltildi, tüm metin simgeleri kaldırıldı |
@@ -316,6 +317,23 @@
 
 ---
 
+## v1.06
+**📅 2026-09-30 00:05** · Gurman Özel Ürünler Tasarım Güncellemesi
+
+**Prompt:** gurman yaprak şiş ve gurman kapalı pide'nin yanındaki özel etiketini iptal et ve font rengini sarı yap
+
+**Yapılanlar:**
+- "Gurman Kapalı Pide" ve "Gurman Yaprak Şiş" ürünlerinin yanındaki `<span class="item-badge popular">Özel</span>` etiketleri kaldırıldı.
+- Her iki ürünün başlıklarına `.item-name.special` sınıfı eklendi ve CSS'te font rengi restoranın tema altın sarısı rengine (`var(--gold): #f5c518`) bağlandı.
+- Menüdeki tüm ürünlerde etiket kalabalığı tamamen temizlenmiş, restoran spesiyalleri ise zarif sarı font vurgusuyla öne çıkarılmış oldu.
+- Versiyon artış kuralı uygulandı (+0.01).
+
+**Dosya Değişiklikleri:**
+- 📝 `index.html` güncellendi (`special` stili tanımlandı, etiketler kaldırıldı, sarı renk uygulandı)
+- 📝 `DEVLOG.md` güncellendi (v1.06 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
@@ -328,7 +346,7 @@ gurman-qr/
 
 ---
 
-## 📊 Mevcut Durum (v1.05)
+## 📊 Mevcut Durum (v1.06)
 
 | Özellik | Durum |
 |---------|-------|
