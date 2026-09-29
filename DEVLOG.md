@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.10](#v110) | 2026-09-30 | WhatsApp & Instagram butonları sadeleştirildi; Adres yerine tam satır Google Haritalar butonu eklendi |
 | [v1.09](#v109) | 2026-09-30 | Instagram etiketi eklendi, adres bölümüne Google Haritalar konum butonu entegre edildi |
 | [v1.08](#v108) | 2026-09-30 | Visa ve Mastercard resmi SVG logoları ödeme yöntemlerinin en başına eklendi |
 | [v1.07](#v107) | 2026-09-30 | VISA kaldırıldı; Pluxee, Sodexo, Ticket Restaurant ve Setcard resmi logoları eklendi |
@@ -404,6 +405,26 @@
 
 ---
 
+## v1.10
+**📅 2026-09-30 00:53** · Buton Sadeleştirmesi & Tam Satır Google Haritalar Entegrasyonu
+
+**Prompt:** whatsapp ve instagram butonlarındaki kullanıcı adı ve telefonu sil, tıklayınca işlevler çalışsın. adres yerine google haritalar butonunu da mail gibi tüm satırı kaplayacak buton yap
+
+**Yapılanlar:**
+- WhatsApp ve Instagram butonlarındaki metin kalabalığı (telefon numarası ve kullanıcı adı) temizlendi:
+  - Buton metinleri doğrudan `WhatsApp` ve `Instagram` olarak sadeleştirildi.
+  - Tıklanma işlevleri (`href="https://wa.me/905309225975"` ve `href="https://www.instagram.com/gurmanusta/"`) eksiksiz korunarak çalışmaya devam etti.
+- Eski adres metin bloğu tamamen kaldırılarak yerine e-posta gibi tüm satırı kaplayan `.contact-link.maps` sınıfında tam genişlikli `Google Haritalar` butonu eklendi.
+- Buton tıklandığında doğrudan Google Haritalar üzerindeki restorana yönlendirilmesi sağlandı (`https://maps.app.goo.gl/oQUd12XBmLGFH4aa6`).
+- Tüm iletişim butonları (Telefon, WhatsApp, Instagram, E-posta, Google Haritalar) tek tip, modern ve minimalist bir liste görünümüne kavuştu.
+- Versiyon artış kuralı uygulandı (+0.01).
+
+**Dosya Değişiklikleri:**
+- 📝 `index.html` güncellendi (CSS `.contact-link.maps` eklendi, butonlar sadeleştirildi, adres bloğu tam satır harita butonuna dönüştürüldü)
+- 📝 `DEVLOG.md` güncellendi (v1.10 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
@@ -422,7 +443,7 @@ gurman-qr/
 
 ---
 
-## 📊 Mevcut Durum (v1.09)
+## 📊 Mevcut Durum (v1.10)
 
 | Özellik | Durum |
 |---------|-------|
@@ -432,7 +453,8 @@ gurman-qr/
 | Başlıklar | ✅ Alt açıklamasız, net kategori başlıkları |
 | İçecekler | ✅ Pepsi / Yedigün (Şişe/Kutu), Büyük/Küçük Ayran |
 | Spesiyaller | 🌟 Gurman Kapalı Pide ve Yaprak Şiş altın sarısı vurgulu |
-| İletişim & Harita | 🌟 Instagram etiketi + Google Haritalar doğrudan konum butonu |
+| İletişim Butonları | 🌟 Sadeleştirilmiş tek tip butonlar (Telefon, WhatsApp, Instagram, E-posta, Haritalar) |
+| Harita & Konum | 🌟 Tüm satırı kaplayan modern Google Haritalar butonu |
 | Ödeme Logoları | 🌟 Visa, Mastercard, Pluxee, Sodexo, Ticket Restaurant, Setcard |
 | Navigasyon & Scroll | 🚀 Sorunsuz akıcı kaydırma ve kategori geçişi |
 | Logo | 🌟 Siyah sınırlı, şeffaf, yüksek çözünürlüklü |
