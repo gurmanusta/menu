@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Gurman Usta - İyi Lezzetlerin Yeni Adresi | Döner, Kebap, Tantuni, Pide | Çankaya/Ankara">
+    <meta name="theme-color" content="#1a1a2e">
+    <meta property="og:title" content="Gurman Usta Menü">
+    <meta property="og:description" content="Döner • Kebap • Tantuni • Pide — İyi lezzetlerin yeni adresi">
+    <meta property="og:type" content="website">
+    <title>Gurman Usta — Menü</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== CSS Variables ===== */
+        :root {
+            --bg-primary: #1a1a2e;
+            --bg-secondary: #16213e;
+            --bg-card: #0f3460;
+            --accent: #e94560;
+            --accent-light: #ff6b81;
+            --gold: #f5c518;
+            --text-primary: #ffffff;
+            --text-secondary: #a8b2d1;
+            --text-muted: #8892b0;
+            --shadow: 0 4px 20px rgba(0,0,0,0.3);
+            --radius: 16px;
+            --radius-sm: 10px;
+        }
+
+        /* ===== Reset & Base ===== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 70px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* ===== Hero Section ===== */
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: 48px 20px 32px;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, #0a0a23 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(233, 69, 96, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(245, 197, 24, 0.05) 0%, transparent 50%);
+            animation: heroGlow 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(10deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-logo {
+            max-width: 280px;
+            width: 70%;
+            height: auto;
+            margin-bottom: 8px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .hero-tagline {
+            font-size: 0.85rem;
+            color: var(--gold);
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .hero-categories {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .hero-cat {
+            background: rgba(233, 69, 96, 0.15);
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            color: var(--accent-light);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .hero-info span { display: flex; align-items: center; gap: 4px; }
+
+        .price-date {
+            margin-top: 12px;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* ===== Sticky Category Navigation ===== */
+        .category-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(233, 69, 96, 0.2);
+            padding: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .category-nav::-webkit-scrollbar { display: none; }
+
+        .category-nav-inner {
+            display: flex;
+            gap: 0;
+            padding: 0 8px;
+            min-width: max-content;
+        }
+
+        .category-nav a {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 14px 16px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+            letter-spacing: 0.5px;
+        }
+
+        .category-nav a:hover,
+        .category-nav a.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        .category-nav a .nav-emoji {
+            font-size: 1rem;
+        }
+
+        /* ===== Menu Sections ===== */
+        .menu-container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 16px 120px;
+        }
+
+        .menu-section {
+            padding-top: 24px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding: 0 4px;
+        }
+
+        .section-emoji {
+            font-size: 1.8rem;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(233, 69, 96, 0.1);
+            border-radius: 14px;
+            flex-shrink: 0;
+        }
+
+        .section-title-group h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .section-title-group p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* ===== Menu Items ===== */
+        .menu-items {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 16px;
+            background: linear-gradient(135deg, rgba(15, 52, 96, 0.5), rgba(22, 33, 62, 0.5));
+            border: 1px solid rgba(168, 178, 209, 0.08);
+            border-radius: var(--radius-sm);
+            transition: all 0.3s ease;
+        }
+
+        .menu-item:hover {
+            background: linear-gradient(135deg, rgba(15, 52, 96, 0.8), rgba(22, 33, 62, 0.8));
+            border-color: rgba(233, 69, 96, 0.2);
+            transform: translateX(4px);
+        }
+
+        .item-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .item-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        .item-desc {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .item-price {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--gold);
+            white-space: nowrap;
+            margin-left: 16px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .item-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 6px;
+            margin-left: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            vertical-align: middle;
+        }
+
+        .item-badge.popular {
+            background: var(--gold);
+            color: #1a1a2e;
+        }
+
+        .item-badge.gel-al {
+            background: #27ae60;
+        }
+
+        /* ===== Divider ===== */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(233, 69, 96, 0.3), transparent);
+            margin: 8px 0;
+        }
+
+        /* ===== Subsection ===== */
+        .subsection-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 12px 16px 6px;
+        }
+
+        /* ===== Contact Footer ===== */
+        .contact-section {
+            padding-top: 32px;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, rgba(15, 52, 96, 0.6), rgba(22, 33, 62, 0.6));
+            border: 1px solid rgba(168, 178, 209, 0.1);
+            border-radius: var(--radius);
+            padding: 24px 20px;
+            text-align: center;
+        }
+
+        .contact-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 20px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link.phone {
+            background: rgba(233, 69, 96, 0.15);
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            color: var(--accent-light);
+        }
+
+        .contact-link.whatsapp {
+            background: rgba(37, 211, 102, 0.15);
+            border: 1px solid rgba(37, 211, 102, 0.3);
+            color: #25d366;
+        }
+
+        .contact-link.instagram {
+            background: linear-gradient(135deg, rgba(131, 58, 180, 0.15), rgba(253, 29, 29, 0.15));
+            border: 1px solid rgba(193, 53, 132, 0.3);
+            color: #e1306c;
+        }
+
+        .contact-link.email {
+            background: rgba(100, 180, 255, 0.1);
+            border: 1px solid rgba(100, 180, 255, 0.2);
+            color: #64b4ff;
+        }
+
+        .contact-link:hover { transform: scale(1.02); }
+
+        .address-info {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(168, 178, 209, 0.1);
+        }
+
+        .address-info p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .address-info .addr-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+
+        .payment-badge {
+            background: rgba(168, 178, 209, 0.1);
+            border: 1px solid rgba(168, 178, 209, 0.15);
+            color: var(--text-secondary);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        /* ===== Floating WhatsApp Button ===== */
+        .fab-whatsapp {
+            position: fixed;
+            bottom: 24px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+            text-decoration: none;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .fab-whatsapp:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 24px rgba(37, 211, 102, 0.6);
+        }
+
+        .fab-whatsapp svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 4px 24px rgba(37, 211, 102, 0.6); }
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            text-align: center;
+            padding: 24px 20px 32px;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* ===== Responsive ===== */
+        @media (min-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .menu-container { padding: 0 24px 120px; }
+            .menu-items { gap: 10px; }
+            .menu-item { padding: 16px 20px; }
+        }
+
+        /* ===== Scroll animations ===== */
+        .menu-section {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .menu-section:nth-child(1) { animation-delay: 0.1s; }
+        .menu-section:nth-child(2) { animation-delay: 0.15s; }
+        .menu-section:nth-child(3) { animation-delay: 0.2s; }
+        .menu-section:nth-child(4) { animation-delay: 0.25s; }
+        .menu-section:nth-child(5) { animation-delay: 0.3s; }
+        .menu-section:nth-child(6) { animation-delay: 0.35s; }
+        .menu-section:nth-child(7) { animation-delay: 0.4s; }
+        .menu-section:nth-child(8) { animation-delay: 0.45s; }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== Print styles ===== */
+        @media print {
+            .category-nav, .fab-whatsapp { display: none !important; }
+            body { background: white; color: #333; }
+            .menu-item { border: 1px solid #ddd; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="logo-gurman.png" alt="Gurman Usta" class="hero-logo">
+            <div class="hero-categories">
+                <span class="hero-cat">Döner</span>
+                <span class="hero-cat">Kebap</span>
+                <span class="hero-cat">Tantuni</span>
+                <span class="hero-cat">Pide</span>
+            </div>
+            <div class="hero-info">
+                <span>🕐 11:00 – 21:00</span>
+                <span>📍 Çankaya/Ankara</span>
+            </div>
+            <p class="price-date">Fiyatlarımız 26 Ocak 2026 tarihinden itibaren geçerlidir.</p>
+        </div>
+    </section>
+
+    <!-- ===== CATEGORY NAV ===== -->
+    <nav class="category-nav" id="categoryNav">
+        <div class="category-nav-inner">
+            <a href="#pideler"><span class="nav-emoji">🫓</span> Pideler</a>
+            <a href="#kebaplar"><span class="nav-emoji">🍢</span> Kebaplar</a>
+            <a href="#tantuniler"><span class="nav-emoji">🌯</span> Tantuniler</a>
+            <a href="#tavuklar"><span class="nav-emoji">🍗</span> Tavuk Döner</a>
+            <a href="#donerler"><span class="nav-emoji">🥙</span> Et Döner</a>
+            <a href="#corba"><span class="nav-emoji">🥣</span> Çorba</a>
+            <a href="#icecekler"><span class="nav-emoji">🥤</span> İçecekler</a>
+            <a href="#iletisim"><span class="nav-emoji">📞</span> İletişim</a>
+        </div>
+    </nav>
+
+    <!-- ===== MENU ===== -->
+    <main class="menu-container">
+
+        <!-- PİDELER -->
+        <section class="menu-section" id="pideler">
+            <div class="section-header">
+                <div class="section-emoji">🫓</div>
+                <div class="section-title-group">
+                    <h2>Pideler</h2>
+                    <p>Fırından taze, geleneksel lezzetler</p>
+                </div>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Lahmacun</div>
+                    </div>
+                    <div class="item-price">150 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Kıymalı Pide</div>
+                    </div>
+                    <div class="item-price">250 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Kıymalı-Kaşarlı Pide</div>
+                    </div>
+                    <div class="item-price">270 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Kuşbaşılı Pide</div>
+                    </div>
+                    <div class="item-price">300 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Kuşbaşı-Kaşarlı Pide</div>
+                    </div>
+                    <div class="item-price">320 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Kaşarlı Pide</div>
+                    </div>
+                    <div class="item-price">300 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Gurman Kapalı Pide <span class="item-badge popular">⭐ Özel</span></div>
+                    </div>
+                    <div class="item-price">370 ₺</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KEBAPLAR -->
+        <section class="menu-section" id="kebaplar">
+            <div class="section-header">
+                <div class="section-emoji">🍢</div>
+                <div class="section-title-group">
+                    <h2>Kebaplar</h2>
+                    <p>Közde pişen enfes kebaplar</p>
+                </div>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Tavuk Yaprak Şiş</div>
+                    </div>
+                    <div class="item-price">250 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Köfte Ekmek</div>
+                    </div>
+                    <div class="item-price">330 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Köfte Servis</div>
+                    </div>
+                    <div class="item-price">350 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Karışık Yaprak Şiş</div>
+                    </div>
+                    <div class="item-price">400 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Gurman Yaprak Şiş <span class="item-badge popular">⭐ Özel</span></div>
+                    </div>
+                    <div class="item-price">500 ₺</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TANTUNİLER -->
+        <section class="menu-section" id="tantuniler">
+            <div class="section-header">
+                <div class="section-emoji">🌯</div>
+                <div class="section-title-group">
+                    <h2>Tantuniler</h2>
+                    <p>Mersin usulü tantuni çeşitleri</p>
+                </div>
+            </div>
+            <div class="menu-items">
+                <div class="subsection-title">🥩 Et Tantuni</div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Somun Et Tantuni</div>
+                    </div>
+                    <div class="item-price">240 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Dürüm Et Tantuni</div>
+                    </div>
+                    <div class="item-price">240 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Yoğurtlu Et Tantuni</div>
+                    </div>
+                    <div class="item-price">260 ₺</div>
+                </div>
+                <div class="section-divider"></div>
+                <div class="subsection-title">🍗 Tavuk Tantuni</div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Somun Tavuk Tantuni</div>
+                    </div>
+                    <div class="item-price">160 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Dürüm Tavuk Tantuni</div>
+                    </div>
+                    <div class="item-price">160 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Yoğurtlu Tavuk Tantuni</div>
+                    </div>
+                    <div class="item-price">180 ₺</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAVUK DÖNER -->
+        <section class="menu-section" id="tavuklar">
+            <div class="section-header">
+                <div class="section-emoji">🍗</div>
+                <div class="section-title-group">
+                    <h2>Tavuk Döner</h2>
+                    <p>100gr porsiyon</p>
+                </div>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Tavuk Döner</div>
+                        <div class="item-desc">100gr</div>
+                    </div>
+                    <div class="item-price">170 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Dürüm Tavuk Döner</div>
+                        <div class="item-desc">100gr</div>
+                    </div>
+                    <div class="item-price">170 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Servis Tavuk Döner</div>
+                        <div class="item-desc">100gr • Pilav & salata ile</div>
+                    </div>
+                    <div class="item-price">190 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Karışık Döner</div>
+                        <div class="item-desc">Et + Tavuk</div>
+                    </div>
+                    <div class="item-price">270 ₺</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ET DÖNER -->
+        <section class="menu-section" id="donerler">
+            <div class="section-header">
+                <div class="section-emoji">🥙</div>
+                <div class="section-title-group">
+                    <h2>Et Döner</h2>
+                    <p>100gr porsiyon</p>
+                </div>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Et Döner Ekmek Arası</div>
+                        <div class="item-desc">100gr</div>
+                    </div>
+                    <div class="item-price">330 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Et Döner Dürüm</div>
+                        <div class="item-desc">100gr</div>
+                    </div>
+                    <div class="item-price">330 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Et Döner Servis</div>
+                        <div class="item-desc">100gr • Pilav & salata ile</div>
+                    </div>
+                    <div class="item-price">350 ₺</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ÇORBA -->
+        <section class="menu-section" id="corba">
+            <div class="section-header">
+                <div class="section-emoji">🥣</div>
+                <div class="section-title-group">
+                    <h2>Çorba</h2>
+                    <p>Günün sıcak çorbası</p>
+                </div>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Günün Çorbası</div>
+                    </div>
+                    <div class="item-price">120 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Yemek Yanında Çorba</div>
+                        <div class="item-desc">Herhangi bir yemek yanında</div>
+                    </div>
+                    <div class="item-price">70 ₺</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- İÇECEKLER -->
+        <section class="menu-section" id="icecekler">
+            <div class="section-header">
+                <div class="section-emoji">🥤</div>
+                <div class="section-title-group">
+                    <h2>İçecekler</h2>
+                    <p>Soğuk içecekler</p>
+                </div>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Pepsi / Yedigün</div>
+                        <div class="item-desc">Şişe</div>
+                    </div>
+                    <div class="item-price">60 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Pepsi / Yedigün</div>
+                        <div class="item-desc">Kutu</div>
+                    </div>
+                    <div class="item-price">70 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Ice Tea</div>
+                    </div>
+                    <div class="item-price">70 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Niğde Gazoz</div>
+                    </div>
+                    <div class="item-price">70 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Ayran</div>
+                        <div class="item-desc">Büyük</div>
+                    </div>
+                    <div class="item-price">35 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Ayran</div>
+                        <div class="item-desc">Küçük</div>
+                    </div>
+                    <div class="item-price">25 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Şalgam</div>
+                    </div>
+                    <div class="item-price">40 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Meyveli Soda</div>
+                    </div>
+                    <div class="item-price">35 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Soda</div>
+                    </div>
+                    <div class="item-price">30 ₺</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Su</div>
+                    </div>
+                    <div class="item-price">15 ₺</div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- İLETİŞİM -->
+        <section class="contact-section" id="iletisim">
+            <div class="contact-card">
+                <h3>📍 İletişim</h3>
+                <div class="contact-links">
+                    <a href="tel:+903122194999" class="contact-link phone">
+                        📞 0 312 219 4 999
+                    </a>
+                    <a href="https://wa.me/905309225975" class="contact-link whatsapp" target="_blank" rel="noopener">
+                        💬 0 530 922 59 75 (WhatsApp)
+                    </a>
+                    <a href="https://www.instagram.com/gurmanusta/" class="contact-link instagram" target="_blank" rel="noopener">
+                        📸 @gurmanusta
+                    </a>
+                    <a href="mailto:bilgi@gurmanusta.com" class="contact-link email">
+                        ✉️ bilgi@gurmanusta.com
+                    </a>
+                </div>
+                <div class="address-info">
+                    <p class="addr-label">Adres</p>
+                    <p>Mustafa Kemal Mah. 2127. Cad. No: 12/A</p>
+                    <p>Çankaya / Ankara</p>
+                </div>
+                <div class="payment-methods">
+                    <span class="payment-badge">💳 VISA</span>
+                    <span class="payment-badge">Pluxee / Sodexo</span>
+                    <span class="payment-badge">Ticket Restaurant</span>
+                    <span class="payment-badge">SetCard</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FLOATING WHATSAPP ===== -->
+    <a href="https://wa.me/905309225975" class="fab-whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp ile sipariş ver">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <p>© 2026 Gurman Usta — Tüm hakları saklıdır.</p>
+        <p style="margin-top:4px"><a href="https://gurmanusta.com" target="_blank">gurmanusta.com</a></p>
+    </footer>
+
+    <!-- ===== Active Nav Highlight Script ===== -->
+    <script>
+        // Highlight active category in nav on scroll
+        const sections = document.querySelectorAll('.menu-section, .contact-section');
+        const navLinks = document.querySelectorAll('.category-nav a');
+        const nav = document.getElementById('categoryNav');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '-80px 0px -60% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    navLinks.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+                        // Auto-scroll nav to show active item
+                        if (link.classList.contains('active')) {
+                            link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => observer.observe(section));
+    </script>
+
+</body>
+</html>
