@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.11](#v111) | 2026-09-30 | E-posta kaldırıldı; Ara, Instagram, WhatsApp'tan Ulaş ve Haritalar butonları işlev ve marka renklerine göre güncellendi |
 | [v1.10](#v110) | 2026-09-30 | WhatsApp & Instagram butonları sadeleştirildi; Adres yerine tam satır Google Haritalar butonu eklendi |
 | [v1.09](#v109) | 2026-09-30 | Instagram etiketi eklendi, adres bölümüne Google Haritalar konum butonu entegre edildi |
 | [v1.08](#v108) | 2026-09-30 | Visa ve Mastercard resmi SVG logoları ödeme yöntemlerinin en başına eklendi |
@@ -425,6 +426,29 @@
 
 ---
 
+## v1.11
+**📅 2026-09-30 01:00** · İletişim Butonları Optimizasyonu, Sıralama & Renk Revizyonu
+
+**Prompt:** bilgi@gurmanusta.com butonunu kaldır, diğer butonların logo renklerini işlevine göre seç, gerekiyorsa değiştir. WhatsApp butonunu WhatsApp'tan Ulaş olarak güncelle, whatsapp ile instagram butonlarının yerini değiştir. en üstteki telefon numarasını da Ara olarak güncelle. tıklayınca numarayı çevirecek ceptelefonunda zaten.
+
+**Yapılanlar:**
+- `bilgi@gurmanusta.com` e-posta butonu kaldırıldı ve kullanılmayan CSS stilleri temizlendi.
+- Telefon numarası butonu doğrudan `Ara` olarak güncellendi, `href="tel:+903122194999"` işlevi korunarak cep telefonlarında doğrudan arama ekranını açması sağlandı.
+- Buton renkleri marka ve işlevlerine göre özelleştirildi:
+  - **Ara:** Arama işlevini yansıtan canlı mavi ton (`#60a5fa`)
+  - **Instagram:** Resmi Instagram degradeli mor-pembe ton (`#e1306c`)
+  - **WhatsApp'tan Ulaş:** Resmi WhatsApp yeşili (`#25d366`)
+  - **Google Haritalar:** Resmi Google Maps kırmızısı (`#ea4335`)
+- WhatsApp ile Instagram butonlarının sırası değiştirildi (Instagram 2. sıraya, WhatsApp'tan Ulaş 3. sıraya alındı).
+- WhatsApp butonu metni `WhatsApp'tan Ulaş` olarak güncellendi.
+- Versiyon artış kuralı uygulandı (+0.01).
+
+**Dosya Değişiklikleri:**
+- 📝 `index.html` güncellendi (E-posta kaldırıldı, buton metinleri, renkleri ve sıralamaları düzenlendi)
+- 📝 `DEVLOG.md` güncellendi (v1.11 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
@@ -443,7 +467,7 @@ gurman-qr/
 
 ---
 
-## 📊 Mevcut Durum (v1.10)
+## 📊 Mevcut Durum (v1.11)
 
 | Özellik | Durum |
 |---------|-------|
@@ -453,8 +477,7 @@ gurman-qr/
 | Başlıklar | ✅ Alt açıklamasız, net kategori başlıkları |
 | İçecekler | ✅ Pepsi / Yedigün (Şişe/Kutu), Büyük/Küçük Ayran |
 | Spesiyaller | 🌟 Gurman Kapalı Pide ve Yaprak Şiş altın sarısı vurgulu |
-| İletişim Butonları | 🌟 Sadeleştirilmiş tek tip butonlar (Telefon, WhatsApp, Instagram, E-posta, Haritalar) |
-| Harita & Konum | 🌟 Tüm satırı kaplayan modern Google Haritalar butonu |
+| İletişim Butonları | 🌟 Ara (Mavi), Instagram (Degrade Pembe), WhatsApp'tan Ulaş (Yeşil), Google Haritalar (Kırmızı) |
 | Ödeme Logoları | 🌟 Visa, Mastercard, Pluxee, Sodexo, Ticket Restaurant, Setcard |
 | Navigasyon & Scroll | 🚀 Sorunsuz akıcı kaydırma ve kategori geçişi |
 | Logo | 🌟 Siyah sınırlı, şeffaf, yüksek çözünürlüklü |
