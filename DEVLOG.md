@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.03](#v103) | 2026-09-29 | Menü navigasyon kilidi düzeltildi, tüm metin simgeleri kaldırıldı |
 | [v1.02](#v102) | 2026-09-29 | Siyah sınırlı yüksek çözünürlüklü şeffaf logo entegrasyonu |
 | [v1.01](#v101) | 2026-09-29 | GitHub CLI Yetkilendirme onayı (Authorize ekranı) |
 | [v1.00](#v100) | 2026-09-29 | Tarayıcıda Device Auth ekranı açıldı, v1.00 ana sürümüne ulaşıldı |
@@ -248,11 +249,35 @@
 
 ---
 
+## v1.03
+**📅 2026-09-29 23:27** · Navigasyon Kilit Düzeltmesi & Simge Temizliği
+
+**Prompt:** kebaplar seçeneği takılı kalmış, diğer kısımlara tıklanmıyor ve aşağı doğru kaydırılamıyor. düzelt. ayrıca metinlerin yanındaki simgeleri kaldır.
+
+**Yapılanlar:**
+- Sayfa kaydırma ve kategori tıklama kilidi tespit edildi:
+  - Eski IntersectionObserver içindeki `link.scrollIntoView()` komutunun sayfa dikey kaydırmasını kilitlemesi ve sürekli Kebaplar sekmesine geri sıçratması engellendi.
+  - Bağımsız, pencere kaydırmasını asla kilitlemeyen yeni `onScroll` ve `centerNav` JavaScript mantığı yazıldı.
+  - Tıklamalar için yapışkan menü yüksekliği hesaba katılarak akıcı kaydırma (`scrollTo`) ve tıklama kilidi önleyici zamanlayıcı eklendi.
+- Tüm metin yanındaki simgeler (emojiler) kaldırıldı:
+  - Hero bilgi simgeleri (saat, konum) temizlendi
+  - Kategori sekme emojileri kaldırıldı (sadece şık tipografi)
+  - Tüm bölüm başlıklarının yanındaki kutulu emoji ikonları kaldırıldı; yerine zarif kırmızı dikey çizgi stili uygulandı
+  - "Özel" rozetindeki yıldız simgesi kaldırıldı
+  - İletişim kartı ve ödeme yöntemlerindeki tüm simgeler temizlendi
+- Versiyon artış kuralı uygulandı (+0.01)
+
+**Dosya Değişiklikleri:**
+- 📝 `index.html` güncellendi (CSS, HTML ve JS baştan düzenlendi)
+- 📝 `DEVLOG.md` güncellendi (v1.03 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
 gurman-qr/
-├── index.html          # Ana QR menü sayfası (tek dosya, responsive)
+├── index.html          # Ana QR menü sayfası (tek dosya, responsive, simgesiz sade tasarım)
 ├── logo-gurman.png     # Siyah sınırlı şeffaf Gurman Usta logosu
 ├── qr-code.png         # Canlı menüye yönlendiren QR Kod görseli
 └── DEVLOG.md           # Bu devlog dosyası
@@ -260,11 +285,12 @@ gurman-qr/
 
 ---
 
-## 📊 Mevcut Durum (v1.02)
+## 📊 Mevcut Durum (v1.03)
 
 | Özellik | Durum |
 |---------|-------|
-| Menü HTML | ✅ Tamamlandı |
+| Menü HTML | ✅ Tamamlandı (Simgesiz, sade ve profesyonel tipografi) |
+| Navigasyon & Scroll | 🚀 Sorunsuz akıcı kaydırma ve kategori geçişi |
 | Logo | 🌟 Siyah sınırlı, şeffaf, yüksek çözünürlüklü |
 | Menü doğrulaması | ✅ 41/41 ürün incelendi, Gel-Al çıkarıldı |
 | Gel-Al kaldırma | ✅ |

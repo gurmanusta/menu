@@ -161,16 +161,15 @@
         }
 
         .category-nav a {
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 14px 16px;
+            padding: 14px 18px;
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.78rem;
+            font-size: 0.82rem;
             font-weight: 600;
             white-space: nowrap;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
             border-bottom: 2px solid transparent;
             letter-spacing: 0.5px;
         }
@@ -181,10 +180,6 @@
             border-bottom-color: var(--accent);
         }
 
-        .category-nav a .nav-emoji {
-            font-size: 1rem;
-        }
-
         /* ===== Menu Sections ===== */
         .menu-container {
             max-width: 680px;
@@ -193,27 +188,13 @@
         }
 
         .menu-section {
-            padding-top: 24px;
+            padding-top: 28px;
         }
 
         .section-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
             margin-bottom: 16px;
-            padding: 0 4px;
-        }
-
-        .section-emoji {
-            font-size: 1.8rem;
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(233, 69, 96, 0.1);
-            border-radius: 14px;
-            flex-shrink: 0;
+            padding-left: 12px;
+            border-left: 3px solid var(--accent);
         }
 
         .section-title-group h2 {
@@ -521,8 +502,8 @@
                 <span class="hero-cat">Pide</span>
             </div>
             <div class="hero-info">
-                <span>🕐 11:00 – 21:00</span>
-                <span>📍 Çankaya/Ankara</span>
+                <span>11:00 – 21:00</span>
+                <span>Çankaya / Ankara</span>
             </div>
             <p class="price-date">Fiyatlarımız 26 Ocak 2026 tarihinden itibaren geçerlidir.</p>
         </div>
@@ -531,14 +512,14 @@
     <!-- ===== CATEGORY NAV ===== -->
     <nav class="category-nav" id="categoryNav">
         <div class="category-nav-inner">
-            <a href="#pideler"><span class="nav-emoji">🫓</span> Pideler</a>
-            <a href="#kebaplar"><span class="nav-emoji">🍢</span> Kebaplar</a>
-            <a href="#tantuniler"><span class="nav-emoji">🌯</span> Tantuniler</a>
-            <a href="#tavuklar"><span class="nav-emoji">🍗</span> Tavuk Döner</a>
-            <a href="#donerler"><span class="nav-emoji">🥙</span> Et Döner</a>
-            <a href="#corba"><span class="nav-emoji">🥣</span> Çorba</a>
-            <a href="#icecekler"><span class="nav-emoji">🥤</span> İçecekler</a>
-            <a href="#iletisim"><span class="nav-emoji">📞</span> İletişim</a>
+            <a href="#pideler" class="active">Pideler</a>
+            <a href="#kebaplar">Kebaplar</a>
+            <a href="#tantuniler">Tantuniler</a>
+            <a href="#tavuklar">Tavuk Döner</a>
+            <a href="#donerler">Et Döner</a>
+            <a href="#corba">Çorba</a>
+            <a href="#icecekler">İçecekler</a>
+            <a href="#iletisim">İletişim</a>
         </div>
     </nav>
 
@@ -548,7 +529,6 @@
         <!-- PİDELER -->
         <section class="menu-section" id="pideler">
             <div class="section-header">
-                <div class="section-emoji">🫓</div>
                 <div class="section-title-group">
                     <h2>Pideler</h2>
                     <p>Fırından taze, geleneksel lezzetler</p>
@@ -593,7 +573,7 @@
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
-                        <div class="item-name">Gurman Kapalı Pide <span class="item-badge popular">⭐ Özel</span></div>
+                        <div class="item-name">Gurman Kapalı Pide <span class="item-badge popular">Özel</span></div>
                     </div>
                     <div class="item-price">370 ₺</div>
                 </div>
@@ -603,7 +583,6 @@
         <!-- KEBAPLAR -->
         <section class="menu-section" id="kebaplar">
             <div class="section-header">
-                <div class="section-emoji">🍢</div>
                 <div class="section-title-group">
                     <h2>Kebaplar</h2>
                     <p>Közde pişen enfes kebaplar</p>
@@ -636,7 +615,7 @@
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
-                        <div class="item-name">Gurman Yaprak Şiş <span class="item-badge popular">⭐ Özel</span></div>
+                        <div class="item-name">Gurman Yaprak Şiş <span class="item-badge popular">Özel</span></div>
                     </div>
                     <div class="item-price">500 ₺</div>
                 </div>
@@ -646,14 +625,13 @@
         <!-- TANTUNİLER -->
         <section class="menu-section" id="tantuniler">
             <div class="section-header">
-                <div class="section-emoji">🌯</div>
                 <div class="section-title-group">
                     <h2>Tantuniler</h2>
                     <p>Mersin usulü tantuni çeşitleri</p>
                 </div>
             </div>
             <div class="menu-items">
-                <div class="subsection-title">🥩 Et Tantuni</div>
+                <div class="subsection-title">Et Tantuni</div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Somun Et Tantuni</div>
@@ -673,7 +651,7 @@
                     <div class="item-price">260 ₺</div>
                 </div>
                 <div class="section-divider"></div>
-                <div class="subsection-title">🍗 Tavuk Tantuni</div>
+                <div class="subsection-title">Tavuk Tantuni</div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Somun Tavuk Tantuni</div>
@@ -698,7 +676,6 @@
         <!-- TAVUK DÖNER -->
         <section class="menu-section" id="tavuklar">
             <div class="section-header">
-                <div class="section-emoji">🍗</div>
                 <div class="section-title-group">
                     <h2>Tavuk Döner</h2>
                     <p>100gr porsiyon</p>
@@ -739,7 +716,6 @@
         <!-- ET DÖNER -->
         <section class="menu-section" id="donerler">
             <div class="section-header">
-                <div class="section-emoji">🥙</div>
                 <div class="section-title-group">
                     <h2>Et Döner</h2>
                     <p>100gr porsiyon</p>
@@ -773,7 +749,6 @@
         <!-- ÇORBA -->
         <section class="menu-section" id="corba">
             <div class="section-header">
-                <div class="section-emoji">🥣</div>
                 <div class="section-title-group">
                     <h2>Çorba</h2>
                     <p>Günün sıcak çorbası</p>
@@ -799,7 +774,6 @@
         <!-- İÇECEKLER -->
         <section class="menu-section" id="icecekler">
             <div class="section-header">
-                <div class="section-emoji">🥤</div>
                 <div class="section-title-group">
                     <h2>İçecekler</h2>
                     <p>Soğuk içecekler</p>
@@ -873,25 +847,22 @@
             </div>
         </section>
 
-
-
-
         <!-- İLETİŞİM -->
         <section class="contact-section" id="iletisim">
             <div class="contact-card">
-                <h3>📍 İletişim</h3>
+                <h3>İletişim</h3>
                 <div class="contact-links">
                     <a href="tel:+903122194999" class="contact-link phone">
-                        📞 0 312 219 4 999
+                        0 312 219 4 999
                     </a>
                     <a href="https://wa.me/905309225975" class="contact-link whatsapp" target="_blank" rel="noopener">
-                        💬 0 530 922 59 75 (WhatsApp)
+                        0 530 922 59 75 (WhatsApp)
                     </a>
                     <a href="https://www.instagram.com/gurmanusta/" class="contact-link instagram" target="_blank" rel="noopener">
-                        📸 @gurmanusta
+                        @gurmanusta
                     </a>
                     <a href="mailto:bilgi@gurmanusta.com" class="contact-link email">
-                        ✉️ bilgi@gurmanusta.com
+                        bilgi@gurmanusta.com
                     </a>
                 </div>
                 <div class="address-info">
@@ -900,7 +871,7 @@
                     <p>Çankaya / Ankara</p>
                 </div>
                 <div class="payment-methods">
-                    <span class="payment-badge">💳 VISA</span>
+                    <span class="payment-badge">VISA</span>
                     <span class="payment-badge">Pluxee / Sodexo</span>
                     <span class="payment-badge">Ticket Restaurant</span>
                     <span class="payment-badge">SetCard</span>
@@ -923,35 +894,98 @@
         <p style="margin-top:4px"><a href="https://gurmanusta.com" target="_blank">gurmanusta.com</a></p>
     </footer>
 
-    <!-- ===== Active Nav Highlight Script ===== -->
+    <!-- ===== Smooth Category Navigation & Highlight Script ===== -->
     <script>
-        // Highlight active category in nav on scroll
         const sections = document.querySelectorAll('.menu-section, .contact-section');
         const navLinks = document.querySelectorAll('.category-nav a');
-        const nav = document.getElementById('categoryNav');
+        const categoryNav = document.getElementById('categoryNav');
 
-        const observerOptions = {
-            root: null,
-            rootMargin: '-80px 0px -60% 0px',
-            threshold: 0
-        };
+        let isClickScrolling = false;
+        let scrollTimeout = null;
+        let currentActiveId = 'pideler';
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.id;
-                    navLinks.forEach(link => {
-                        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
-                        // Auto-scroll nav to show active item
-                        if (link.classList.contains('active')) {
-                            link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-                        }
-                    });
+        // Horizontally center the active link inside the category nav bar
+        function centerNav(link) {
+            if (!link || !categoryNav) return;
+            const navWidth = categoryNav.clientWidth;
+            const linkLeft = link.offsetLeft;
+            const linkWidth = link.offsetWidth;
+            const targetScrollLeft = linkLeft - (navWidth / 2) + (linkWidth / 2);
+            categoryNav.scrollTo({
+                left: targetScrollLeft,
+                behavior: 'smooth'
+            });
+        }
+
+        // Set active link state and center it in the nav bar
+        function setActive(id) {
+            if (id === currentActiveId) return;
+            currentActiveId = id;
+            navLinks.forEach(link => {
+                const isActive = link.getAttribute('href') === '#' + id;
+                link.classList.toggle('active', isActive);
+                if (isActive) {
+                    centerNav(link);
                 }
             });
-        }, observerOptions);
+        }
 
-        sections.forEach(section => observer.observe(section));
+        // Handle navigation clicks cleanly with explicit offset
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetEl = document.getElementById(targetId);
+                if (!targetEl) return;
+
+                isClickScrolling = true;
+                clearTimeout(scrollTimeout);
+
+                currentActiveId = targetId;
+                navLinks.forEach(l => l.classList.toggle('active', l === link));
+                centerNav(link);
+
+                const navHeight = categoryNav.offsetHeight || 50;
+                const elementTop = targetEl.getBoundingClientRect().top + window.pageYOffset;
+                const scrollTarget = elementTop - navHeight - 14;
+
+                window.scrollTo({
+                    top: Math.max(0, scrollTarget),
+                    behavior: 'smooth'
+                });
+
+                scrollTimeout = setTimeout(() => {
+                    isClickScrolling = false;
+                }, 850);
+            });
+        });
+
+        // Determine active section on page scroll without hijacking
+        function onScroll() {
+            if (isClickScrolling) return;
+
+            const navHeight = categoryNav.offsetHeight || 50;
+            const scrollPos = window.pageYOffset + navHeight + 60;
+
+            let currentId = '';
+            for (let i = sections.length - 1; i >= 0; i--) {
+                const section = sections[i];
+                if (section.offsetTop <= scrollPos) {
+                    currentId = section.id;
+                    break;
+                }
+            }
+
+            if (!currentId && sections.length > 0) {
+                currentId = sections[0].id;
+            }
+
+            if (currentId) {
+                setActive(currentId);
+            }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
     </script>
 
 </body>
