@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.16](#v116) | 2026-09-30 | Pixel fontu VT323'e geçirildi (büyük İ düzeltildi), font büyütüldü, İletişim başlığı kaldırıldı, fiyat seçimi engellendi, Gel Al hap tasarımları eklendi |
 | [v1.15](#v115) | 2026-09-30 | Tavuk Döner Ekmek Arası güncellendi, glow efektli pixel kayan tabela eklendi, kart arka planları kırmızı tona geçirildi |
 | [v1.14](#v114) | 2026-09-30 | Metin düzeltmeleri, Pepsi Kutu/Şişe yer değişimi, boşluk dengelemesi, sabit WhatsApp butonu kaldırıldı |
 | [v1.13](#v113) | 2026-09-30 | Tantuniler ana başlıklara ayrıldı, Et Döner öne alındı, butonlar büyütüldü ve harita simgesi uyarlandı |
@@ -535,6 +536,33 @@
 
 ---
 
+## v1.16
+**📅 2026-09-30 01:55** · Pixel Fontu Güncellemesi (VT323 / Türkçe Karakterler), İletişim Başlığı Kaldırılması, Fiyat Seçim Kilidi ve Gel-Al Fiyat Hapları
+
+**Prompt:** pixel yazı için seçtiğin font türkçe karakter desteklemiyor sanırım, büyük i harfi doğru gösterilmiyor, ayrıca biraz küçük kalmış font, çok okunamıyor. en alttaki İletişim yazısını da kaldır. fiyatlar seçilemez olsun. ayrıca Tavuk Döner (130 TL) ve Tavuk Tantuni (120 TL) için Gel Al fiyatları var, bu iki ürünün normal fiyatlarının sağ tarafına bir Gel Al pil tasarımına bu fiyatları da ekle.
+
+**Yapılanlar:**
+- **Pixel Fontu & Türkçe Karakter Onarımı:**
+  - Önceki `Silkscreen` fontunda Türkçeye özgü noktalı büyük `İ` harfi glif geometrisi uyumsuz olduğu için `TANTUNİ` ve `PİDE` kelimelerinde bozukluk oluşuyordu.
+  - Google Fonts'tan tam Türkçe karakter desteğine sahip nostaljik retro **`VT323`** fontuna geçildi.
+  - Font boyutu `1rem`'den `1.25rem`'e büyütüldü ve satır hizalaması optimize edilerek kayan tabeladaki okunabilirlik ve retro etki mükemmelleştirildi.
+- **İletişim Başlığının Kaldırılması:**
+  - İletişim kartındaki `<h3>İletişim</h3>` başlığı kaldırıldı; kart yalnızca 4 büyük simge buton ve adres/harita bilgisi ile tertemiz, sade bir görünüme kavuşturuldu.
+- **Fiyat Seçiminin Engellenmesi:**
+  - Menü fiyatlarının (`.item-price`, `.price-container`, `.pill-gelal`) mobil cihazlarda dokunulduğunda istem dışı seçilmesini/mavi vurgulanmasını önlemek için `user-select: none; -webkit-user-select: none;` kuralı uygulandı.
+- **Gel-Al Fiyat Hapları (Pill Tasarımı):**
+  - İlgili ürünler için normal fiyatın sağına hizalanan zümrüt yeşili neon stilinde özel `.pill-gelal` bileşeni geliştirildi:
+    - **Somun Tavuk Tantuni:** Normal 160 ₺ + `Gel Al 120 ₺` hapı
+    - **Tavuk Döner Ekmek Arası:** Normal 170 ₺ + `Gel Al 130 ₺` hapı
+  - Fiyatlar ve haplar `.price-container` flex yapısı içinde sağa yaslı olarak hizalandı, küçük ekranlarda (`<= 380px`) otomatik ve zarif bir şekilde alt satıra kayacak responsive yapı kuruldu.
+- Versiyon kuralı uygulandı (+0.01 ➔ v1.16).
+
+**Dosya Değişiklikleri:**
+- 📝 `index.html` güncellendi (VT323 fontu, 1.25rem font boyutu, İletişim h3 kaldırıldı, user-select: none, Gel Al pill CSS ve HTML eklendi)
+- 📝 `DEVLOG.md` güncellendi (v1.16 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
@@ -553,29 +581,31 @@ gurman-qr/
 
 ---
 
-## 📊 Mevcut Durum (v1.15)
+## 📊 Mevcut Durum (v1.16)
 
 | Özellik | Durum |
 |---------|-------|
 | Menü HTML | ✅ Kusursuz çalışan koyu tema & kırmızı tonlu kartlı modern menü |
 | CSS Stilleri | 🌟 Sözdizimi %100 doğrulandı, tüm kartlar ve efektler aktif |
 | Hero Bölümü | 🌟 Şeffaf logo + Glow Efektli Pixel Kayan Tabela + Fiyat Tarihi |
-| Pixel Kayan Tabela | 🌟 Silkscreen LED neon glow efektli, sonsuz döngü (DÖNER - TANTUNİ - KÖFTE - LAHMACUN - PİDE - ÇORBA) |
+| Pixel Kayan Tabela | 🌟 VT323 retro LED neon glow efektli, tam Türkçe 'İ' uyumlu, 1.25rem boyutunda, sonsuz döngü (DÖNER - TANTUNİ - KÖFTE - LAHMACUN - PİDE - ÇORBA) |
 | Seçenek Arka Planları | 🌟 Aynı tonun kırmızı/bordo versiyonuna güncellendi (asli kebap/ızgara kimliği) |
+| Gel-Al Fiyat Hapları | 🌟 Somun Tavuk Tantuni (Gel Al 120 ₺) ve Tavuk Döner Ekmek Arası (Gel Al 130 ₺) için özel zümrüt yeşili hap tasarım |
+| Fiyat Seçilebilirliği | 🌟 Seçim kilidi aktif (`user-select: none;` ile mobilde dokunulduğunda mavi seçim engellendi) |
 | Başlıklar & Hiyerarşi | 🌟 Et Tantuni ve Tavuk Tantuni bağımsız ana başlık; Et Döner önde |
 | İçecekler | ✅ Pepsi / Yedigün (Kutu / Şişe sıralaması), Büyük/Küçük Ayran |
 | Spesiyaller | 🌟 Gurman Kapalı Pide ve Yaprak Şiş altın sarısı vurgulu |
-| İletişim Simge Butonları | 🌟 Büyütülmüş (56px) 4 simge: Ara, Instagram, Google Haritalar, WhatsApp |
+| İletişim Simge Butonları | 🌟 Başlıksız, sade ve odaklanmış; 4 büyük simge: Ara, Instagram, Google Haritalar, WhatsApp |
 | Ödeme Logoları | 🌟 Visa, Mastercard, Pluxee, Sodexo, Ticket Restaurant, Setcard |
 | Footer & Slogan | 🌟 İletişim kartının hemen altında `© 2026 Gurman Usta — İyi lezzetlerin Yeni Adresi` |
 | Navigasyon & Scroll | 🚀 8 menü kategorisi + İletişim, akıcı kaydırma ve ortalama |
 | Logo | 🌟 Siyah sınırlı, şeffaf, yüksek çözünürlüklü |
 | Menü doğrulaması | ✅ 41/41 ürün incelendi, Gel-Al hariç 37 aktif ürün |
-| Gel-Al kaldırma | ✅ |
+| Gel-Al Fiyat Entegrasyonu | ✅ Belirtilen ürünlerde Gel Al fiyatları pill olarak eklendi |
 | GitHub CLI (gh) | ✅ Kuruldu ve Giriş Yapıldı |
 | GitHub Repo Push | ✅ Yüklendi (`gurmanusta/qr-menu`) |
 | GitHub Pages | 🚀 **CANLI YAYINDA:** `https://gurmanusta.github.io/qr-menu/` |
 | QR Kod Görseli | ✅ Üretildi (`qr-code.png`) |
-| Toplam ürün | 37 (Gel-Al hariç) |
+| Toplam ürün | 37 (Gel-Al hariç menü kalemi) |
 | Toplam kategori | 8 menü kategorisi (Pideler, Kebaplar, Et Tantuni, Tavuk Tantuni, Et Döner, Tavuk Döner, Çorba, İçecekler) |
 | Versiyon Kuralı | Bundan sonraki her prompt +0.01 artacak |

@@ -11,7 +11,7 @@
     <title>Gurman Usta — Menü</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&family=VT323&display=swap" rel="stylesheet">
     <style>
         /* ===== CSS Variables ===== */
         :root {
@@ -93,10 +93,10 @@
         /* ===== Pixel LED Marquee Sign (Pixel Tabela) ===== */
         .pixel-marquee {
             position: relative;
-            max-width: 420px;
+            max-width: 440px;
             width: calc(100% - 24px);
             margin: 12px auto 0;
-            padding: 9px 0;
+            padding: 8px 0;
             overflow: hidden;
             background: #0d060a;
             background-image: radial-gradient(rgba(233, 69, 96, 0.25) 1px, transparent 1px);
@@ -148,10 +148,11 @@
         }
 
         .pixel-text {
-            font-family: 'Silkscreen', 'Courier New', monospace;
-            font-size: 0.82rem;
-            font-weight: 700;
+            font-family: 'VT323', 'Courier New', monospace;
+            font-size: 1.25rem;
+            font-weight: 400;
             letter-spacing: 2px;
+            line-height: 1;
             color: #ff3366;
             text-shadow:
                 0 0 4px #ff3366,
@@ -295,6 +296,49 @@
             white-space: nowrap;
             margin-left: 16px;
             font-variant-numeric: tabular-nums;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .price-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: 16px;
+            flex-shrink: 0;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .price-container .item-price {
+            margin-left: 0;
+        }
+
+        .pill-gelal {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(39, 174, 96, 0.18);
+            border: 1px solid rgba(39, 174, 96, 0.5);
+            color: #2ecc71;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 12px;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+            user-select: none;
+            -webkit-user-select: none;
+            box-shadow: 0 0 8px rgba(39, 174, 96, 0.2);
+        }
+
+        @media (max-width: 380px) {
+            .price-container {
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 2px;
+            }
         }
 
         .item-badge {
@@ -669,7 +713,10 @@
                     <div class="item-info">
                         <div class="item-name">Somun Tavuk Tantuni</div>
                     </div>
-                    <div class="item-price">160 ₺</div>
+                    <div class="price-container">
+                        <span class="item-price">160 ₺</span>
+                        <span class="pill-gelal">Gel Al 120 ₺</span>
+                    </div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
@@ -731,7 +778,10 @@
                         <div class="item-name">Tavuk Döner Ekmek Arası</div>
                         <div class="item-desc">100gr</div>
                     </div>
-                    <div class="item-price">170 ₺</div>
+                    <div class="price-container">
+                        <span class="item-price">170 ₺</span>
+                        <span class="pill-gelal">Gel Al 130 ₺</span>
+                    </div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
@@ -855,7 +905,6 @@
         <!-- İLETİŞİM -->
         <section class="contact-section" id="iletisim">
             <div class="contact-card">
-                <h3>İletişim</h3>
                 <div class="contact-links">
                     <a href="tel:+903122194999" class="contact-link phone" aria-label="Ara" title="Ara: 0312 219 4 999">
                         <svg viewBox="0 0 24 24" fill="currentColor">
