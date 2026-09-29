@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.17](#v117) | 2026-09-30 | Gel Al fiyatları sola alındı, LED tabela tasarımına geçirildi, sayfa arka planı kırmızı/şarap tonuyla uyumlu koyu renge güncellendi |
 | [v1.16](#v116) | 2026-09-30 | Pixel fontu VT323'e geçirildi (büyük İ düzeltildi), font büyütüldü, İletişim başlığı kaldırıldı, fiyat seçimi engellendi, Gel Al hap tasarımları eklendi |
 | [v1.15](#v115) | 2026-09-30 | Tavuk Döner Ekmek Arası güncellendi, glow efektli pixel kayan tabela eklendi, kart arka planları kırmızı tona geçirildi |
 | [v1.14](#v114) | 2026-09-30 | Metin düzeltmeleri, Pepsi Kutu/Şişe yer değişimi, boşluk dengelemesi, sabit WhatsApp butonu kaldırıldı |
@@ -563,6 +564,37 @@
 
 ---
 
+## v1.17
+**📅 2026-09-30 02:05** · Gel-Al Fiyat Konumu (Solda), LED Mini Fiyat Tabelası Tasarımı ve Kırmızı Tasarımla Uyumlu Koyu Arka Plan
+
+**Prompt:** gel al fiyatları solda, normal fiyatları sağda olmalı. ayrıca pil tasarımından ziyade tabela tasarımı daha uygun olabilir, onu deneyelim. ayrıca arka plan koyu rengi, sayfanın genelindeki kırmızı tasarım ile uyumlu bir ton seç, gene koyu olacak şekilde
+
+**Yapılanlar:**
+- **Gel-Al ve Normal Fiyat Sıralaması:**
+  - Somun Tavuk Tantuni ve Tavuk Döner Ekmek Arası ürünlerindeki Gel Al fiyatı sola, normal fiyat sağa alındı (`Gel Al 120 ₺` | `160 ₺` ve `Gel Al 130 ₺` | `170 ₺`).
+  - Böylece menünün sağ tarafındaki dikey fiyat hizalaması tüm ürünlerde kusursuz ve yeknesak bir çizgi oluşturdu.
+- **Tabela Tasarımına Geçiş (LED Mini Tabela):**
+  - Yuvarlak hatlı hap (pill) tasarımı yerine, restoranın üst kayan tabelasıyla konsept birliği sağlayan **LED Mini Fiyat Tabelası** (`.sign-gelal`) geliştirildi:
+    - **Kasa:** Dikdörtgen mini modül çerçeve (`border-radius: 4px`), 1.5px neon yeşil bordür (`rgba(46, 204, 113, 0.85)`).
+    - **Ekran Yüzeyi:** `#08160c` koyu zemin üzerinde 3x3px mikro dot-matrix LED ızgara deseni.
+    - **Tipografi:** `VT323` retro piksel fontu, `1.15rem`, `uppercase` (`GEL AL 120 ₺`), yeşil neon ışık ve text-shadow glow efekti.
+    - **Hover:** Hafif parlama ve ölçeklenme animasyonu.
+- **Kırmızı Tasarımla Uyumlu Koyu Arka Plan:**
+  - Sayfanın önceki lacivert/mavi tonlu arka planı (`#1a1a2e`, `#16213e`, `#0a0a23`), kartların ve temanın sıcak kırmızı/bordo kimliğiyle harmanlanan koyu esmer kırmızı/şarap tonlarına dönüştürüldü:
+    - `--bg-primary`: `#14070c` (derin koyu şarap/kömür)
+    - `--bg-secondary`: `#1e0a12` (zengin koyu bordo gradyan durağı)
+    - Hero dip gradyanı: `#090305`
+    - Yapışkan navigasyon arka planı: `rgba(20, 7, 12, 0.95)` (altından geçen kırmızı kartlarla uyumlu cam efekti)
+    - Mobil tarayıcı üst çubuğu: `<meta name="theme-color" content="#14070c">`
+    - İkincil ve soluk metin renkleri: Maviye çalan tonlardan sıcak pembemsi/gül kurusu grilere (`#c7b6bb`, `#958388`) uyarlandı.
+- Versiyon kuralı uygulandı (+0.01 ➔ v1.17).
+
+**Dosya Değişiklikleri:**
+- 📝 `index.html` güncellendi (Koyu şarap arka planı, tema rengi, LED tabela tasarımı, fiyat sıralaması)
+- 📝 `DEVLOG.md` güncellendi (v1.17 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
@@ -581,16 +613,17 @@ gurman-qr/
 
 ---
 
-## 📊 Mevcut Durum (v1.16)
+## 📊 Mevcut Durum (v1.17)
 
 | Özellik | Durum |
 |---------|-------|
 | Menü HTML | ✅ Kusursuz çalışan koyu tema & kırmızı tonlu kartlı modern menü |
 | CSS Stilleri | 🌟 Sözdizimi %100 doğrulandı, tüm kartlar ve efektler aktif |
+| Sayfa Arka Planı | 🌟 Kırmızı/bordo tasarımla tam uyumlu derin koyu şarap/kömür tonları (`#14070c`, `#1e0a12`, `#090305`) |
 | Hero Bölümü | 🌟 Şeffaf logo + Glow Efektli Pixel Kayan Tabela + Fiyat Tarihi |
 | Pixel Kayan Tabela | 🌟 VT323 retro LED neon glow efektli, tam Türkçe 'İ' uyumlu, 1.25rem boyutunda, sonsuz döngü (DÖNER - TANTUNİ - KÖFTE - LAHMACUN - PİDE - ÇORBA) |
-| Seçenek Arka Planları | 🌟 Aynı tonun kırmızı/bordo versiyonuna güncellendi (asli kebap/ızgara kimliği) |
-| Gel-Al Fiyat Hapları | 🌟 Somun Tavuk Tantuni (Gel Al 120 ₺) ve Tavuk Döner Ekmek Arası (Gel Al 130 ₺) için özel zümrüt yeşili hap tasarım |
+| Seçenek Arka Planları | 🌟 Bordo/kırmızı gradyanlı kartlar, koyu şarap arka plan ile kusursuz bütünleşti |
+| Gel-Al Fiyat Tabelaları | 🌟 Solda yer alan LED dot-matrix mini fiyat tabelası (`GEL AL 120 ₺` ve `GEL AL 130 ₺`), normal fiyatlar sağda |
 | Fiyat Seçilebilirliği | 🌟 Seçim kilidi aktif (`user-select: none;` ile mobilde dokunulduğunda mavi seçim engellendi) |
 | Başlıklar & Hiyerarşi | 🌟 Et Tantuni ve Tavuk Tantuni bağımsız ana başlık; Et Döner önde |
 | İçecekler | ✅ Pepsi / Yedigün (Kutu / Şişe sıralaması), Büyük/Küçük Ayran |
@@ -601,7 +634,7 @@ gurman-qr/
 | Navigasyon & Scroll | 🚀 8 menü kategorisi + İletişim, akıcı kaydırma ve ortalama |
 | Logo | 🌟 Siyah sınırlı, şeffaf, yüksek çözünürlüklü |
 | Menü doğrulaması | ✅ 41/41 ürün incelendi, Gel-Al hariç 37 aktif ürün |
-| Gel-Al Fiyat Entegrasyonu | ✅ Belirtilen ürünlerde Gel Al fiyatları pill olarak eklendi |
+| Gel-Al Fiyat Entegrasyonu | ✅ Belirtilen ürünlerde Gel Al fiyatları LED mini tabela olarak solda eklendi |
 | GitHub CLI (gh) | ✅ Kuruldu ve Giriş Yapıldı |
 | GitHub Repo Push | ✅ Yüklendi (`gurmanusta/qr-menu`) |
 | GitHub Pages | 🚀 **CANLI YAYINDA:** `https://gurmanusta.github.io/qr-menu/` |
