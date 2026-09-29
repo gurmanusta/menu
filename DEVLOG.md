@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.09](#v109) | 2026-09-30 | Instagram etiketi eklendi, adres bölümüne Google Haritalar konum butonu entegre edildi |
 | [v1.08](#v108) | 2026-09-30 | Visa ve Mastercard resmi SVG logoları ödeme yöntemlerinin en başına eklendi |
 | [v1.07](#v107) | 2026-09-30 | VISA kaldırıldı; Pluxee, Sodexo, Ticket Restaurant ve Setcard resmi logoları eklendi |
 | [v1.06](#v106) | 2026-09-30 | Gurman özel ürünlerinin etiketleri kaldırıldı, font rengi sarı yapıldı |
@@ -384,6 +385,25 @@
 
 ---
 
+## v1.09
+**📅 2026-09-30 00:48** · Instagram Etiketi & Google Haritalar Konum Butonu
+
+**Prompt:** @gurmanusta yanına parantez içerisinde Instagram yaz, adres satırına adresi sola koyarak sağ tarafa google haritalar konum linkini de ekle: https://maps.app.goo.gl/oQUd12XBmLGFH4aa6
+
+**Yapılanlar:**
+- Instagram bağlantısı `@gurmanusta (Instagram)` olarak güncellendi (WhatsApp bağlantısı ile aynı parantezli standarda getirildi).
+- Adres alanı responsive iki sütunlu düzene geçirildi:
+  - Sol tarafta açık adres bilgisi sola hizalı olarak korundu.
+  - Sağ tarafa `Google Haritalar` bağlantı butonu (`https://maps.app.goo.gl/oQUd12XBmLGFH4aa6`) yerleştirildi.
+- CSS ile modern, tıklandığında Google Haritalar'a yönlendiren şık buton (`.map-btn`) tasarlandı ve mobil uyumu sağlandı.
+- Versiyon artış kuralı uygulandı (+0.01).
+
+**Dosya Değişiklikleri:**
+- 📝 `index.html` güncellendi (Instagram metni ve adres/harita düzeni)
+- 📝 `DEVLOG.md` güncellendi (v1.09 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
@@ -402,7 +422,7 @@ gurman-qr/
 
 ---
 
-## 📊 Mevcut Durum (v1.08)
+## 📊 Mevcut Durum (v1.09)
 
 | Özellik | Durum |
 |---------|-------|
@@ -412,6 +432,7 @@ gurman-qr/
 | Başlıklar | ✅ Alt açıklamasız, net kategori başlıkları |
 | İçecekler | ✅ Pepsi / Yedigün (Şişe/Kutu), Büyük/Küçük Ayran |
 | Spesiyaller | 🌟 Gurman Kapalı Pide ve Yaprak Şiş altın sarısı vurgulu |
+| İletişim & Harita | 🌟 Instagram etiketi + Google Haritalar doğrudan konum butonu |
 | Ödeme Logoları | 🌟 Visa, Mastercard, Pluxee, Sodexo, Ticket Restaurant, Setcard |
 | Navigasyon & Scroll | 🚀 Sorunsuz akıcı kaydırma ve kategori geçişi |
 | Logo | 🌟 Siyah sınırlı, şeffaf, yüksek çözünürlüklü |

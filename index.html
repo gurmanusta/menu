@@ -338,19 +338,57 @@
             border-top: 1px solid rgba(168, 178, 209, 0.1);
         }
 
-        .address-info p {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-bottom: 4px;
+        .address-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-align: left;
+            gap: 12px;
+            flex-wrap: wrap;
         }
 
-        .address-info .addr-label {
+        .address-text {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .address-text p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 2px;
+            line-height: 1.4;
+        }
+
+        .address-text .addr-label {
             font-weight: 600;
             color: var(--text-muted);
             font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 4px;
+        }
+
+        .map-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 14px;
+            background: rgba(233, 69, 96, 0.15);
+            border: 1px solid rgba(233, 69, 96, 0.35);
+            color: var(--accent-light);
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+
+        .map-btn:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+            transform: scale(1.03);
         }
 
         .payment-methods {
@@ -820,16 +858,23 @@
                         0 530 922 59 75 (WhatsApp)
                     </a>
                     <a href="https://www.instagram.com/gurmanusta/" class="contact-link instagram" target="_blank" rel="noopener">
-                        @gurmanusta
+                        @gurmanusta (Instagram)
                     </a>
                     <a href="mailto:bilgi@gurmanusta.com" class="contact-link email">
                         bilgi@gurmanusta.com
                     </a>
                 </div>
                 <div class="address-info">
-                    <p class="addr-label">Adres</p>
-                    <p>Mustafa Kemal Mah. 2127. Cad. No: 12/A</p>
-                    <p>Çankaya / Ankara</p>
+                    <div class="address-content">
+                        <div class="address-text">
+                            <p class="addr-label">Adres</p>
+                            <p>Mustafa Kemal Mah. 2127. Cad. No: 12/A</p>
+                            <p>Çankaya / Ankara</p>
+                        </div>
+                        <a href="https://maps.app.goo.gl/oQUd12XBmLGFH4aa6" target="_blank" rel="noopener" class="map-btn">
+                            Google Haritalar
+                        </a>
+                    </div>
                 </div>
                 <div class="payment-methods" aria-label="Geçerli Ödeme Yöntemleri">
                     <div class="payment-badge" title="Visa">
