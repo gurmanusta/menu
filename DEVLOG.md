@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.12](#v112) | 2026-09-30 | İletişim butonları yan yana simgelere dönüştürüldü; Döner, Kebap, Tantuni, Pide etiketleri ve slogan eklendi |
 | [v1.11](#v111) | 2026-09-30 | E-posta kaldırıldı; Ara, Instagram, WhatsApp'tan Ulaş ve Haritalar butonları işlev ve marka renklerine göre güncellendi |
 | [v1.10](#v110) | 2026-09-30 | WhatsApp & Instagram butonları sadeleştirildi; Adres yerine tam satır Google Haritalar butonu eklendi |
 | [v1.09](#v109) | 2026-09-30 | Instagram etiketi eklendi, adres bölümüne Google Haritalar konum butonu entegre edildi |
@@ -449,6 +450,28 @@
 
 ---
 
+## v1.12
+**📅 2026-09-30 01:08** · İletişim Simge Butonları, Hero Etiketleri & Slogan Eklemesi
+
+**Prompt:** iletişim kısmındaki butonları simgeye çevir, yan yana koy. en üstteki logonun altına da DÖNER KEBAP TANTUNİ ve PİDE etiketlerini geri getir, en alt satırda, gurman usta 2026 yazısının yanına sloganı ekle: İyi lezzetlerin Yeni Adresi
+
+**Yapılanlar:**
+- İletişim butonları metinsiz, yuvarlak SVG simge butonlarına dönüştürüldü ve yan yana tek sıra halinde (`gap: 16px`) ortalandı:
+  - 📞 **Ara:** Telefon ahizesi simgesi (mavi buton)
+  - 📸 **Instagram:** Instagram kamera glifi simgesi (degrade mor-pembe buton)
+  - 💬 **WhatsApp:** WhatsApp mesaj balonu simgesi (yeşil buton)
+  - 📍 **Google Haritalar:** Harita konum pini simgesi (kırmızı buton)
+  - Hover efektleri ve dokunmatik mobil ergonomisi optimize edildi.
+- En üstteki logonun altına `DÖNER`, `KEBAP`, `TANTUNİ` ve `PİDE` hap etiketleri (`.hero-categories`, `.hero-cat`) geri getirildi.
+- En alt satırdaki telif metni güncellenerek slogan eklendi: `© 2026 Gurman Usta — İyi lezzetlerin Yeni Adresi`.
+- Versiyon artış kuralı uygulandı (+0.01).
+
+**Dosya Değişiklikleri:**
+- 📝 `index.html` güncellendi (Simge butonları, hero etiketleri ve footer sloganı eklendi)
+- 📝 `DEVLOG.md` güncellendi (v1.12 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
@@ -467,18 +490,19 @@ gurman-qr/
 
 ---
 
-## 📊 Mevcut Durum (v1.11)
+## 📊 Mevcut Durum (v1.12)
 
 | Özellik | Durum |
 |---------|-------|
 | Menü HTML | ✅ Kusursuz çalışan koyu tema & kartlı modern menü |
 | CSS Stilleri | 🌟 Sözdizimi %100 doğrulandı, tüm kartlar ve efektler aktif |
-| Hero Bölümü | 🌟 Sadece şeffaf logo + Fiyat Güncelleme Tarihi |
+| Hero Bölümü | 🌟 Şeffaf logo + DÖNER, KEBAP, TANTUNİ, PİDE etiketleri + Fiyat Tarihi |
 | Başlıklar | ✅ Alt açıklamasız, net kategori başlıkları |
 | İçecekler | ✅ Pepsi / Yedigün (Şişe/Kutu), Büyük/Küçük Ayran |
 | Spesiyaller | 🌟 Gurman Kapalı Pide ve Yaprak Şiş altın sarısı vurgulu |
-| İletişim Butonları | 🌟 Ara (Mavi), Instagram (Degrade Pembe), WhatsApp'tan Ulaş (Yeşil), Google Haritalar (Kırmızı) |
+| İletişim Simge Butonları | 🌟 Yan yana 4 yuvarlak renkli simge: Ara, Instagram, WhatsApp, Haritalar |
 | Ödeme Logoları | 🌟 Visa, Mastercard, Pluxee, Sodexo, Ticket Restaurant, Setcard |
+| Footer & Slogan | 🌟 `© 2026 Gurman Usta — İyi lezzetlerin Yeni Adresi` |
 | Navigasyon & Scroll | 🚀 Sorunsuz akıcı kaydırma ve kategori geçişi |
 | Logo | 🌟 Siyah sınırlı, şeffaf, yüksek çözünürlüklü |
 | Menü doğrulaması | ✅ 41/41 ürün incelendi, Gel-Al çıkarıldı |
