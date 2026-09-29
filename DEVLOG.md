@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.13](#v113) | 2026-09-30 | Tantuniler ana başlıklara ayrıldı, Et Döner öne alındı, butonlar büyütüldü ve harita simgesi uyarlandı |
 | [v1.12](#v112) | 2026-09-30 | İletişim butonları yan yana simgelere dönüştürüldü; Döner, Kebap, Tantuni, Pide etiketleri ve slogan eklendi |
 | [v1.11](#v111) | 2026-09-30 | E-posta kaldırıldı; Ara, Instagram, WhatsApp'tan Ulaş ve Haritalar butonları işlev ve marka renklerine göre güncellendi |
 | [v1.10](#v110) | 2026-09-30 | WhatsApp & Instagram butonları sadeleştirildi; Adres yerine tam satır Google Haritalar butonu eklendi |
@@ -472,6 +473,26 @@
 
 ---
 
+## v1.13
+**📅 2026-09-30 01:20** · Tantuni & Döner Yeniden Yapılandırması ve İletişim Butonları Güncellemesi
+
+**Prompt:** Tantuniler üst başlığını iptal et ve Et Tantuni ve Tavuk Tantuni başlıklarını ana başlık yap, et döner'i tavuk dönerin üzerine çıkar, iletişim butonlarını biraz büyüt, whatsapp ile google haritalar yer değiştir, google haritalar simgesi diğer buton tasarımları ile uyumlu olsun.
+
+**Yapılanlar:**
+- `Tantuniler` çatı başlığı iptal edildi; `Et Tantuni` ve `Tavuk Tantuni` bağımsız birer ana bölüm (`<section id="et-tantuni">`, `<section id="tavuk-tantuni">`) ve yapışkan navigasyon sekmesi haline getirildi.
+- `Et Döner` (`#et-doner`) bölümü, menü akışında ve navigasyon çubuğunda `Tavuk Döner`in (`#tavuk-doner`) üzerine taşındı.
+- İletişim butonlarının boyutları genişletilerek dokunmatik ergonomisi artırıldı (50px ➔ 56px, simge boyutları 22px ➔ 26px).
+- İletişim butonlarında WhatsApp ile Google Haritalar'ın sırası yer değiştirildi (Yeni sıralama: Ara ➔ Instagram ➔ Google Haritalar ➔ WhatsApp).
+- Google Haritalar simgesi, diğer butonlarla (Instagram, WhatsApp, Ara) aynı tasarım diline sahip resmi Google Maps vektörel amblemiyle güncellendi.
+- Tüm 37 menü ürünü, fiyatlar ve spesiyal sarı vurguları eksiksiz korundu.
+- Versiyon kuralı uygulandı (+0.01 ➔ v1.13).
+
+**Dosya Değişiklikleri:**
+- 📝 `index.html` güncellendi (Bölüm hiyerarşisi, döner sıralaması, büyütülmüş butonlar ve Maps ikonu)
+- 📝 `DEVLOG.md` güncellendi (v1.13 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
@@ -490,27 +511,27 @@ gurman-qr/
 
 ---
 
-## 📊 Mevcut Durum (v1.12)
+## 📊 Mevcut Durum (v1.13)
 
 | Özellik | Durum |
 |---------|-------|
 | Menü HTML | ✅ Kusursuz çalışan koyu tema & kartlı modern menü |
 | CSS Stilleri | 🌟 Sözdizimi %100 doğrulandı, tüm kartlar ve efektler aktif |
 | Hero Bölümü | 🌟 Şeffaf logo + DÖNER, KEBAP, TANTUNİ, PİDE etiketleri + Fiyat Tarihi |
-| Başlıklar | ✅ Alt açıklamasız, net kategori başlıkları |
+| Başlıklar & Hiyerarşi | 🌟 Et Tantuni ve Tavuk Tantuni bağımsız ana başlık; Et Döner önde |
 | İçecekler | ✅ Pepsi / Yedigün (Şişe/Kutu), Büyük/Küçük Ayran |
 | Spesiyaller | 🌟 Gurman Kapalı Pide ve Yaprak Şiş altın sarısı vurgulu |
-| İletişim Simge Butonları | 🌟 Yan yana 4 yuvarlak renkli simge: Ara, Instagram, WhatsApp, Haritalar |
+| İletişim Simge Butonları | 🌟 Büyütülmüş (56px) 4 simge: Ara, Instagram, Google Haritalar, WhatsApp |
 | Ödeme Logoları | 🌟 Visa, Mastercard, Pluxee, Sodexo, Ticket Restaurant, Setcard |
 | Footer & Slogan | 🌟 `© 2026 Gurman Usta — İyi lezzetlerin Yeni Adresi` |
-| Navigasyon & Scroll | 🚀 Sorunsuz akıcı kaydırma ve kategori geçişi |
+| Navigasyon & Scroll | 🚀 8 menü kategorisi + İletişim, akıcı kaydırma ve ortalama |
 | Logo | 🌟 Siyah sınırlı, şeffaf, yüksek çözünürlüklü |
-| Menü doğrulaması | ✅ 41/41 ürün incelendi, Gel-Al çıkarıldı |
+| Menü doğrulaması | ✅ 41/41 ürün incelendi, Gel-Al hariç 37 aktif ürün |
 | Gel-Al kaldırma | ✅ |
 | GitHub CLI (gh) | ✅ Kuruldu ve Giriş Yapıldı |
 | GitHub Repo Push | ✅ Yüklendi (`gurmanusta/qr-menu`) |
 | GitHub Pages | 🚀 **CANLI YAYINDA:** `https://gurmanusta.github.io/qr-menu/` |
 | QR Kod Görseli | ✅ Üretildi (`qr-code.png`) |
-| Toplam ürün | 39 (Gel-Al hariç) |
-| Toplam kategori | 7 |
+| Toplam ürün | 37 (Gel-Al hariç) |
+| Toplam kategori | 8 menü kategorisi (Pideler, Kebaplar, Et Tantuni, Tavuk Tantuni, Et Döner, Tavuk Döner, Çorba, İçecekler) |
 | Versiyon Kuralı | Bundan sonraki her prompt +0.01 artacak |
