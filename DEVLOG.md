@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.01](#v101) | 2026-09-29 | GitHub CLI Yetkilendirme onayı (Authorize ekranı) |
 | [v1.00](#v100) | 2026-09-29 | Tarayıcıda Device Auth ekranı açıldı, v1.00 ana sürümüne ulaşıldı |
 | [v0.90](#v090) | 2026-09-29 | GitHub CLI (gh) kurulumu ve Device Login başlatılması |
 | [v0.80](#v080) | 2026-09-29 | Terminal üzerinden Git push ve credential manager yapılandırması |
@@ -204,7 +205,21 @@
 - Kural gereği bundan sonraki her prompt versiyonu **+0.01** olarak artacaktır
 
 **Dosya Değişiklikleri:**
-- 📝 `DEVLOG.md` güncellendi (v1.00 sürümleri eklendi)
+
+---
+
+## v1.01
+**📅 2026-09-29 22:46** · GitHub CLI Yetkilendirme Onayı
+
+**Prompt:** [Ekran Görüntüsü — Authorize GitHub CLI sayfası]
+
+**Yapılanlar:**
+- Tarayıcıda açılan yetkilendirme ekranı doğrulandı
+- Kullanıcıdan yeşil "Authorize github" butonuna tıklanması istendi
+- Versiyon artış kuralı uygulandı (+0.01)
+
+**Dosya Değişiklikleri:**
+- 📝 `DEVLOG.md` güncellendi (v1.01 eklendi)
 
 ---
 
