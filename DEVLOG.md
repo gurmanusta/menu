@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.04](#v104) | 2026-09-29 | Hero sadeleştirildi, başlık açıklamaları kaldırıldı, içecek formatları güncellendi |
 | [v1.03](#v103) | 2026-09-29 | Menü navigasyon kilidi düzeltildi, tüm metin simgeleri kaldırıldı |
 | [v1.02](#v102) | 2026-09-29 | Siyah sınırlı yüksek çözünürlüklü şeffaf logo entegrasyonu |
 | [v1.01](#v101) | 2026-09-29 | GitHub CLI Yetkilendirme onayı (Authorize ekranı) |
@@ -273,11 +274,33 @@
 
 ---
 
+## v1.04
+**📅 2026-09-29 23:40** · Hero & Başlık Sadeleştirmesi & İçecek İsim Formatı
+
+**Prompt:** Şişe ve Kutu açıklamalarını pepsi / yedigün yazılarının yanına parantez içerisinde al. ayran büyük - küçük kısımlarını da Büyük Ayran - Küçük Ayran olarak yaz, logonun altındaki döner - kebap tantuni pide etiketlerini kaldır. saat ve yer imlecini de kaldır, fiyat açıklamasını da Fiyat Güncelleme Tarihi: 26 Ocak 2026 olarak güncelle. başlıkların altındaki açıklamaları sil (fırıntan taze, geleneksel lezzetler gibi)
+
+**Yapılanlar:**
+- İçecekler bölümünde format güncellemeleri yapıldı:
+  - `Pepsi / Yedigün (Şişe)` ve `Pepsi / Yedigün (Kutu)` formatına geçildi (ayrı alt açıklama satırları kaldırıldı)
+  - `Ayran (Büyük/Küçük)` yerine `Büyük Ayran` ve `Küçük Ayran` yazıldı
+- Hero (karşılama) bölümü sadeleştirildi:
+  - Logonun altındaki `Döner`, `Kebap`, `Tantuni`, `Pide` hap etiketleri kaldırıldı
+  - Saat (`11:00 – 21:00`) ve konum bilgisi (`Çankaya / Ankara`) kaldırıldı
+  - Fiyat geçerlilik metni `Fiyat Güncelleme Tarihi: 26 Ocak 2026` olarak güncellendi
+- Tüm kategori başlıklarının altındaki açıklama paragrafları silindi (`fırından taze geleneksel lezzetler`, `közde pişen enfes kebaplar`, `mersin usulü tantuni çeşitleri`, `100gr porsiyon`, `günün sıcak çorbası`, `soğuk içecekler`)
+- Versiyon artış kuralı uygulandı (+0.01)
+
+**Dosya Değişiklikleri:**
+- 📝 `index.html` güncellendi (Hero, başlıklar ve içecekler düzenlendi)
+- 📝 `DEVLOG.md` güncellendi (v1.04 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
 gurman-qr/
-├── index.html          # Ana QR menü sayfası (tek dosya, responsive, simgesiz sade tasarım)
+├── index.html          # Ana QR menü sayfası (tek dosya, minimalist & profesyonel tasarım)
 ├── logo-gurman.png     # Siyah sınırlı şeffaf Gurman Usta logosu
 ├── qr-code.png         # Canlı menüye yönlendiren QR Kod görseli
 └── DEVLOG.md           # Bu devlog dosyası
@@ -285,11 +308,14 @@ gurman-qr/
 
 ---
 
-## 📊 Mevcut Durum (v1.03)
+## 📊 Mevcut Durum (v1.04)
 
 | Özellik | Durum |
 |---------|-------|
-| Menü HTML | ✅ Tamamlandı (Simgesiz, sade ve profesyonel tipografi) |
+| Menü HTML | ✅ Minimalist, doğrudan ürün ve fiyat odaklı temiz tasarım |
+| Hero Bölümü | 🌟 Sadece şeffaf logo + Fiyat Güncelleme Tarihi |
+| Başlıklar | ✅ Alt açıklamasız, net kategori başlıkları |
+| İçecekler | ✅ Pepsi / Yedigün (Şişe/Kutu), Büyük/Küçük Ayran |
 | Navigasyon & Scroll | 🚀 Sorunsuz akıcı kaydırma ve kategori geçişi |
 | Logo | 🌟 Siyah sınırlı, şeffaf, yüksek çözünürlüklü |
 | Menü doğrulaması | ✅ 41/41 ürün incelendi, Gel-Al çıkarıldı |
