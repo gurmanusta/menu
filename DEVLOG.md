@@ -214,12 +214,17 @@
 **Prompt:** [Ekran Görüntüsü — Authorize GitHub CLI sayfası]
 
 **Yapılanlar:**
-- Tarayıcıda açılan yetkilendirme ekranı doğrulandı
-- Kullanıcıdan yeşil "Authorize github" butonuna tıklanması istendi
+- Tarayıcıda açılan yetkilendirme ekranı doğrulandı ve "Authorize github" onayı alındı
+- GitHub CLI yetkilendirmesi başarıyla tamamlandı (`Logged in as gurmanusta`)
+- Git Credential yapılandırması bağlandı (`gh auth setup-git`)
+- Kodlar GitHub reposuna başarıyla yüklendi (`git push -u origin main`)
+- GitHub Pages otomatik olarak aktifleştirildi (`https://gurmanusta.github.io/qr-menu/`)
+- Menü linki için yüksek çözünürlüklü QR Kod üretildi (`qr-code.png`)
 - Versiyon artış kuralı uygulandı (+0.01)
 
 **Dosya Değişiklikleri:**
 - 📝 `DEVLOG.md` güncellendi (v1.01 eklendi)
+- 🖼️ `qr-code.png` oluşturuldu (yüksek çözünürlüklü 600x600 QR menü kodu)
 
 ---
 
@@ -227,14 +232,15 @@
 
 ```
 gurman-qr/
-├── index.html          # Ana QR menü sayfası (tek dosya)
+├── index.html          # Ana QR menü sayfası (tek dosya, responsive)
 ├── logo-gurman.png     # Gurman Usta logosu (Instagram'dan)
+├── qr-code.png         # Canlı menüye yönlendiren QR Kod görseli
 └── DEVLOG.md           # Bu devlog dosyası
 ```
 
 ---
 
-## 📊 Mevcut Durum (v1.00)
+## 📊 Mevcut Durum (v1.01)
 
 | Özellik | Durum |
 |---------|-------|
@@ -242,10 +248,10 @@ gurman-qr/
 | Gerçek logo | ✅ Eklendi |
 | Menü doğrulaması | ✅ 41/41 ürün incelendi, Gel-Al çıkarıldı |
 | Gel-Al kaldırma | ✅ |
-| GitHub CLI (gh) | ✅ Kuruldu |
-| GitHub Yetkilendirme | 🔄 Device Code bekleniyor (`ACA2-E4DF`) |
-| GitHub Repo Push | ⏳ Yetkilendirme sonrası otomatik push |
-| GitHub Pages | ⏳ Push sonrası aktifleşecek |
+| GitHub CLI (gh) | ✅ Kuruldu ve Giriş Yapıldı |
+| GitHub Repo Push | ✅ Yüklendi (`gurmanusta/qr-menu`) |
+| GitHub Pages | 🚀 **CANLI YAYINDA:** `https://gurmanusta.github.io/qr-menu/` |
+| QR Kod Görseli | ✅ Üretildi (`qr-code.png`) |
 | Toplam ürün | 39 (Gel-Al hariç) |
 | Toplam kategori | 7 |
 | Versiyon Kuralı | Bundan sonraki her prompt +0.01 artacak |
