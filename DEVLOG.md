@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.14](#v114) | 2026-09-30 | Metin düzeltmeleri, Pepsi Kutu/Şişe yer değişimi, boşluk dengelemesi, sabit WhatsApp butonu kaldırıldı |
 | [v1.13](#v113) | 2026-09-30 | Tantuniler ana başlıklara ayrıldı, Et Döner öne alındı, butonlar büyütüldü ve harita simgesi uyarlandı |
 | [v1.12](#v112) | 2026-09-30 | İletişim butonları yan yana simgelere dönüştürüldü; Döner, Kebap, Tantuni, Pide etiketleri ve slogan eklendi |
 | [v1.11](#v111) | 2026-09-30 | E-posta kaldırıldı; Ara, Instagram, WhatsApp'tan Ulaş ve Haritalar butonları işlev ve marka renklerine göre güncellendi |
@@ -493,6 +494,26 @@
 
 ---
 
+## v1.14
+**📅 2026-09-30 01:30** · Metin Düzenlemeleri, Boşluk Dengesi, Kutu/Şişe Sıralaması ve Sabit Buton Kaldırılması
+
+**Prompt:** "Herhangi bir yemek yanında" yazısını "Herhangi bir yemek siparişi yanında" olarak güncelle. Pepsi / Yedigün (Kutu)'yu Pepsi / Yedigün (Şişe) ile yer değiştir. "Pilav & salata ile" yazılarını "Pilav & Salata" olarak güncelle. ekran görüntüsünde gösterdiğim kısımda, fiyat güncelleme tarihi yazısının altındaki boşluğu, fiyat güncelleme tarihi yazısının üstündeki kadar yap. ayrıca en aşağıdaki 2026 gurman usta footer'ı da fazla aşağıda, iletişim kartının hemen altına çek, sağ taraftaki sabit whatsapp logosunu da kaldır.
+
+**Yapılanlar:**
+- "Yemek Yanında Çorba" açıklamasındaki "Herhangi bir yemek yanında" ifadesi "Herhangi bir yemek siparişi yanında" olarak güncellendi.
+- İçecekler menüsünde "Pepsi / Yedigün (Kutu)" öne alındı, "Pepsi / Yedigün (Şişe)" arkasına alındı.
+- Döner servislerindeki (Et Döner Servis ve Servis Tavuk Döner) "100gr • Pilav & salata ile" açıklamaları "100gr • Pilav & Salata" olarak revize edildi.
+- Hero bölümündeki fiyat güncelleme tarihi metninin altındaki boşluk (`padding-bottom: 14px`), metnin üzerindeki boşluk (`margin-top: 14px`) ile eşitlenerek tam simetri sağlandı.
+- Sağ alt köşede sabit duran WhatsApp butonu (`.fab-whatsapp`) ve nabız animasyonları tamamen kaldırıldı (kullanıcılar iletişim kartındaki büyütülmüş yeşil WhatsApp simgesini kullanmaktadır).
+- Menü konteynerinin altındaki 120px'lik boşluk sıfırlandı; telif ve web sitesi footer'ı iletişim kartının hemen altına çekilerek sayfa dengelendi.
+- Versiyon kuralı uygulandı (+0.01 ➔ v1.14).
+
+**Dosya Değişiklikleri:**
+- 📝 `index.html` güncellendi (Metinler, kutu/şişe sırası, hero boşluğu, footer konumu, fab-whatsapp kaldırıldı)
+- 📝 `DEVLOG.md` güncellendi (v1.14 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
@@ -511,19 +532,20 @@ gurman-qr/
 
 ---
 
-## 📊 Mevcut Durum (v1.13)
+## 📊 Mevcut Durum (v1.14)
 
 | Özellik | Durum |
 |---------|-------|
 | Menü HTML | ✅ Kusursuz çalışan koyu tema & kartlı modern menü |
 | CSS Stilleri | 🌟 Sözdizimi %100 doğrulandı, tüm kartlar ve efektler aktif |
-| Hero Bölümü | 🌟 Şeffaf logo + DÖNER, KEBAP, TANTUNİ, PİDE etiketleri + Fiyat Tarihi |
+| Hero Bölümü | 🌟 Şeffaf logo + DÖNER, KEBAP, TANTUNİ, PİDE etiketleri + Simetrik Fiyat Tarihi Boşluğu |
 | Başlıklar & Hiyerarşi | 🌟 Et Tantuni ve Tavuk Tantuni bağımsız ana başlık; Et Döner önde |
-| İçecekler | ✅ Pepsi / Yedigün (Şişe/Kutu), Büyük/Küçük Ayran |
+| İçecekler | ✅ Pepsi / Yedigün (Kutu / Şişe sıralaması), Büyük/Küçük Ayran |
 | Spesiyaller | 🌟 Gurman Kapalı Pide ve Yaprak Şiş altın sarısı vurgulu |
 | İletişim Simge Butonları | 🌟 Büyütülmüş (56px) 4 simge: Ara, Instagram, Google Haritalar, WhatsApp |
 | Ödeme Logoları | 🌟 Visa, Mastercard, Pluxee, Sodexo, Ticket Restaurant, Setcard |
-| Footer & Slogan | 🌟 `© 2026 Gurman Usta — İyi lezzetlerin Yeni Adresi` |
+| Footer & Slogan | 🌟 İletişim kartının hemen altında `© 2026 Gurman Usta — İyi lezzetlerin Yeni Adresi` |
+| Sabit WhatsApp Butonu | 🛑 Kaldırıldı (sadeleştirildi, iletişim bölümündeki simge aktif) |
 | Navigasyon & Scroll | 🚀 8 menü kategorisi + İletişim, akıcı kaydırma ve ortalama |
 | Logo | 🌟 Siyah sınırlı, şeffaf, yüksek çözünürlüklü |
 | Menü doğrulaması | ✅ 41/41 ürün incelendi, Gel-Al hariç 37 aktif ürün |
