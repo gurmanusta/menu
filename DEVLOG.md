@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.08](#v108) | 2026-09-30 | Visa ve Mastercard resmi SVG logoları ödeme yöntemlerinin en başına eklendi |
 | [v1.07](#v107) | 2026-09-30 | VISA kaldırıldı; Pluxee, Sodexo, Ticket Restaurant ve Setcard resmi logoları eklendi |
 | [v1.06](#v106) | 2026-09-30 | Gurman özel ürünlerinin etiketleri kaldırıldı, font rengi sarı yapıldı |
 | [v1.05](#v105) | 2026-09-29 | CSS sözdizim hatası giderildi, tüm stiller ve render onarıldı |
@@ -361,12 +362,36 @@
 
 ---
 
+## v1.08
+**📅 2026-09-30 00:41** · Visa ve Mastercard Logolarının Başa Eklenmesi
+
+**Prompt:** Visa ve mastercard logolarını da en başa ekle
+
+**Yapılanlar:**
+- Ödeme yöntemleri bölümünün en başına Visa ve Mastercard logoları eklendi.
+- Wikimedia Commons kaynaklı resmi vektörel logolar projeye dahil edildi:
+  - **Visa:** Resmi modern koyu mavi vektörel SVG logosu (`logo-visa.svg`)
+  - **Mastercard:** Resmi 2019 ikonik kırmızı-turuncu kesişen daireler vektörel SVG logosu (`logo-mastercard.svg`)
+- Kart sırası: `[Visa, Mastercard, Pluxee, Sodexo, Ticket Restaurant, Setcard]` olarak güncellendi.
+- Tüm logolar beyaz, gölgeli ve mikro etkileşimli kartçıklar içinde yüksek çözünürlükte ve dengeli ölçekte görüntülendi.
+- Versiyon artış kuralı uygulandı (+0.01).
+
+**Dosya Değişiklikleri:**
+- ➕ `logo-visa.svg` (yeni logo dosyası)
+- ➕ `logo-mastercard.svg` (yeni logo dosyası)
+- 📝 `index.html` güncellendi (Visa ve Mastercard logoları başa eklendi)
+- 📝 `DEVLOG.md` güncellendi (v1.08 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
 gurman-qr/
 ├── index.html          # Ana QR menü sayfası (tek dosya, minimalist & profesyonel tasarım)
 ├── logo-gurman.png     # Siyah sınırlı şeffaf Gurman Usta logosu
+├── logo-visa.svg       # Resmi Visa vektörel logosu
+├── logo-mastercard.svg # Resmi Mastercard vektörel logosu
 ├── logo-pluxee.svg     # Resmi Pluxee vektörel logosu
 ├── logo-sodexo.svg     # Resmi Sodexo vektörel logosu
 ├── logo-ticket.png     # Resmi Ticket Restaurant (Edenred) logosu
@@ -377,7 +402,7 @@ gurman-qr/
 
 ---
 
-## 📊 Mevcut Durum (v1.07)
+## 📊 Mevcut Durum (v1.08)
 
 | Özellik | Durum |
 |---------|-------|
@@ -387,7 +412,7 @@ gurman-qr/
 | Başlıklar | ✅ Alt açıklamasız, net kategori başlıkları |
 | İçecekler | ✅ Pepsi / Yedigün (Şişe/Kutu), Büyük/Küçük Ayran |
 | Spesiyaller | 🌟 Gurman Kapalı Pide ve Yaprak Şiş altın sarısı vurgulu |
-| Ödeme Logoları | 🌟 Pluxee, Sodexo, Ticket Restaurant, Setcard resmi logoları |
+| Ödeme Logoları | 🌟 Visa, Mastercard, Pluxee, Sodexo, Ticket Restaurant, Setcard |
 | Navigasyon & Scroll | 🚀 Sorunsuz akıcı kaydırma ve kategori geçişi |
 | Logo | 🌟 Siyah sınırlı, şeffaf, yüksek çözünürlüklü |
 | Menü doğrulaması | ✅ 41/41 ürün incelendi, Gel-Al çıkarıldı |
