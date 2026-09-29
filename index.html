@@ -356,19 +356,35 @@
         .payment-methods {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            align-items: center;
+            gap: 10px;
             flex-wrap: wrap;
-            margin-top: 16px;
+            margin-top: 20px;
         }
 
         .payment-badge {
-            background: rgba(168, 178, 209, 0.1);
-            border: 1px solid rgba(168, 178, 209, 0.15);
-            color: var(--text-secondary);
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 0.7rem;
-            font-weight: 600;
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 6px 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 38px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .payment-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .payment-logo {
+            height: 20px;
+            width: auto;
+            max-width: 80px;
+            object-fit: contain;
+            display: block;
         }
 
         /* ===== Floating WhatsApp Button ===== */
@@ -815,11 +831,19 @@
                     <p>Mustafa Kemal Mah. 2127. Cad. No: 12/A</p>
                     <p>Çankaya / Ankara</p>
                 </div>
-                <div class="payment-methods">
-                    <span class="payment-badge">VISA</span>
-                    <span class="payment-badge">Pluxee / Sodexo</span>
-                    <span class="payment-badge">Ticket Restaurant</span>
-                    <span class="payment-badge">SetCard</span>
+                <div class="payment-methods" aria-label="Geçerli Yemek Kartları">
+                    <div class="payment-badge" title="Pluxee">
+                        <img src="logo-pluxee.svg" alt="Pluxee" class="payment-logo">
+                    </div>
+                    <div class="payment-badge" title="Sodexo">
+                        <img src="logo-sodexo.svg" alt="Sodexo" class="payment-logo">
+                    </div>
+                    <div class="payment-badge" title="Ticket Restaurant">
+                        <img src="logo-ticket.png" alt="Ticket Restaurant" class="payment-logo">
+                    </div>
+                    <div class="payment-badge" title="Setcard">
+                        <img src="logo-setcard.svg" alt="Setcard" class="payment-logo">
+                    </div>
                 </div>
             </div>
         </section>

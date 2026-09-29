@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.07](#v107) | 2026-09-30 | VISA kaldırıldı; Pluxee, Sodexo, Ticket Restaurant ve Setcard resmi logoları eklendi |
 | [v1.06](#v106) | 2026-09-30 | Gurman özel ürünlerinin etiketleri kaldırıldı, font rengi sarı yapıldı |
 | [v1.05](#v105) | 2026-09-29 | CSS sözdizim hatası giderildi, tüm stiller ve render onarıldı |
 | [v1.04](#v104) | 2026-09-29 | Hero sadeleştirildi, başlık açıklamaları kaldırıldı, içecek formatları güncellendi |
@@ -334,19 +335,49 @@
 
 ---
 
+## v1.07
+**📅 2026-09-30 00:25** · Ödeme Yöntemleri & Resmi Yemek Kartı Logoları
+
+**Prompt:** visa etiketini kaldır, pluxee, sodexo, ticket, setcard için resmi logoları bul ve ekle
+
+**Yapılanlar:**
+- `VISA` etiketi ödeme yöntemleri bölümünden tamamen kaldırıldı.
+- Resmi kurumsal kaynaklardan 4 adet resmi yemek kartı logosu temin edildi:
+  - **Pluxee:** Resmi Wikimedia Commons / Pluxee kurumsal vektörel SVG logosu (`logo-pluxee.svg`)
+  - **Sodexo:** Resmi kurumsal kırmızı yıldız kıvrımlı SVG logosu (`logo-sodexo.svg`)
+  - **Ticket Restaurant:** Edenred Türkiye resmi kurumsal kimlik sayfasından doğrudan alınan yüksek çözünürlüklü şeffaf PNG logosu (`logo-ticket.png`)
+  - **Setcard:** Setcard Türkiye resmi sunucusundan doğrudan temin edilen vektörel SVG logosu (`logo-setcard.svg`)
+- CSS ile modern, temiz beyaz kartçıklar (`.payment-badge`) tasarlandı; logoların koyu tema üzerinde bozulmadan, resmi kurumsal renkleriyle parlaması sağlandı.
+- Hover efektleri ve responsive grid düzeni eklendi (tüm mobil ekranlara mükemmel uyum).
+- Versiyon artış kuralı uygulandı (+0.01).
+
+**Dosya Değişiklikleri:**
+- ➕ `logo-pluxee.svg` (yeni logo dosyası)
+- ➕ `logo-sodexo.svg` (yeni logo dosyası)
+- ➕ `logo-ticket.png` (yeni logo dosyası)
+- ➕ `logo-setcard.svg` (yeni logo dosyası)
+- 📝 `index.html` güncellendi (VISA kaldırıldı, 4 resmi logo kartı eklendi)
+- 📝 `DEVLOG.md` güncellendi (v1.07 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
 gurman-qr/
 ├── index.html          # Ana QR menü sayfası (tek dosya, minimalist & profesyonel tasarım)
 ├── logo-gurman.png     # Siyah sınırlı şeffaf Gurman Usta logosu
+├── logo-pluxee.svg     # Resmi Pluxee vektörel logosu
+├── logo-sodexo.svg     # Resmi Sodexo vektörel logosu
+├── logo-ticket.png     # Resmi Ticket Restaurant (Edenred) logosu
+├── logo-setcard.svg    # Resmi Setcard vektörel logosu
 ├── qr-code.png         # Canlı menüye yönlendiren QR Kod görseli
 └── DEVLOG.md           # Bu devlog dosyası
 ```
 
 ---
 
-## 📊 Mevcut Durum (v1.06)
+## 📊 Mevcut Durum (v1.07)
 
 | Özellik | Durum |
 |---------|-------|
@@ -355,6 +386,8 @@ gurman-qr/
 | Hero Bölümü | 🌟 Sadece şeffaf logo + Fiyat Güncelleme Tarihi |
 | Başlıklar | ✅ Alt açıklamasız, net kategori başlıkları |
 | İçecekler | ✅ Pepsi / Yedigün (Şişe/Kutu), Büyük/Küçük Ayran |
+| Spesiyaller | 🌟 Gurman Kapalı Pide ve Yaprak Şiş altın sarısı vurgulu |
+| Ödeme Logoları | 🌟 Pluxee, Sodexo, Ticket Restaurant, Setcard resmi logoları |
 | Navigasyon & Scroll | 🚀 Sorunsuz akıcı kaydırma ve kategori geçişi |
 | Logo | 🌟 Siyah sınırlı, şeffaf, yüksek çözünürlüklü |
 | Menü doğrulaması | ✅ 41/41 ürün incelendi, Gel-Al çıkarıldı |
