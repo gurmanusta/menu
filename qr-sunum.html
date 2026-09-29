@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gurman Usta — QR Menü Sunumu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #110406;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 1200 x 1600 (3:4 ratio - ideal for A5 / Instagram / WhatsApp / Stand) */
+        .stand-card {
+            width: 1200px;
+            height: 1600px;
+            background: linear-gradient(150deg, #2a0f12 0%, #1c080b 45%, #0f0305 100%);
+            border-radius: 40px;
+            position: relative;
+            padding: 60px 80px 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            overflow: hidden;
+            border: 3px solid rgba(226, 1, 15, 0.45);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), inset 0 0 40px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Ambient Glow & Pattern */
+        .stand-card::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 900px;
+            height: 600px;
+            background: radial-gradient(ellipse at center, rgba(226, 1, 15, 0.28) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .stand-card::after {
+            content: '';
+            position: absolute;
+            bottom: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 500px;
+            background: radial-gradient(ellipse at center, rgba(245, 197, 24, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Inner decorative border frame */
+        .frame-inner {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            right: 24px;
+            bottom: 24px;
+            border: 1px solid rgba(245, 197, 24, 0.3);
+            border-radius: 28px;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .content {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .logo {
+            max-width: 440px;
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.6));
+            margin-bottom: 12px;
+        }
+
+        .slogan-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(226, 1, 15, 0.18);
+            border: 1px solid rgba(226, 1, 15, 0.5);
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #ff6b75;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 4px;
+            box-shadow: 0 4px 15px rgba(226, 1, 15, 0.2);
+        }
+
+        .slogan-sub {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.45rem;
+            color: #f5c518;
+            font-weight: 700;
+            margin-top: 14px;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* QR Center Display Card */
+        .qr-display-box {
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 34px 38px 28px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow:
+                0 25px 60px rgba(0, 0, 0, 0.7),
+                0 0 0 6px rgba(226, 1, 15, 0.85),
+                0 0 35px rgba(226, 1, 15, 0.45);
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .qr-display-box .qr-title {
+            color: #1a080b;
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .qr-display-box .qr-title svg {
+            width: 24px;
+            height: 24px;
+            fill: #e2010f;
+        }
+
+        .qr-image {
+            width: 480px;
+            height: 480px;
+            display: block;
+            border-radius: 12px;
+        }
+
+        .qr-action-banner {
+            margin-top: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #e2010f;
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 12px 32px;
+            border-radius: 50px;
+            box-shadow: 0 6px 18px rgba(226, 1, 15, 0.4);
+            width: 100%;
+        }
+
+        .qr-action-banner svg {
+            width: 26px;
+            height: 26px;
+            fill: currentColor;
+        }
+
+        .url-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(38, 14, 16, 0.85);
+            border: 1.5px solid rgba(245, 197, 24, 0.6);
+            color: #f5c518;
+            padding: 10px 28px;
+            border-radius: 24px;
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+            margin-bottom: 10px;
+        }
+
+        /* Footer Info */
+        .footer {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(226, 1, 15, 0.25);
+            margin-bottom: 5px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #ea969c;
+        }
+
+        .info-item svg {
+            width: 24px;
+            height: 24px;
+            fill: #ff4d58;
+            flex-shrink: 0;
+        }
+
+        .info-item strong {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        /* Print formatting */
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
+            .stand-card {
+                width: 100vw;
+                height: 100vh;
+                border-radius: 0;
+                border: none;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stand-card">
+        <div class="frame-inner"></div>
+
+        <div class="content">
+            <!-- Header -->
+            <div class="header">
+                <img src="logo-gurman.png" alt="Gurman Usta" class="logo">
+                <div class="slogan-badge">
+                    Döner • Kebap • Tantuni • Pide
+                </div>
+                <div class="slogan-sub">İyi Lezzetlerin Yeni Adresi</div>
+            </div>
+
+            <!-- QR Box -->
+            <div class="qr-display-box">
+                <div class="qr-title">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 4h3v3H4zm0 7h3v3H4zm0 7h3v3H4zm7-14h3v3h-3zm0 7h3v3h-3zm0 7h3v3h-3zm7-14h3v3h-3zm0 7h3v3h-3zm0 7h3v3h-3zM2 2v7h7V2H2zm9 0v7h7V2h-7zm9 0v7h7V2h-7zM2 11v7h7v-7H2zm9 0v7h7v-7h-7zm9 0v7h7v-7h-7zM2 20v7h7v-7H2zm9 0v7h7v-7h-7zm9 0v7h7v-7h-7z"/>
+                    </svg>
+                    DİJİTAL MENÜ
+                </div>
+                <img src="qr-code.png" alt="Gurman Usta QR Menü" class="qr-image">
+                <div class="qr-action-banner">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 4h3l2-2h6l2 2h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm8 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
+                    </svg>
+                    Kameranızla Okutun
+                </div>
+            </div>
+
+            <!-- Direct Link -->
+            <div class="url-pill">
+                🌐 gurman.pages.dev
+            </div>
+
+            <!-- Footer Details -->
+            <div class="footer">
+                <div class="info-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    <span>Instagram: <strong>@gurmanusta</strong></span>
+                </div>
+                <div class="info-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                    </svg>
+                    <span>Sipariş: <strong>0312 219 4 999</strong></span>
+                </div>
+                <div class="info-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+                    </svg>
+                    <span><strong>Çankaya / Ankara</strong></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.21](#v121) | 2026-09-30 | Cloudflare Pages (gurman.pages.dev) QR kodu ve masa üstü/sosyal medya QR sunum görseli (qr-sunum.png/html) hazırlandı |
 | [v1.20](#v120) | 2026-09-30 | Gel Al rozetinin satır yüksekliğini etkilemesi engellendi (26px flex kilidi), Gel Al yazısı büyütüldü (0.7rem), fiyat turuncu (#ff9f43) renge çevrildi |
 | [v1.19](#v119) | 2026-09-30 | Gel Al tabelası iki satırlı kırmızı placard tasarımına geçirildi (yeşil/pixel kaldırıldı), tüm sayfa renkleri Gurman Usta logosunun kırmızısına (#e2010f) uyarlandı |
 | [v1.18](#v118) | 2026-09-30 | Arka plan koyuluğu bir tık açıldı, düz ve açıklama metinleri ile footer yazısı açık renk kırmızıya uyarlandı |
@@ -683,6 +684,36 @@
 
 ---
 
+## v1.21
+**📅 2026-09-30 02:55** · Cloudflare Pages Canlı Dağıtımı (gurman.pages.dev), Yeni QR Kod ve Profesyonel QR Sunum Afişi
+
+**Prompt:** gurman.pages.dev çalışıyor. bana hem qr dosyasını hem de ayrıca paylaşabilecegim, logosu ile birlikte bir qr sunumu hazırla.
+
+**Yapılanlar:**
+- **Cloudflare Pages Dağıtımı & Canlı Menü URL'si:**
+  - Menü, Cloudflare Pages üzerinde yayına alındı: `https://gurman.pages.dev/`.
+  - Artık GitHub deposunun Private (özel) yapılması durumunda bile Cloudflare Pages doğrudan depoya erişerek sorunsuz otomatik dağıtım yapabilmektedir.
+- **Kusursuz QR Kod Yenilenmesi (`qr-code.png`):**
+  - Python `qrcode` kütüphanesi ile `https://gurman.pages.dev/` adresine yönelik yüksek hata toleranslı (`ERROR_CORRECT_H`), 20 kutu boyutlu, temiz 4 kenarlıklı ve yüksek çözünürlüklü QR kod üretildi.
+  - OpenCV `QRCodeDetector` ile test edilerek kodun doğrudan `https://gurman.pages.dev/` URL'sine çözündüğü doğrulandı.
+- **Sosyal Medya & Masa Üstü QR Sunum Şablonu (`qr-sunum.html`):**
+  - 1200x1600 piksel (3:4 oran, A5 masa föyü / Instagram / WhatsApp paylaşımı için ideal) bağımsız bir sunum tasarımı hazırlandı.
+  - Gurman Usta logosu (`logo-gurman.png`), "DÖNER • KEBAP • TANTUNİ • PİDE" ve "İyi Lezzetlerin Yeni Adresi" slogan rozeti yerleştirildi.
+  - Ortada yüksek kontrastlı beyaz kart üzerinde 480x480 boyutunda QR kod, "Kameranızla Okutun" kırmızı eylem rozeti ve direkt URL hapı (`🌐 gurman.pages.dev`) konumlandırıldı.
+  - Alt kısımda Instagram (`@gurmanusta`), Telefon (`0312 219 4 999`) ve Konum (`Çankaya / Ankara`) ikonlu iletişim bilgileri eklendi.
+  - `@media print` stilleri ile tarayıcıdan (`Ctrl+P`) doğrudan A4 veya A5 masa üstü standı/föyü olarak yazdırmaya hazır hale getirildi.
+- **Yüksek Çözünürlüklü Sunum Görseli Üretimi (`qr-sunum.png`):**
+  - Hazırlanan `qr-sunum.html` sayfası headless Edge ile render edilerek 1240x1640 piksel, kristal netliğinde bağımsız bir PNG görseline dönüştürüldü.
+- Versiyon kuralı uygulandı (+0.01 ➔ v1.21).
+
+**Dosya Değişiklikleri:**
+- 📝 `qr-code.png` güncellendi (https://gurman.pages.dev/ kodlandı)
+- ➕ `qr-sunum.html` oluşturuldu (Masa üstü / sosyal medya sunum şablonu)
+- ➕ `qr-sunum.png` oluşturuldu (1240x1640 yüksek çözünürlüklü afiş görseli)
+- 📝 `DEVLOG.md` güncellendi (v1.21 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
@@ -695,13 +726,15 @@ gurman-qr/
 ├── logo-sodexo.svg     # Resmi Sodexo vektörel logosu
 ├── logo-ticket.png     # Resmi Ticket Restaurant (Edenred) logosu
 ├── logo-setcard.svg    # Resmi Setcard vektörel logosu
-├── qr-code.png         # Canlı menüye yönlendiren QR Kod görseli
+├── qr-code.png         # gurman.pages.dev yönlendiren güncel QR Kod görseli
+├── qr-sunum.html       # Masa üstü föyü ve sosyal medya için yazdırılabilir QR sunum sayfası
+├── qr-sunum.png        # Yüksek çözünürlüklü (1240x1640) QR afiş/sunum görseli
 └── DEVLOG.md           # Bu devlog dosyası
 ```
 
 ---
 
-## 📊 Mevcut Durum (v1.20)
+## 📊 Mevcut Durum (v1.21)
 
 | Özellik | Durum |
 |---------|-------|
@@ -727,8 +760,9 @@ gurman-qr/
 | Gel-Al Fiyat Entegrasyonu | ✅ Belirtilen ürünlerde Gel Al fiyatları satırı genişletmeyen kırmızı tabela olarak solda eklendi |
 | GitHub CLI (gh) | ✅ Kuruldu ve Giriş Yapıldı |
 | GitHub Repo Push | ✅ Yüklendi (`gurmanusta/qr-menu`) |
-| GitHub Pages | 🚀 **CANLI YAYINDA:** `https://gurmanusta.github.io/qr-menu/` |
-| QR Kod Görseli | ✅ Üretildi (`qr-code.png`) |
+| Cloudflare Pages | 🚀 **CANLI YAYINDA:** `https://gurman.pages.dev/` |
+| QR Kod Görseli | ✅ Güncellendi (`qr-code.png` ➔ `https://gurman.pages.dev/`) |
+| QR Sunum Görselleri | ✅ Üretildi (`qr-sunum.png` ve `qr-sunum.html`) |
 | Toplam ürün | 37 (Gel-Al hariç menü kalemi) |
 | Toplam kategori | 8 menü kategorisi (Pideler, Kebaplar, Et Tantuni, Tavuk Tantuni, Et Döner, Tavuk Döner, Çorba, İçecekler) |
 | Versiyon Kuralı | Bundan sonraki her prompt +0.01 artacak |
