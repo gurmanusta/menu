@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.18](#v118) | 2026-09-30 | Arka plan koyuluğu bir tık açıldı, düz ve açıklama metinleri ile footer yazısı açık renk kırmızıya uyarlandı |
 | [v1.17](#v117) | 2026-09-30 | Gel Al fiyatları sola alındı, LED tabela tasarımına geçirildi, sayfa arka planı kırmızı/şarap tonuyla uyumlu koyu renge güncellendi |
 | [v1.16](#v116) | 2026-09-30 | Pixel fontu VT323'e geçirildi (büyük İ düzeltildi), font büyütüldü, İletişim başlığı kaldırıldı, fiyat seçimi engellendi, Gel Al hap tasarımları eklendi |
 | [v1.15](#v115) | 2026-09-30 | Tavuk Döner Ekmek Arası güncellendi, glow efektli pixel kayan tabela eklendi, kart arka planları kırmızı tona geçirildi |
@@ -595,6 +596,35 @@
 
 ---
 
+## v1.18
+**📅 2026-09-30 02:15** · Arka Plan Tonu Dengelemesi ve Açık Renk Kırmızı Metin Tipografisi
+
+**Prompt:** şimdi sıkıntı şu ki, arka planı bi tık fazla koyu yapmışsın. onu düzelt. ayrıca eskiden maviyken ekran görüntüsünde görebilecegin gibi, düz metinler de daha açık bir mavi tondu, arka planı kırmızı tonlarına aldıktan sonra bu yazılar gri oldu, aslında açık renk bir kırmızı olmalıydı. aynı şey menüdeki yemeklerin 100gr gibi açıklama metinleri için de geçerli. en alttaki 2026 gurman usta yazısını da unutma
+
+**Yapılanlar:**
+- **Arka Plan Koyuluğunun Dengelenmesi:**
+  - Önceki sürümde neredeyse siyaha kaçan aşırı koyu zemin tonu (`#14070c`), sıcak kırmızı/bordo kimliği gözle hissedilir kılacak şekilde bir tık açıldı:
+    - `--bg-primary`: `#251218` (zengin ve asil koyu şarap/yakut zemin)
+    - `--bg-secondary`: `#361722` (sıcak bordo gradyan durağı)
+    - Hero dip gradyanı: `#1a0a10`
+    - Yapışkan navigasyon arka planı: `rgba(37, 18, 24, 0.95)`
+    - Mobil tarayıcı üst çubuğu: `<meta name="theme-color" content="#251218">`
+- **Açık Renk Kırmızı Metin Tipografisi:**
+  - Griye dönen tüm düz ve ikincil metinler, eski mavi temadaki pastel mavinin kırmızıdaki tam karşılığı olan yumuşak, canlı ve okunaklı **açık renk kırmızı / pastel gül kurusu** (`#e494a2` ve `#f2bac2`) tonlarına kavuşturuldu:
+    - **Fiyat Güncelleme Tarihi:** `Fiyat Güncelleme Tarihi: 26 Ocak 2026` (`#e494a2`)
+    - **Navigasyon Kategorileri:** Seçilmemiş kategori linkleri (`#e494a2`)
+    - **Ürün Açıklamaları:** `100gr`, `100gr • Pilav & Salata` gibi tüm detay metinleri (`#e494a2`)
+    - **Kategori Alt Açıklamaları:** `section-title-group p` (`#e494a2`)
+    - **Footer Metni:** `© 2026 Gurman Usta — İyi lezzetlerin Yeni Adresi` (`#e494a2`)
+  - Tüm metinler yüksek kontrast (WCAG AAA uyumlu ~7.7:1) ile hem karta hem de sayfa zeminine mükemmel oturdu.
+- Versiyon kuralı uygulandı (+0.01 ➔ v1.18).
+
+**Dosya Değişiklikleri:**
+- 📝 `index.html` güncellendi (Arka plan tonu açıldı, açık renk kırmızı metin değişkenleri `#e494a2` ve `#f2bac2` uygulandı)
+- 📝 `DEVLOG.md` güncellendi (v1.18 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
@@ -613,13 +643,14 @@ gurman-qr/
 
 ---
 
-## 📊 Mevcut Durum (v1.17)
+## 📊 Mevcut Durum (v1.18)
 
 | Özellik | Durum |
 |---------|-------|
 | Menü HTML | ✅ Kusursuz çalışan koyu tema & kırmızı tonlu kartlı modern menü |
 | CSS Stilleri | 🌟 Sözdizimi %100 doğrulandı, tüm kartlar ve efektler aktif |
-| Sayfa Arka Planı | 🌟 Kırmızı/bordo tasarımla tam uyumlu derin koyu şarap/kömür tonları (`#14070c`, `#1e0a12`, `#090305`) |
+| Sayfa Arka Planı | 🌟 Kırmızı/bordo tasarımla tam uyumlu, gözü yormayan dengeli koyu şarap tonları (`#251218`, `#361722`, `#1a0a10`) |
+| Tipografi & Düz Metinler | 🌟 Açık renk kırmızı / pastel gül kurusu (`#e494a2`); fiyat tarihi, ürün gramajları (100gr), nav linkleri ve footer metninde aktif |
 | Hero Bölümü | 🌟 Şeffaf logo + Glow Efektli Pixel Kayan Tabela + Fiyat Tarihi |
 | Pixel Kayan Tabela | 🌟 VT323 retro LED neon glow efektli, tam Türkçe 'İ' uyumlu, 1.25rem boyutunda, sonsuz döngü (DÖNER - TANTUNİ - KÖFTE - LAHMACUN - PİDE - ÇORBA) |
 | Seçenek Arka Planları | 🌟 Bordo/kırmızı gradyanlı kartlar, koyu şarap arka plan ile kusursuz bütünleşti |
