@@ -8,6 +8,9 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.00](#v100) | 2026-09-29 | Tarayıcıda Device Auth ekranı açıldı, v1.00 ana sürümüne ulaşıldı |
+| [v0.90](#v090) | 2026-09-29 | GitHub CLI (gh) kurulumu ve Device Login başlatılması |
+| [v0.80](#v080) | 2026-09-29 | Terminal üzerinden Git push ve credential manager yapılandırması |
 | [v0.70](#v070) | 2026-09-29 | GitHub repo bağlantısı, devlog oluşturma |
 | [v0.60](#v060) | 2026-09-29 | Logo ekranı paylaşıldı, tüm düzeltmeler uygulandı |
 | [v0.50](#v050) | 2026-09-29 | Menü düzeltmeleri: Pepsi/Yedigün, Meyveli Soda, Günün Çorbası, Gel-Al kaldırma |
@@ -157,6 +160,52 @@
 **Dosya Değişiklikleri:**
 - ✅ `DEVLOG.md` oluşturuldu (yeni)
 
+
+---
+
+## v0.80
+**📅 2026-09-29 22:35** · Terminal ile Yetkilendirme Tercihi
+
+**Prompt:** terminal
+
+**Yapılanlar:**
+- Kullanıcı GitHub kimlik doğrulaması için terminal yöntemini seçti
+- Git Credential Manager (`manager`) aktif edildi
+- `git push -u origin main` komutu tetiklendi
+
+**Dosya Değişiklikleri:** Yok
+
+---
+
+## v0.90
+**📅 2026-09-29 22:36** · GUI Bildirimi & GitHub CLI Kurulumu
+
+**Prompt:** bir şey açılmadı
+
+**Yapılanlar:**
+- GUI penceresi açılmadığı için takılan arka plan görevi sonlandırıldı
+- `winget` üzerinden resmi GitHub CLI (`gh`) kurulumu yapıldı
+- Web tabanlı cihaz yetkilendirmesi (`gh auth login --web -h github.com`) başlatıldı
+- Tek kullanımlık cihaz kodu (`ACA2-E4DF`) üretildi
+
+**Dosya Değişiklikleri:** Yok
+
+---
+
+## v1.00 🎯
+**📅 2026-09-29 22:41** · Cihaz Yetkilendirmesi & v1.00 Ana Sürümü
+
+**Prompt:** devam et
+
+**Yapılanlar:**
+- Kullanıcı için GitHub Device Login ekranı (`https://github.com/login/device`) otomatik olarak tarayıcıda açıldı
+- `ACA2-E4DF` kodu panoya ve ekrana iletildi
+- İlk 10 prompt tamamlanarak **v1.00** kilometre taşına ulaşıldı
+- Kural gereği bundan sonraki her prompt versiyonu **+0.01** olarak artacaktır
+
+**Dosya Değişiklikleri:**
+- 📝 `DEVLOG.md` güncellendi (v1.00 sürümleri eklendi)
+
 ---
 
 ## 📁 Proje Dosya Yapısı
@@ -165,23 +214,23 @@
 gurman-qr/
 ├── index.html          # Ana QR menü sayfası (tek dosya)
 ├── logo-gurman.png     # Gurman Usta logosu (Instagram'dan)
-├── logo.png            # Basit yazı logosu (web sitesinden)
-├── DEVLOG.md           # Bu devlog dosyası
-└── ig_response.json    # (temp) Instagram API yanıtı
+└── DEVLOG.md           # Bu devlog dosyası
 ```
 
 ---
 
-## 📊 Mevcut Durum (v0.70)
+## 📊 Mevcut Durum (v1.00)
 
 | Özellik | Durum |
 |---------|-------|
 | Menü HTML | ✅ Tamamlandı |
 | Gerçek logo | ✅ Eklendi |
-| Menü doğrulaması | ✅ 41/41 ürün |
+| Menü doğrulaması | ✅ 41/41 ürün incelendi, Gel-Al çıkarıldı |
 | Gel-Al kaldırma | ✅ |
-| GitHub repo | 🔄 Push bekliyor |
-| GitHub Pages | ⏳ Bekliyor |
-| QR kod oluşturma | ⏳ Bekliyor |
+| GitHub CLI (gh) | ✅ Kuruldu |
+| GitHub Yetkilendirme | 🔄 Device Code bekleniyor (`ACA2-E4DF`) |
+| GitHub Repo Push | ⏳ Yetkilendirme sonrası otomatik push |
+| GitHub Pages | ⏳ Push sonrası aktifleşecek |
 | Toplam ürün | 39 (Gel-Al hariç) |
 | Toplam kategori | 7 |
+| Versiyon Kuralı | Bundan sonraki her prompt +0.01 artacak |
