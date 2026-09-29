@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.02](#v102) | 2026-09-29 | Siyah sınırlı yüksek çözünürlüklü şeffaf logo entegrasyonu |
 | [v1.01](#v101) | 2026-09-29 | GitHub CLI Yetkilendirme onayı (Authorize ekranı) |
 | [v1.00](#v100) | 2026-09-29 | Tarayıcıda Device Auth ekranı açıldı, v1.00 ana sürümüne ulaşıldı |
 | [v0.90](#v090) | 2026-09-29 | GitHub CLI (gh) kurulumu ve Device Login başlatılması |
@@ -228,24 +229,43 @@
 
 ---
 
+## v1.02
+**📅 2026-09-29 22:50** · Siyah Sınırlı Şeffaf Logo Entegrasyonu
+
+**Prompt:** bu ekran görüntüsünden logoyu siyah sınırları ile birlikte arka planını kaldırarak elde edip menüde bunu kullan.
+
+**Yapılanlar:**
+- Kullanıcının ilettiği kırmızı zeminli logo görseli analiz edildi
+- Logoyu koyu temada öne çıkaran siyah sınır (outline/stroke) yapısı modellendi
+- Arka plan kırmızı dokusu, gölgeler ve harf içi delikler (g döngüsü, harf araları) şeffaflaştırıldı
+- 777x392 yüksek çözünürlüklü, kenarları anti-aliasing ile yumuşatılmış, sıfır kalıntı içeren `logo-gurman.png` üretildi
+- Menü sayfasındaki logo bu yeni siyah sınırlı versiyonla güncellendi
+- Versiyon artış kuralı uygulandı (+0.01)
+
+**Dosya Değişiklikleri:**
+- 🖼️ `logo-gurman.png` güncellendi (siyah sınırlı, şeffaf arka planlı)
+- 📝 `DEVLOG.md` güncellendi (v1.02 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
 gurman-qr/
 ├── index.html          # Ana QR menü sayfası (tek dosya, responsive)
-├── logo-gurman.png     # Gurman Usta logosu (Instagram'dan)
+├── logo-gurman.png     # Siyah sınırlı şeffaf Gurman Usta logosu
 ├── qr-code.png         # Canlı menüye yönlendiren QR Kod görseli
 └── DEVLOG.md           # Bu devlog dosyası
 ```
 
 ---
 
-## 📊 Mevcut Durum (v1.01)
+## 📊 Mevcut Durum (v1.02)
 
 | Özellik | Durum |
 |---------|-------|
 | Menü HTML | ✅ Tamamlandı |
-| Gerçek logo | ✅ Eklendi |
+| Logo | 🌟 Siyah sınırlı, şeffaf, yüksek çözünürlüklü |
 | Menü doğrulaması | ✅ 41/41 ürün incelendi, Gel-Al çıkarıldı |
 | Gel-Al kaldırma | ✅ |
 | GitHub CLI (gh) | ✅ Kuruldu ve Giriş Yapıldı |
