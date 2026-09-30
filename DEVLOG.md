@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.33](#v133) | 2026-09-30 | Kategori başlıkları üst tabeladaki VT323 pixel LED tabela stiline uyarlandı; sabit tabela görünümü sağlandı |
 | [v1.32](#v132) | 2026-09-30 | QR kod ve QR sunum afişi görselleri 'https://gurmanusta.github.io/menu/' adresine yeniden üretildi ve doğrulandı |
 | [v1.31](#v131) | 2026-09-30 | Kayan yazıda tireler nokta ('•') ile değiştirildi, footer Gurman Usta yanındaki tire tek tire ('-') yapıldı |
 | [v1.30](#v130) | 2026-09-30 | Yemek satırına tıklanınca yemek isimlerinin anlık renk değiştirmesi engellendi, index.html içine sürüm ve son güncelleme meta etiketleri eklendi |
@@ -980,6 +981,33 @@
 
 ---
 
+## v1.33
+**📅 2026-09-30 13:40** · Kategori Başlıklarının Sabit Pixel LED Tabelaya Dönüştürülmesi
+
+**Prompt:** başlıkları, tabeladaki pixel font ile yeniden yap, sabit tabela gibi görünsünler.
+
+**Yapılanlar:**
+- **Sabit Pixel LED Tabela Tasarımı:**
+  - Kategori başlıkları (`.section-title-group h2`), üstteki kayan tabelayla (`.pixel-marquee`) konsept bütünlüğü sağlayacak şekilde retro **`VT323`** pixel fontuna uyarlandı.
+  - Eski sol çizgi (`border-left: 3px solid var(--accent)`) kaldırılarak yerine bağımsız bir **Sabit LED Tabela Kutusu (Signboard Placard)** geliştirildi:
+    - **Kasa:** `#0f0405` derin siyah zemin üzerinde 4x4px mikro dot-matrix LED ızgara deseni (`radial-gradient(rgba(226, 1, 15, 0.25) 1px, transparent 1px)`).
+    - **Çerçeve:** `2px solid rgba(226, 1, 15, 0.75)` canlı neon kırmızı kenarlık, 6px yuvarlatılmış köşeler (`border-radius: 6px`).
+    - **Glow & Gölgelendirme:** `box-shadow: 0 0 14px rgba(226, 1, 15, 0.35), inset 0 0 10px rgba(0, 0, 0, 0.95)`.
+    - **Tipografi:** `VT323`, 1.6rem (desktopta 1.8rem), `letter-spacing: 2px`, neon kırmızı metin rengi (`#ff2636`) ve 3 kademeli neon parlama/text-shadow (`0 0 4px #ff2636, 0 0 10px rgba(255, 38, 54, 0.85), 0 0 20px rgba(226, 1, 15, 0.6)`).
+    - **Metin Seçim Koruması:** `user-select: none; -webkit-user-select: none;` ile tabelanın dokunulduğunda maviye boyanması engellendi.
+- **Tüm Kategori İsimlerinin Büyük Harf (Uppercase) Standardizasyonu:**
+  - 8 menü kategorisinin başlıkları doğrudan HTML içinde tam Türkçe büyük harf formatına dönüştürüldü:
+    - `PİDELER`, `KEBAPLAR`, `ET TANTUNİ`, `TAVUK TANTUNİ`, `ET DÖNER`, `TAVUK DÖNER`, `ÇORBA`, `İÇECEKLER`.
+- **Dosya İçi Sürüm Bilgisi:**
+  - `index.html` `<head>` bölümündeki `<meta name="version" content="v1.33">` güncellendi.
+- Versiyon kuralı uygulandı (+0.01 ➔ v1.33).
+
+**Dosya Değişiklikleri:**
+- 📝 `index.html` güncellendi (Sabit LED tabela CSS, 8 kategori başlığı uppercase yapıldı, v1.33 meta)
+- 📝 `DEVLOG.md` güncellendi (v1.33 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
@@ -1000,7 +1028,7 @@ gurman-menu/
 
 ---
 
-## 📊 Mevcut Durum (v1.32)
+## 📊 Mevcut Durum (v1.33)
 
 | Özellik | Durum |
 |---------|-------|
@@ -1016,12 +1044,12 @@ gurman-menu/
 | Hero Bölümü | 🌟 Şeffaf logo + Glow Efektli Pixel Kayan Tabela + Fiyat Tarihi |
 | Pixel Kayan Tabela | 🌟 Nokta (`•`) ayraçlı akıcı şerit (`DÖNER • TANTUNİ • KÖFTE • LAHMACUN • PİDE • ÇORBA •`), sonsuz döngü |
 | Seçenek Arka Planları | 🌟 Logo kırmızısı bordürlü ve gradyanlı kartlar, arka planla kusursuz bütünleşti |
-| Başlıklar & Hiyerarşi | 🌟 Et Tantuni ve Tavuk Tantuni bağımsız ana başlık; Et Döner önde |
+| Başlıklar & Hiyerarşi | 🌟 **VT323 pixel fontlu, neon kırmızı çerçeveli ve dot-matrix ızgaralı Sabit LED Tabela tasarımı** |
 | İçecekler | ✅ Pepsi / Yedigün (Kutu / Şişe sıralaması), Niğde Gazozu, Büyük/Küçük Ayran |
 | Spesiyaller | 🌟 Gurman Kapalı Pide ve Yaprak Şiş altın sarısı vurgulu |
 | İletişim Kartı & Simge Butonları | 🌟 Kart üst sınırı ve ödeme yöntemleri ile mesafeler eşitlendi (26px); logolar büyütüldü (36px SVG, 66px dairesel butonlar) |
 | Ödeme Logoları | 🌟 Visa, Mastercard, Pluxee, Sodexo, Ticket Restaurant, Setcard |
-| Dosya İçi Meta Takip | 🌟 Sürüm (`v1.32`) ve son güncelleme tarihi `index.html` meta etiketlerinde kayıtlı (UI'da gizli) |
+| Dosya İçi Meta Takip | 🌟 Sürüm (`v1.33`) ve son güncelleme tarihi `index.html` meta etiketlerinde kayıtlı (UI'da gizli) |
 | Footer & Slogan | 🌟 Tek tireli sade format: `© 2026 Gurman Usta - İyi lezzetlerin Yeni Adresi` |
 | Navigasyon & Scroll | 🚀 8 menü kategorisi + İletişim, akıcı kaydırma ve ortalama |
 | Logo | 🌟 Siyah sınırlı, şeffaf, yüksek çözünürlüklü |
@@ -1034,5 +1062,5 @@ gurman-menu/
 | QR Sunum Görselleri | ✅ Üretildi (`qr-sunum.png` ve `qr-sunum.html`) |
 | Çalışma Dizini | 📁 `c:\Users\CTNKYW\Desktop\gurman-menu` |
 | Toplam ürün | 37 (Gel-Al hariç menü kalemi) |
-| Toplam kategori | 8 menü kategorisi (Pideler, Kebaplar, Et Tantuni, Tavuk Tantuni, Et Döner, Tavuk Döner, Çorba, İçecekler) |
+| Toplam kategori | 8 menü kategorisi (PİDELER, KEBAPLAR, ET TANTUNİ, TAVUK TANTUNİ, ET DÖNER, TAVUK DÖNER, ÇORBA, İÇECEKLER) |
 | Versiyon Kuralı | Bundan sonraki her prompt +0.01 artacak |
