@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.29](#v129) | 2026-09-30 | Gel-Al kartı & normal fiyat boşluk simetrisi sağlandı, Niğde Gazozu düzeltildi, iletişim butonları-ödeme logoları mesafesi üst sınırla eşitlendi ve logolar büyütüldü |
 | [v1.28](#v128) | 2026-09-30 | Proje yerel çalışma dizini masaüstündeki yeni 'gurman-menu' klasörüne taşındı, tüm Git ve geliştirme operasyonları bu klasöre aktarıldı |
 | [v1.27](#v127) | 2026-09-30 | GitHub repo adı 'menu' olarak güncellendi (gurmanusta.github.io/menu/), QR kod ve sunum afişleri yeni kalıcı adrese uyarlandı |
 | [v1.26](#v126) | 2026-09-30 | Yemek satırları interaktif toggle seçime bağlandı (tekrar dokununca veya dışarı basınca seçim iptal ediliyor, mobil yapışkan hover çözüldü) |
@@ -885,6 +886,33 @@
 
 ---
 
+## v1.29
+**📅 2026-09-30 10:42** · Gel Al & Normal Fiyat Boşluk Simetrisi, Niğde Gazozu Düzeltmesi, İletişim Kartı Dikey Simetrisi ve Logo Büyütmesi
+
+**Prompt:** gel al kartının sağındaki normal fiyat ile arasındaki boşluk, normal fiyatın sağ tarafındaki boşluk kadar olmalı. Niğde Gazoz, Niğde Gazozu olmalı. en alttaki iletişim butonlarının ödeme yöntemi logoları ile arasındaki boşluk miktarı, üst sınır ile arasındaki boşluk miktarı kadar olmalı. ve iletişim logolarını bi tık büyüt.
+
+**Yapılanlar:**
+- **Gel-Al Kartı & Normal Fiyat Boşluk Simetrisi:**
+  - Menü satır kartlarında (`.menu-item`) normal fiyatın sağındaki boşluk iç kenar dolgusu (padding-right: 16px; masaüstünde 20px) ile belirlenmektedir.
+  - Gel-Al kartı (`.sign-gelal`) ile sağındaki normal fiyat (`.item-price`) arasındaki boşluk (`.price-container { gap: 16px; }`, masaüstünde `gap: 20px;`) sağ boşlukla birebir eşitlendi.
+  - Her iki taraftaki boşluk matematiksel olarak 16px (desktopta 20px) yapılarak kusursuz optik simetri sağlandı.
+- **Ürün İsmi İyileştirmesi:**
+  - İçecekler kategorisindeki `Niğde Gazoz` ürün adı `Niğde Gazozu` olarak güncellendi.
+- **İletişim Kartı Dikey Boşluk Dengesi:**
+  - `.contact-card` kapsayıcısı dikey flexbox yapısına (`display: flex; flex-direction: column; align-items: center; gap: 26px; padding: 26px 16px;`) uyarlandı.
+  - İletişim butonlarının (`.contact-links`) kartın üst sınırı (üst kenarlık) ile arasındaki boşluk (`padding-top: 26px`), butonların altındaki ödeme yöntemleri logoları ile arasındaki boşluk (`gap: 26px`) ile piksel seviyesinde birebir eşitlendi.
+  - Aynı şekilde ödeme logolarının alt sınır ile mesafesi de `padding-bottom: 26px` ile dengelendi.
+- **İletişim Logolarının Büyütülmesi:**
+  - İletişim butonlarının içindeki SVG logoları (`.contact-link svg`) `30px`'ten `36px`'e (+%20) büyütüldü.
+  - Dairesel buton gövdeleri `66px` yapılarak `flex-shrink: 0` ile mobilde kusursuz dairesel formları korundu.
+- Versiyon kuralı uygulandı (+0.01 ➔ v1.29).
+
+**Dosya Değişiklikleri:**
+- 📝 `index.html` güncellendi (Fiyat boşlukları, Niğde Gazozu, iletişim kartı boşlukları ve logolar)
+- 📝 `DEVLOG.md` güncellendi (v1.29 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
@@ -905,7 +933,7 @@ gurman-menu/
 
 ---
 
-## 📊 Mevcut Durum (v1.28)
+## 📊 Mevcut Durum (v1.29)
 
 | Özellik | Durum |
 |---------|-------|
@@ -917,14 +945,14 @@ gurman-menu/
 | Metin Seçilebilirliği | 🌟 Global olarak tamamen kapatıldı (`user-select: none;` ile tüm uygulamada hiçbir yazı seçilemez, native app hissi) |
 | Dokunma Geri Bildirimi | 🌟 Mavi flaş efekti tamamen kaldırıldı; menü butonlarında ve tüm öğelerde kırmızı (`rgba(226, 1, 15, 0.3)`) tap highlight aktif |
 | Yemek Satırı Seçimi | 🌟 Akıllı toggle mekanizması; dokununca seçilir, tekrar dokununca veya dışarı basınca seçim iptal olur |
-| Gel-Al Fiyat Tabelaları | 🌟 Daha ferah ve yüksek (41.7px), çerçeveyle birebir eşit kırmızı (`#e2010f`) fiyatlı, satır yüksekliğini kesinlikle artırmayan kilitli tasarım |
+| Gel-Al Fiyat Tabelaları | 🌟 Çerçeveyle eşit kırmızı (`#e2010f`) fiyatlı, sağındaki normal fiyat ile arasındaki boşluk sağ dış kenarlıkla birebir eşit (16px / desktop 20px) |
 | Hero Bölümü | 🌟 Şeffaf logo + Glow Efektli Pixel Kayan Tabela + Fiyat Tarihi |
 | Pixel Kayan Tabela | 🌟 Mobilde ekranı tam satır kaplayan akıcı şerit, masaüstünde 480px merkezli kompakt kutu, sonsuz döngü |
 | Seçenek Arka Planları | 🌟 Logo kırmızısı bordürlü ve gradyanlı kartlar, arka planla kusursuz bütünleşti |
 | Başlıklar & Hiyerarşi | 🌟 Et Tantuni ve Tavuk Tantuni bağımsız ana başlık; Et Döner önde |
-| İçecekler | ✅ Pepsi / Yedigün (Kutu / Şişe sıralaması), Büyük/Küçük Ayran |
+| İçecekler | ✅ Pepsi / Yedigün (Kutu / Şişe sıralaması), Niğde Gazozu, Büyük/Küçük Ayran |
 | Spesiyaller | 🌟 Gurman Kapalı Pide ve Yaprak Şiş altın sarısı vurgulu |
-| İletişim Simge Butonları | 🌟 Bir tık büyütüldü (64x64px dairesel butonlar, 30px simgeler); 4 büyük simge: Ara, Instagram, Google Haritalar, WhatsApp |
+| İletişim Kartı & Simge Butonları | 🌟 Kart üst sınırı ve ödeme yöntemleri ile mesafeler eşitlendi (26px); logolar büyütüldü (36px SVG, 66px dairesel butonlar) |
 | Ödeme Logoları | 🌟 Visa, Mastercard, Pluxee, Sodexo, Ticket Restaurant, Setcard |
 | Footer & Slogan | 🌟 `gurmanusta.com` kaldırıldı; sade ve şık `© 2026 Gurman Usta — İyi lezzetlerin Yeni Adresi` |
 | Navigasyon & Scroll | 🚀 8 menü kategorisi + İletişim, akıcı kaydırma ve ortalama |
