@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.28](#v128) | 2026-09-30 | Proje yerel çalışma dizini masaüstündeki yeni 'gurman-menu' klasörüne taşındı, tüm Git ve geliştirme operasyonları bu klasöre aktarıldı |
 | [v1.27](#v127) | 2026-09-30 | GitHub repo adı 'menu' olarak güncellendi (gurmanusta.github.io/menu/), QR kod ve sunum afişleri yeni kalıcı adrese uyarlandı |
 | [v1.26](#v126) | 2026-09-30 | Yemek satırları interaktif toggle seçime bağlandı (tekrar dokununca veya dışarı basınca seçim iptal ediliyor, mobil yapışkan hover çözüldü) |
 | [v1.25](#v125) | 2026-09-30 | Gel Al fiyat rengi kart çerçevesiyle (#e2010f) eşitlendi, iletişim butonları 64px'e büyütüldü, footer'daki gurmanusta.com kaldırıldı |
@@ -865,10 +866,29 @@
 
 ---
 
+## v1.28
+**📅 2026-09-30 10:19** · Proje Dizin Taşınması (gurman-menu)
+
+**Prompt:** masaüstünde yeni bi gurman-menu klasörü açtım, tüm projeyi oraya taşı, github pushlarına da oradan devam edeceksin.
+
+**Yapılanlar:**
+- **Proje Dizin Taşıma İşlemi:**
+  - Masaüstünde oluşturulan yeni `c:\Users\CTNKYW\Desktop\gurman-menu` klasörüne projenin tüm dosyaları (`index.html`, `DEVLOG.md`, `logo-*`, `qr-*`, `.git` deposu ve tüm alt dizinler) eksiksiz olarak aktarıldı.
+  - Yeni klasörde Git deposunun bütünlüğü (`git status`, `git remote -v`) ve dosya ağacı doğrulandı.
+  - Uzak GitHub deposu `https://github.com/gurmanusta/menu.git` (main dalı) ile senkronize durumda olduğu teyit edildi.
+  - Bundan sonraki tüm kodlama, geliştirme ve GitHub push operasyonlarının doğrudan `gurman-menu` klasöründen yürütülmesi kuralı devreye alındı.
+- Versiyon kuralı uygulandı (+0.01 ➔ v1.28).
+
+**Dosya Değişiklikleri:**
+- 📁 Proje çalışma dizini `gurman-menu/` olarak güncellendi
+- 📝 `DEVLOG.md` güncellendi (v1.28 eklendi, dosya yapısı güncellendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
-gurman-qr/
+gurman-menu/
 ├── index.html          # Ana QR menü sayfası (tek dosya, minimalist & profesyonel tasarım)
 ├── logo-gurman.png     # Siyah sınırlı şeffaf Gurman Usta logosu
 ├── logo-visa.svg       # Resmi Visa vektörel logosu
@@ -885,7 +905,7 @@ gurman-qr/
 
 ---
 
-## 📊 Mevcut Durum (v1.27)
+## 📊 Mevcut Durum (v1.28)
 
 | Özellik | Durum |
 |---------|-------|
@@ -916,6 +936,7 @@ gurman-qr/
 | GitHub Pages | 🚀 **CANLI YAYINDA (TÜRKİYE'DE ENGELSİZ VE AÇIK):** `https://gurmanusta.github.io/menu/` |
 | QR Kod Görseli | ✅ Güncellendi (`qr-code.png` ➔ `https://gurmanusta.github.io/menu/`) |
 | QR Sunum Görselleri | ✅ Üretildi (`qr-sunum.png` ve `qr-sunum.html`) |
+| Çalışma Dizini | 📁 `c:\Users\CTNKYW\Desktop\gurman-menu` |
 | Toplam ürün | 37 (Gel-Al hariç menü kalemi) |
 | Toplam kategori | 8 menü kategorisi (Pideler, Kebaplar, Et Tantuni, Tavuk Tantuni, Et Döner, Tavuk Döner, Çorba, İçecekler) |
 | Versiyon Kuralı | Bundan sonraki her prompt +0.01 artacak |
