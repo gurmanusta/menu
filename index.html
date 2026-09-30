@@ -8,6 +8,10 @@
     <meta property="og:title" content="Gurman Usta Menü">
     <meta property="og:description" content="Döner • Kebap • Tantuni • Pide — İyi lezzetlerin yeni adresi">
     <meta property="og:type" content="website">
+    <!-- Sürüm ve Son Güncelleme Bilgisi (UI'da gösterilmez, dosya içi takip) -->
+    <!-- Version: v1.30 | Last Updated: 2026-09-30 -->
+    <meta name="version" content="v1.30">
+    <meta name="last-modified" content="2026-09-30">
     <title>Gurman Usta — Menü</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -317,6 +321,16 @@
             box-shadow: 0 4px 16px rgba(226, 1, 15, 0.35);
         }
 
+        .menu-item,
+        .menu-item * {
+            -webkit-tap-highlight-color: transparent !important;
+        }
+
+        .menu-item:active,
+        .menu-item:focus {
+            outline: none;
+        }
+
         .item-info {
             flex: 1;
             min-width: 0;
@@ -326,9 +340,19 @@
             font-weight: 600;
             font-size: 0.95rem;
             color: var(--text-primary);
+            transition: none;
         }
 
-        .item-name.special {
+        .menu-item:active .item-name,
+        .menu-item:focus .item-name,
+        .menu-item.selected .item-name {
+            color: var(--text-primary);
+        }
+
+        .item-name.special,
+        .menu-item:active .item-name.special,
+        .menu-item:focus .item-name.special,
+        .menu-item.selected .item-name.special {
             color: var(--gold);
         }
 

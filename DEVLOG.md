@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.30](#v130) | 2026-09-30 | Yemek satırına tıklanınca yemek isimlerinin anlık renk değiştirmesi engellendi, index.html içine sürüm ve son güncelleme meta etiketleri eklendi |
 | [v1.29](#v129) | 2026-09-30 | Gel-Al kartı & normal fiyat boşluk simetrisi sağlandı, Niğde Gazozu düzeltildi, iletişim butonları-ödeme logoları mesafesi üst sınırla eşitlendi ve logolar büyütüldü |
 | [v1.28](#v128) | 2026-09-30 | Proje yerel çalışma dizini masaüstündeki yeni 'gurman-menu' klasörüne taşındı, tüm Git ve geliştirme operasyonları bu klasöre aktarıldı |
 | [v1.27](#v127) | 2026-09-30 | GitHub repo adı 'menu' olarak güncellendi (gurmanusta.github.io/menu/), QR kod ve sunum afişleri yeni kalıcı adrese uyarlandı |
@@ -913,6 +914,27 @@
 
 ---
 
+## v1.30
+**📅 2026-09-30 10:50** · Yemek İsimleri Tıklama Renk Kilidi & Dosya İçi Sürüm/Tarih Meta Bilgisi
+
+**Prompt:** yemek butonlarına tıklayınca yemek isimleri anlık bi renk degiştiriyor, bu renk degişimi olmasın. ayrıca index.html içerisinde versiyon ve son güncelleme tarihi tutulsun, ön yüzde bir yerde göstermesek de dosya içerisinde bunlar bulunsun.
+
+**Yapılanlar:**
+- **Tıklama / Dokunma Renk Değişiminin Engellenmesi:**
+  - `.menu-item` ve tüm alt elemanları için `-webkit-tap-highlight-color: transparent !important;` tanımlandı.
+  - `.menu-item:active`, `.menu-item:focus`, `.item-name` ve `.item-name.special` durumlarında renk sabitlendi (`color: var(--text-primary)` ve özel ürünlerde `color: var(--gold)`). Tıklama anında veya dokunurken anlık renk flaşı/değişimi tamamen ortadan kaldırıldı.
+- **Dosya İçi Sürüm & Tarih Meta Bilgisi:**
+  - `index.html` dosyasının `<head>` bölümüne arayüzde görünmeyen ancak dosya içeriğinde sürüm ve son güncelleme tarihini tutan meta etiketleri ve yorum bloğu eklendi:
+    - `<meta name="version" content="v1.30">`
+    - `<meta name="last-modified" content="2026-09-30">`
+- Versiyon kuralı uygulandı (+0.01 ➔ v1.30).
+
+**Dosya Değişiklikleri:**
+- 📝 `index.html` güncellendi (Tap highlight kilidi, renk sabitlemesi, sürüm meta etiketleri)
+- 📝 `DEVLOG.md` güncellendi (v1.30 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
@@ -933,7 +955,7 @@ gurman-menu/
 
 ---
 
-## 📊 Mevcut Durum (v1.29)
+## 📊 Mevcut Durum (v1.30)
 
 | Özellik | Durum |
 |---------|-------|
@@ -943,7 +965,7 @@ gurman-menu/
 | Sayfa Arka Planı | 🌟 Logo kırmızısıyla tam uyumlu derin koyu kırmızı/şarap tonları (`#260e10`, `#361215`, `#1a080a`) |
 | Tipografi & Düz Metinler | 🌟 Logo kırmızısının açık pastel tonu (`#ea969c`); fiyat tarihi, ürün gramajları (100gr), nav linkleri ve footer metninde aktif |
 | Metin Seçilebilirliği | 🌟 Global olarak tamamen kapatıldı (`user-select: none;` ile tüm uygulamada hiçbir yazı seçilemez, native app hissi) |
-| Dokunma Geri Bildirimi | 🌟 Mavi flaş efekti tamamen kaldırıldı; menü butonlarında ve tüm öğelerde kırmızı (`rgba(226, 1, 15, 0.3)`) tap highlight aktif |
+| Dokunma Geri Bildirimi | 🌟 Menü satırlarına tıklayınca/dokununca yemek isimleri asla renk değiştirmez (`tap-highlight: transparent` ve renk kilidi) |
 | Yemek Satırı Seçimi | 🌟 Akıllı toggle mekanizması; dokununca seçilir, tekrar dokununca veya dışarı basınca seçim iptal olur |
 | Gel-Al Fiyat Tabelaları | 🌟 Çerçeveyle eşit kırmızı (`#e2010f`) fiyatlı, sağındaki normal fiyat ile arasındaki boşluk sağ dış kenarlıkla birebir eşit (16px / desktop 20px) |
 | Hero Bölümü | 🌟 Şeffaf logo + Glow Efektli Pixel Kayan Tabela + Fiyat Tarihi |
@@ -954,6 +976,7 @@ gurman-menu/
 | Spesiyaller | 🌟 Gurman Kapalı Pide ve Yaprak Şiş altın sarısı vurgulu |
 | İletişim Kartı & Simge Butonları | 🌟 Kart üst sınırı ve ödeme yöntemleri ile mesafeler eşitlendi (26px); logolar büyütüldü (36px SVG, 66px dairesel butonlar) |
 | Ödeme Logoları | 🌟 Visa, Mastercard, Pluxee, Sodexo, Ticket Restaurant, Setcard |
+| Dosya İçi Meta Takip | 🌟 Sürüm ve son güncelleme tarihi `index.html` meta etiketlerinde kayıtlı (UI'da gizli) |
 | Footer & Slogan | 🌟 `gurmanusta.com` kaldırıldı; sade ve şık `© 2026 Gurman Usta — İyi lezzetlerin Yeni Adresi` |
 | Navigasyon & Scroll | 🚀 8 menü kategorisi + İletişim, akıcı kaydırma ve ortalama |
 | Logo | 🌟 Siyah sınırlı, şeffaf, yüksek çözünürlüklü |
