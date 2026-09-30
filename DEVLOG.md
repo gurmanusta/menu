@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.34](#v134) | 2026-09-30 | v1.33'teki sabit pixel tabela başlık tasarımı geri alındı; Playfair Display tırnaklı fonta ve sol kırmızı çizgiye dönüldü |
 | [v1.33](#v133) | 2026-09-30 | Kategori başlıkları üst tabeladaki VT323 pixel LED tabela stiline uyarlandı; sabit tabela görünümü sağlandı |
 | [v1.32](#v132) | 2026-09-30 | QR kod ve QR sunum afişi görselleri 'https://gurmanusta.github.io/menu/' adresine yeniden üretildi ve doğrulandı |
 | [v1.31](#v131) | 2026-09-30 | Kayan yazıda tireler nokta ('•') ile değiştirildi, footer Gurman Usta yanındaki tire tek tire ('-') yapıldı |
@@ -1008,6 +1009,27 @@
 
 ---
 
+## v1.34
+**📅 2026-09-30 13:46** · Sabit Tabela Başlık Tasarımının Geri Alınması (Rollback to v1.32 Headings)
+
+**Prompt:** son promptu geri al, tabela tasarımı çok hoş olmadı.
+
+**Yapılanlar:**
+- **Kategori Başlıkları Tasarımı Geri Alındı:**
+  - v1.33 sürümünde uygulanan sabit pixel LED tabela kutu tasarımı kullanıcının geri bildirimi doğrultusunda iptal edildi.
+  - Kategori başlıkları (`.section-title-group h2`), orijinal zarif **`Playfair Display`** tırnaklı (serif) fontuna (`font-size: 1.4rem; font-weight: 700; color: var(--text-primary);`) döndürüldü.
+  - Başlıkların solundaki kırmızı aksan çizgisi stili (`.section-header { margin-bottom: 16px; padding-left: 12px; border-left: 3px solid var(--accent); }`) eksiksiz olarak geri yüklendi.
+  - 8 kategori başlığının HTML metinleri önceki formatlarına döndürüldü (`Pideler`, `Kebaplar`, `Et Tantuni`, `Tavuk Tantuni`, `Et Döner`, `Tavuk Döner`, `Çorba`, `İçecekler`).
+- **Dosya İçi Sürüm Bilgisi:**
+  - `index.html` `<head>` bölümündeki `<meta name="version" content="v1.34">` güncellendi.
+- Versiyon kuralı uygulandı (+0.01 ➔ v1.34).
+
+**Dosya Değişiklikleri:**
+- 📝 `index.html` güncellendi (Başlık stilleri ve metinleri v1.32 haline geri alındı, v1.34 meta eklendi)
+- 📝 `DEVLOG.md` güncellendi (v1.34 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
@@ -1028,7 +1050,7 @@ gurman-menu/
 
 ---
 
-## 📊 Mevcut Durum (v1.33)
+## 📊 Mevcut Durum (v1.34)
 
 | Özellik | Durum |
 |---------|-------|
@@ -1044,12 +1066,12 @@ gurman-menu/
 | Hero Bölümü | 🌟 Şeffaf logo + Glow Efektli Pixel Kayan Tabela + Fiyat Tarihi |
 | Pixel Kayan Tabela | 🌟 Nokta (`•`) ayraçlı akıcı şerit (`DÖNER • TANTUNİ • KÖFTE • LAHMACUN • PİDE • ÇORBA •`), sonsuz döngü |
 | Seçenek Arka Planları | 🌟 Logo kırmızısı bordürlü ve gradyanlı kartlar, arka planla kusursuz bütünleşti |
-| Başlıklar & Hiyerarşi | 🌟 **VT323 pixel fontlu, neon kırmızı çerçeveli ve dot-matrix ızgaralı Sabit LED Tabela tasarımı** |
+| Başlıklar & Hiyerarşi | 🌟 **Zarif Playfair Display tırnaklı fontu ve sol kırmızı çizgi vurgusu (`border-left: 3px solid #e2010f`)** |
 | İçecekler | ✅ Pepsi / Yedigün (Kutu / Şişe sıralaması), Niğde Gazozu, Büyük/Küçük Ayran |
 | Spesiyaller | 🌟 Gurman Kapalı Pide ve Yaprak Şiş altın sarısı vurgulu |
 | İletişim Kartı & Simge Butonları | 🌟 Kart üst sınırı ve ödeme yöntemleri ile mesafeler eşitlendi (26px); logolar büyütüldü (36px SVG, 66px dairesel butonlar) |
 | Ödeme Logoları | 🌟 Visa, Mastercard, Pluxee, Sodexo, Ticket Restaurant, Setcard |
-| Dosya İçi Meta Takip | 🌟 Sürüm (`v1.33`) ve son güncelleme tarihi `index.html` meta etiketlerinde kayıtlı (UI'da gizli) |
+| Dosya İçi Meta Takip | 🌟 Sürüm (`v1.34`) ve son güncelleme tarihi `index.html` meta etiketlerinde kayıtlı (UI'da gizli) |
 | Footer & Slogan | 🌟 Tek tireli sade format: `© 2026 Gurman Usta - İyi lezzetlerin Yeni Adresi` |
 | Navigasyon & Scroll | 🚀 8 menü kategorisi + İletişim, akıcı kaydırma ve ortalama |
 | Logo | 🌟 Siyah sınırlı, şeffaf, yüksek çözünürlüklü |
@@ -1062,5 +1084,5 @@ gurman-menu/
 | QR Sunum Görselleri | ✅ Üretildi (`qr-sunum.png` ve `qr-sunum.html`) |
 | Çalışma Dizini | 📁 `c:\Users\CTNKYW\Desktop\gurman-menu` |
 | Toplam ürün | 37 (Gel-Al hariç menü kalemi) |
-| Toplam kategori | 8 menü kategorisi (PİDELER, KEBAPLAR, ET TANTUNİ, TAVUK TANTUNİ, ET DÖNER, TAVUK DÖNER, ÇORBA, İÇECEKLER) |
+| Toplam kategori | 8 menü kategorisi (Pideler, Kebaplar, Et Tantuni, Tavuk Tantuni, Et Döner, Tavuk Döner, Çorba, İçecekler) |
 | Versiyon Kuralı | Bundan sonraki her prompt +0.01 artacak |
