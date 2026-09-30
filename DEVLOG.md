@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.22](#v122) | 2026-09-30 | GitHub Pages'e dönüş (gurmanusta.github.io/qr-menu/), QR kod ve QR sunum afişlerinin kalıcı adrese güncellenmesi |
 | [v1.21](#v121) | 2026-09-30 | Cloudflare Pages (gurman.pages.dev) QR kodu ve masa üstü/sosyal medya QR sunum görseli (qr-sunum.png/html) hazırlandı |
 | [v1.20](#v120) | 2026-09-30 | Gel Al rozetinin satır yüksekliğini etkilemesi engellendi (26px flex kilidi), Gel Al yazısı büyütüldü (0.7rem), fiyat turuncu (#ff9f43) renge çevrildi |
 | [v1.19](#v119) | 2026-09-30 | Gel Al tabelası iki satırlı kırmızı placard tasarımına geçirildi (yeşil/pixel kaldırıldı), tüm sayfa renkleri Gurman Usta logosunun kırmızısına (#e2010f) uyarlandı |
@@ -714,6 +715,32 @@
 
 ---
 
+## v1.22
+**📅 2026-09-30 03:05** · GitHub Pages'e Geri Dönüş, Türkiye İçi ISP Erişim Engeli Analizi ve QR Dosyalarının Güncellenmesi
+
+**Prompt:** tekrar public yaptım. diğer şeylerle uğraşmak daha zahmetli.
+
+**Yapılanlar:**
+- **Türkiye İçi ISP Erişim Analizi & Çözüm:**
+  - `pages.dev` alan adının Türkiye'de BTK / Erişim Sağlayıcıları Birliği (ESB) tarafından engellendiği (`aidiyet.esb.org.tr` middlebox HTTP 307 yanıtı) tespit edildi. Mobil cihazlarda oluşan beyaz ekranın bu protokol kesintisinden kaynaklandığı doğrulandı.
+  - Kullanıcının depoyu tekrar Public yapmasıyla GitHub Pages anında aktifleştirildi (`gh api` ile re-enable edildi).
+  - Türkiye'deki ağ ortamından yapılan testte `https://gurmanusta.github.io/qr-menu/` adresinin HTTP 200 OK yanıtı verdiği ve tüm operatörlerden saniyesinde, engelsiz açıldığı kesinleştirildi.
+- **Kusursuz QR Kod Yenilenmesi (`qr-code.png`):**
+  - Python `qrcode` kütüphanesi ile doğrudan kalıcı ve güvenilir `https://gurmanusta.github.io/qr-menu/` adresine kodlandı.
+  - OpenCV `QRCodeDetector` ile taranarak kodun birebir bu URL'ye çözündüğü doğrulandı.
+- **Yazdırılabilir Sunum Sayfası & Afiş Görseli Güncellemesi (`qr-sunum.html` & `qr-sunum.png`):**
+  - `qr-sunum.html` içerisindeki doğrudan bağlantı hapı `🌐 gurmanusta.github.io/qr-menu` olarak güncellendi.
+  - Headless Edge ile 1240x1640 piksel, yüksek kaliteli ve kristal netliğinde yeni `qr-sunum.png` render edildi.
+- Versiyon kuralı uygulandı (+0.01 ➔ v1.22).
+
+**Dosya Değişiklikleri:**
+- 📝 `qr-code.png` güncellendi (https://gurmanusta.github.io/qr-menu/ kodlandı)
+- 📝 `qr-sunum.html` güncellendi (URL gurmanusta.github.io/qr-menu yapıldı)
+- 📝 `qr-sunum.png` yeniden render edildi (Güncel QR kod ve link ile)
+- 📝 `DEVLOG.md` güncellendi (v1.22 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
@@ -726,7 +753,7 @@ gurman-qr/
 ├── logo-sodexo.svg     # Resmi Sodexo vektörel logosu
 ├── logo-ticket.png     # Resmi Ticket Restaurant (Edenred) logosu
 ├── logo-setcard.svg    # Resmi Setcard vektörel logosu
-├── qr-code.png         # gurman.pages.dev yönlendiren güncel QR Kod görseli
+├── qr-code.png         # gurmanusta.github.io/qr-menu yönlendiren güncel QR Kod görseli
 ├── qr-sunum.html       # Masa üstü föyü ve sosyal medya için yazdırılabilir QR sunum sayfası
 ├── qr-sunum.png        # Yüksek çözünürlüklü (1240x1640) QR afiş/sunum görseli
 └── DEVLOG.md           # Bu devlog dosyası
@@ -734,7 +761,7 @@ gurman-qr/
 
 ---
 
-## 📊 Mevcut Durum (v1.21)
+## 📊 Mevcut Durum (v1.22)
 
 | Özellik | Durum |
 |---------|-------|
@@ -760,8 +787,8 @@ gurman-qr/
 | Gel-Al Fiyat Entegrasyonu | ✅ Belirtilen ürünlerde Gel Al fiyatları satırı genişletmeyen kırmızı tabela olarak solda eklendi |
 | GitHub CLI (gh) | ✅ Kuruldu ve Giriş Yapıldı |
 | GitHub Repo Push | ✅ Yüklendi (`gurmanusta/qr-menu`) |
-| Cloudflare Pages | 🚀 **CANLI YAYINDA:** `https://gurman.pages.dev/` |
-| QR Kod Görseli | ✅ Güncellendi (`qr-code.png` ➔ `https://gurman.pages.dev/`) |
+| GitHub Pages | 🚀 **CANLI YAYINDA (TÜRKİYE'DE ENGELSİZ VE AÇIK):** `https://gurmanusta.github.io/qr-menu/` |
+| QR Kod Görseli | ✅ Güncellendi (`qr-code.png` ➔ `https://gurmanusta.github.io/qr-menu/`) |
 | QR Sunum Görselleri | ✅ Üretildi (`qr-sunum.png` ve `qr-sunum.html`) |
 | Toplam ürün | 37 (Gel-Al hariç menü kalemi) |
 | Toplam kategori | 8 menü kategorisi (Pideler, Kebaplar, Et Tantuni, Tavuk Tantuni, Et Döner, Tavuk Döner, Çorba, İçecekler) |
