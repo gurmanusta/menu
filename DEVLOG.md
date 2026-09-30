@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.23](#v123) | 2026-09-30 | Kayan yazının mobilde tam satıra genişletilmesi (desktopta 480px sınırlandı), Gel Al fiyat rengi sarıya (#f5c518) çevrildi, Gel Al kart yüksekliği artırıldı (satır yüksekliği sabit tutuldu) |
 | [v1.22](#v122) | 2026-09-30 | GitHub Pages'e dönüş (gurmanusta.github.io/qr-menu/), QR kod ve QR sunum afişlerinin kalıcı adrese güncellenmesi |
 | [v1.21](#v121) | 2026-09-30 | Cloudflare Pages (gurman.pages.dev) QR kodu ve masa üstü/sosyal medya QR sunum görseli (qr-sunum.png/html) hazırlandı |
 | [v1.20](#v120) | 2026-09-30 | Gel Al rozetinin satır yüksekliğini etkilemesi engellendi (26px flex kilidi), Gel Al yazısı büyütüldü (0.7rem), fiyat turuncu (#ff9f43) renge çevrildi |
@@ -741,6 +742,31 @@
 
 ---
 
+## v1.23
+**📅 2026-09-30 03:20** · Kayan Yazının Mobilde Tam Satır Yapılması, Sarı Gel-Al Fiyat Rengi (#f5c518) ve Yükseltilen Gel-Al Kartı
+
+**Prompt:** kayan yazı'yı mobilde tüm satırı kapsayacak kadar genişletmek lazım, ama masaüstünde tüm satırı kapsasın istemiyorum. ayrıca gel al fiyat rengini turuncu'dan sarıya çevir. ayrıca gel al kartının yüksekliğini biraz artır ama bunu artırınca bulunduğu yemek satır yüksekliği artmasın.
+
+**Yapılanlar:**
+- **Kayan Yazı Tam Satır (Mobile Full-Width Ticker):**
+  - Mobilde `.pixel-marquee` genişliği `%100` yapılarak ekranın solundan sağına kadar kesintisiz akan tam satır LED neon tabelaya dönüştürüldü. Kenarlardaki sıkışma ve kelime kırılmaları ("ÇORBA" -> "ORBA") tamamen giderildi.
+  - Masaüstünde (`@media (min-width: 768px)`) tüm satırı kaplamaması için `max-width: 480px` ve `margin: 14px auto 0` kuralı ile 8px yuvarlatılmış ve 4 kenarlı çerçeveli kompakt masaüstü kutusu olarak kilitlendi.
+- **Gel-Al Fiyat Renginin Sarıya Çevrilmesi:**
+  - `.sign-gelal .sign-price` metin rengi turuncudan, standart salon fiyatlarında kullanılan altın sarısına (`var(--gold)` / `#f5c518`) dönüştürüldü.
+- **Gel-Al Kartının Yüksekliğinin Artırılması & Satır Yüksekliğinin Korunması:**
+  - Gel-Al kartının iç dolgusu (`padding: 5px 8px`), yazı boyutları (`0.72rem` ve `0.95rem`) ve yüksekliği (`~41.7px`) artırılarak çok daha ferah, belirgin ve rahat okunur hale getirildi.
+  - Kartın bulunduğu yemek satırını ("Somun Tavuk Tantuni", "Tavuk Döner Ekmek Arası") kesinlikle kalınlaştırmaması ve diğer satırlarla birebir aynı satır yüksekliğinde kalması için:
+    - `.price-container` yüksekliği `20px`'e ayarlandı.
+    - `.sign-gelal` bileşenine `margin: -10px 0` uygulanarak kart dikeyde menü kartının 14px'lik doğal dolgusu içinde kusursuz ortalandı.
+    - Test ölçümlerinde: Standart `Dürüm Tavuk Tantuni` satır yüksekliği `55.6px`, Gel-Al rozetli `Somun Tavuk Tantuni` satır yüksekliği `54.3px` olarak ölçüldü; Gel-Al satırı hiçbir şekilde diğer satırları aşmadı.
+- Versiyon kuralı uygulandı (+0.01 ➔ v1.23).
+
+**Dosya Değişiklikleri:**
+- 📝 `index.html` güncellendi (Pixel tabela mobile 100% / desktop max-width 480px, Gel-Al sarı renk, genişletilmiş & satırı büyütmeyen kart)
+- 📝 `DEVLOG.md` güncellendi (v1.23 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
@@ -761,7 +787,7 @@ gurman-qr/
 
 ---
 
-## 📊 Mevcut Durum (v1.22)
+## 📊 Mevcut Durum (v1.23)
 
 | Özellik | Durum |
 |---------|-------|
@@ -770,9 +796,9 @@ gurman-qr/
 | Renk Paleti | 🌟 Gurman Usta logosu ile birebir eşleşen canlı Türk kırmızısı (`#e2010f`) ve uyumlu zemin/kart tonları |
 | Sayfa Arka Planı | 🌟 Logo kırmızısıyla tam uyumlu derin koyu kırmızı/şarap tonları (`#260e10`, `#361215`, `#1a080a`) |
 | Tipografi & Düz Metinler | 🌟 Logo kırmızısının açık pastel tonu (`#ea969c`); fiyat tarihi, ürün gramajları (100gr), nav linkleri ve footer metninde aktif |
-| Gel-Al Fiyat Tabelaları | 🌟 Satır yüksekliğini etkilemeyen (26px kilitli), üstte 0.7rem 'GEL AL' ve altta sıcak turuncu (`#ff9f43`) fiyatlı kompakt tabela |
+| Gel-Al Fiyat Tabelaları | 🌟 Daha ferah ve yüksek (41.7px), altın sarısı (`#f5c518`) fiyatlı, satır yüksekliğini kesinlikle artırmayan kilitli tasarım |
 | Hero Bölümü | 🌟 Şeffaf logo + Glow Efektli Pixel Kayan Tabela + Fiyat Tarihi |
-| Pixel Kayan Tabela | 🌟 VT323 retro LED neon glow efektli, logo kırmızısı çerçeveli, sonsuz döngü (DÖNER - TANTUNİ - KÖFTE - LAHMACUN - PİDE - ÇORBA) |
+| Pixel Kayan Tabela | 🌟 Mobilde ekranı tam satır kaplayan akıcı şerit, masaüstünde 480px merkezli kompakt kutu, sonsuz döngü |
 | Seçenek Arka Planları | 🌟 Logo kırmızısı bordürlü ve gradyanlı kartlar, arka planla kusursuz bütünleşti |
 | Fiyat Seçilebilirliği | 🌟 Seçim kilidi aktif (`user-select: none;` ile mobilde dokunulduğunda mavi seçim engellendi) |
 | Başlıklar & Hiyerarşi | 🌟 Et Tantuni ve Tavuk Tantuni bağımsız ana başlık; Et Döner önde |
