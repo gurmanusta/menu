@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.24](#v124) | 2026-09-30 | Tüm metinlerin seçimi engellendi (global user-select: none), menü butonlarına basınca çıkan mavi efekt kırmızı marka tonuna (#e2010f) dönüştürüldü |
 | [v1.23](#v123) | 2026-09-30 | Kayan yazının mobilde tam satıra genişletilmesi (desktopta 480px sınırlandı), Gel Al fiyat rengi sarıya (#f5c518) çevrildi, Gel Al kart yüksekliği artırıldı (satır yüksekliği sabit tutuldu) |
 | [v1.22](#v122) | 2026-09-30 | GitHub Pages'e dönüş (gurmanusta.github.io/qr-menu/), QR kod ve QR sunum afişlerinin kalıcı adrese güncellenmesi |
 | [v1.21](#v121) | 2026-09-30 | Cloudflare Pages (gurman.pages.dev) QR kodu ve masa üstü/sosyal medya QR sunum görseli (qr-sunum.png/html) hazırlandı |
@@ -767,6 +768,29 @@
 
 ---
 
+## v1.24
+**📅 2026-09-30 03:22** · Tüm Metinlerin Seçilemez Yapılması (Global User-Select: None) ve Menü Butonlarına Kırmızı Dokunma Efekti
+
+**Prompt:** uygulamadki hiç bir yazı seçilemesin. ayrıca yukarıdaki menü butonlarına basınca mavi bir ton efekti var, o mavi de ton olarak kırmızı karşılığı olarak değişmeli.
+
+**Yapılanlar:**
+- **Uygulama Genelinde Metin Seçiminin Engellenmesi (Native App Hissi):**
+  - Tüm sayfa (`*, *::before, *::after, html, body`) düzeyinde `-webkit-user-select: none`, `-moz-user-select: none`, `-ms-user-select: none` ve `user-select: none` kuralları tanımlandı.
+  - Mobilde uzun basıldığında çıkan büyüteç ve bağlam menüsü `-webkit-touch-callout: none` ile devre dışı bırakıldı.
+  - Olası tarayıcı seçim durumları için `::selection` ve `::-moz-selection` renkleri mavi yerine marka kırmızısı (`rgba(226, 1, 15, 0.4)`) yapıldı.
+  - Böylece menü gezinirken, kaydırırken veya ürünlere dokunulurken hiçbir metin yanlışlıkla seçilmez veya maviye boyanmaz.
+- **Kategori Menü Butonlarına Kırmızı Dokunma Efekti:**
+  - Mobil tarayıcıların (Android Chrome / WebKit) varsayılan mavi dokunma flaşını (`-webkit-tap-highlight-color`) bastırmak için global olarak `-webkit-tap-highlight-color: rgba(226, 1, 15, 0.25)` kuralı uygulandı.
+  - `.category-nav a` butonlarına özel `-webkit-tap-highlight-color: rgba(226, 1, 15, 0.3)` ve `:active` durumunda kırmızı arka plan dolgusu (`background: rgba(226, 1, 15, 0.2)`) ve açık kırmızı metin rengi (`color: var(--accent-light)`) tanımlandı.
+  - İstenmeyen mavi parlamalar yerini Gurman Usta kırmızısı ile kusursuz uyumlu kırmızı dokunma geri bildirimine bıraktı.
+- Versiyon kuralı uygulandı (+0.01 ➔ v1.24).
+
+**Dosya Değişiklikleri:**
+- 📝 `index.html` güncellendi (Global user-select none, touch-callout none, kırmızı tap-highlight ve active efekti)
+- 📝 `DEVLOG.md` güncellendi (v1.24 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
@@ -787,7 +811,7 @@ gurman-qr/
 
 ---
 
-## 📊 Mevcut Durum (v1.23)
+## 📊 Mevcut Durum (v1.24)
 
 | Özellik | Durum |
 |---------|-------|
@@ -796,11 +820,12 @@ gurman-qr/
 | Renk Paleti | 🌟 Gurman Usta logosu ile birebir eşleşen canlı Türk kırmızısı (`#e2010f`) ve uyumlu zemin/kart tonları |
 | Sayfa Arka Planı | 🌟 Logo kırmızısıyla tam uyumlu derin koyu kırmızı/şarap tonları (`#260e10`, `#361215`, `#1a080a`) |
 | Tipografi & Düz Metinler | 🌟 Logo kırmızısının açık pastel tonu (`#ea969c`); fiyat tarihi, ürün gramajları (100gr), nav linkleri ve footer metninde aktif |
+| Metin Seçilebilirliği | 🌟 Global olarak tamamen kapatıldı (`user-select: none;` ile tüm uygulamada hiçbir yazı seçilemez, native app hissi) |
+| Dokunma Geri Bildirimi | 🌟 Mavi flaş efekti tamamen kaldırıldı; menü butonlarında ve tüm öğelerde kırmızı (`rgba(226, 1, 15, 0.3)`) tap highlight aktif |
 | Gel-Al Fiyat Tabelaları | 🌟 Daha ferah ve yüksek (41.7px), altın sarısı (`#f5c518`) fiyatlı, satır yüksekliğini kesinlikle artırmayan kilitli tasarım |
 | Hero Bölümü | 🌟 Şeffaf logo + Glow Efektli Pixel Kayan Tabela + Fiyat Tarihi |
 | Pixel Kayan Tabela | 🌟 Mobilde ekranı tam satır kaplayan akıcı şerit, masaüstünde 480px merkezli kompakt kutu, sonsuz döngü |
 | Seçenek Arka Planları | 🌟 Logo kırmızısı bordürlü ve gradyanlı kartlar, arka planla kusursuz bütünleşti |
-| Fiyat Seçilebilirliği | 🌟 Seçim kilidi aktif (`user-select: none;` ile mobilde dokunulduğunda mavi seçim engellendi) |
 | Başlıklar & Hiyerarşi | 🌟 Et Tantuni ve Tavuk Tantuni bağımsız ana başlık; Et Döner önde |
 | İçecekler | ✅ Pepsi / Yedigün (Kutu / Şişe sıralaması), Büyük/Küçük Ayran |
 | Spesiyaller | 🌟 Gurman Kapalı Pide ve Yaprak Şiş altın sarısı vurgulu |
