@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.25](#v125) | 2026-09-30 | Gel Al fiyat rengi kart çerçevesiyle (#e2010f) eşitlendi, iletişim butonları 64px'e büyütüldü, footer'daki gurmanusta.com kaldırıldı |
 | [v1.24](#v124) | 2026-09-30 | Tüm metinlerin seçimi engellendi (global user-select: none), menü butonlarına basınca çıkan mavi efekt kırmızı marka tonuna (#e2010f) dönüştürüldü |
 | [v1.23](#v123) | 2026-09-30 | Kayan yazının mobilde tam satıra genişletilmesi (desktopta 480px sınırlandı), Gel Al fiyat rengi sarıya (#f5c518) çevrildi, Gel Al kart yüksekliği artırıldı (satır yüksekliği sabit tutuldu) |
 | [v1.22](#v122) | 2026-09-30 | GitHub Pages'e dönüş (gurmanusta.github.io/qr-menu/), QR kod ve QR sunum afişlerinin kalıcı adrese güncellenmesi |
@@ -791,6 +792,29 @@
 
 ---
 
+## v1.25
+**📅 2026-09-30 03:28** · Gel-Al Fiyatının Kart Çerçevesiyle Eşitlenmesi (#e2010f), Büyütülen İletişim Butonları (64px) ve Footer Düzenlemesi
+
+**Prompt:** gel al kartındaki fiyat rengi, gel al kartının dış çerçeve rengi ile aynı olsun. ayrıca iletişim butonları bi tık büyüsün. en alttaki gurmanusta.com yazısını da kaldır.
+
+**Yapılanlar:**
+- **Gel-Al Fiyat Renginin Çerçeveyle Eşitlenmesi:**
+  - `.sign-gelal` dış çerçevesi ve `.sign-price` metin rengi ortak `var(--accent)` (`#e2010f`) rengine bağlandı.
+  - Kart çerçevesi ve fiyat rakamı birebir aynı canlı kırmızı tonuyla monokrom ve uyumlu bir tasarım kazandı.
+- **İletişim Butonlarının Büyütülmesi (Touch Target Optimization):**
+  - İletişim kartındaki 4 simge butonun (`.contact-link`) boyutu `56px`'den **`64px`**'e çıkarıldı.
+  - İçerideki SVG simgeleri de `26px`'den **`30px`**'e büyütülerek mobilde çok daha kolay dokunulabilir ve belirgin hale getirildi.
+- **Footer Temizliği:**
+  - En alttaki `gurmanusta.com` bağlantı metni kaldırıldı.
+  - Footer yalnızca `© 2026 Gurman Usta — İyi lezzetlerin Yeni Adresi` telif ve slogan metnini barındıracak şekilde sadeleştirildi.
+- Versiyon kuralı uygulandı (+0.01 ➔ v1.25).
+
+**Dosya Değişiklikleri:**
+- 📝 `index.html` güncellendi (Gel-Al fiyat ve çerçeve #e2010f, iletişim butonları 64px, footer gurmanusta.com kaldırıldı)
+- 📝 `DEVLOG.md` güncellendi (v1.25 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
@@ -811,7 +835,7 @@ gurman-qr/
 
 ---
 
-## 📊 Mevcut Durum (v1.24)
+## 📊 Mevcut Durum (v1.25)
 
 | Özellik | Durum |
 |---------|-------|
@@ -822,16 +846,16 @@ gurman-qr/
 | Tipografi & Düz Metinler | 🌟 Logo kırmızısının açık pastel tonu (`#ea969c`); fiyat tarihi, ürün gramajları (100gr), nav linkleri ve footer metninde aktif |
 | Metin Seçilebilirliği | 🌟 Global olarak tamamen kapatıldı (`user-select: none;` ile tüm uygulamada hiçbir yazı seçilemez, native app hissi) |
 | Dokunma Geri Bildirimi | 🌟 Mavi flaş efekti tamamen kaldırıldı; menü butonlarında ve tüm öğelerde kırmızı (`rgba(226, 1, 15, 0.3)`) tap highlight aktif |
-| Gel-Al Fiyat Tabelaları | 🌟 Daha ferah ve yüksek (41.7px), altın sarısı (`#f5c518`) fiyatlı, satır yüksekliğini kesinlikle artırmayan kilitli tasarım |
+| Gel-Al Fiyat Tabelaları | 🌟 Daha ferah ve yüksek (41.7px), çerçeveyle birebir eşit kırmızı (`#e2010f`) fiyatlı, satır yüksekliğini kesinlikle artırmayan kilitli tasarım |
 | Hero Bölümü | 🌟 Şeffaf logo + Glow Efektli Pixel Kayan Tabela + Fiyat Tarihi |
 | Pixel Kayan Tabela | 🌟 Mobilde ekranı tam satır kaplayan akıcı şerit, masaüstünde 480px merkezli kompakt kutu, sonsuz döngü |
 | Seçenek Arka Planları | 🌟 Logo kırmızısı bordürlü ve gradyanlı kartlar, arka planla kusursuz bütünleşti |
 | Başlıklar & Hiyerarşi | 🌟 Et Tantuni ve Tavuk Tantuni bağımsız ana başlık; Et Döner önde |
 | İçecekler | ✅ Pepsi / Yedigün (Kutu / Şişe sıralaması), Büyük/Küçük Ayran |
 | Spesiyaller | 🌟 Gurman Kapalı Pide ve Yaprak Şiş altın sarısı vurgulu |
-| İletişim Simge Butonları | 🌟 Başlıksız, sade ve odaklanmış; 4 büyük simge: Ara, Instagram, Google Haritalar, WhatsApp |
+| İletişim Simge Butonları | 🌟 Bir tık büyütüldü (64x64px dairesel butonlar, 30px simgeler); 4 büyük simge: Ara, Instagram, Google Haritalar, WhatsApp |
 | Ödeme Logoları | 🌟 Visa, Mastercard, Pluxee, Sodexo, Ticket Restaurant, Setcard |
-| Footer & Slogan | 🌟 İletişim kartının hemen altında `© 2026 Gurman Usta — İyi lezzetlerin Yeni Adresi` |
+| Footer & Slogan | 🌟 `gurmanusta.com` kaldırıldı; sade ve şık `© 2026 Gurman Usta — İyi lezzetlerin Yeni Adresi` |
 | Navigasyon & Scroll | 🚀 8 menü kategorisi + İletişim, akıcı kaydırma ve ortalama |
 | Logo | 🌟 Siyah sınırlı, şeffaf, yüksek çözünürlüklü |
 | Menü doğrulaması | ✅ 41/41 ürün incelendi, Gel-Al hariç 37 aktif ürün |
