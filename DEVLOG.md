@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.26](#v126) | 2026-09-30 | Yemek satırları interaktif toggle seçime bağlandı (tekrar dokununca veya dışarı basınca seçim iptal ediliyor, mobil yapışkan hover çözüldü) |
 | [v1.25](#v125) | 2026-09-30 | Gel Al fiyat rengi kart çerçevesiyle (#e2010f) eşitlendi, iletişim butonları 64px'e büyütüldü, footer'daki gurmanusta.com kaldırıldı |
 | [v1.24](#v124) | 2026-09-30 | Tüm metinlerin seçimi engellendi (global user-select: none), menü butonlarına basınca çıkan mavi efekt kırmızı marka tonuna (#e2010f) dönüştürüldü |
 | [v1.23](#v123) | 2026-09-30 | Kayan yazının mobilde tam satıra genişletilmesi (desktopta 480px sınırlandı), Gel Al fiyat rengi sarıya (#f5c518) çevrildi, Gel Al kart yüksekliği artırıldı (satır yüksekliği sabit tutuldu) |
@@ -815,6 +816,28 @@
 
 ---
 
+## v1.26
+**📅 2026-09-30 03:33** · Yemek Satırları İçin İnteraktif Toggle Seçim, İptal Mekanizması ve Mobil Yapışkan Hover Düzeltmesi
+
+**Prompt:** yemeklere dokununca satır seçiliyor, ama tekrar basınca seçip iptal olmuyor.
+
+**Yapılanlar:**
+- **Mobil Yapışkan Hover Sorununun Çözümü:**
+  - Mobil dokunmatik ekranlarda herhangi bir satıra dokunulduğunda tarayıcının tetiklediği ve kalıcı olarak yapışan `:hover` sahte sınıfı, `@media (hover: hover) and (pointer: fine)` bloğuna taşındı. Böylece mobilde dokunulduğunda satırın istem dışı kilitlenip kalması engellendi.
+- **İnteraktif Satır Seçim & İptal Mekanizması (Tap to Select / Deselect):**
+  - Menü satırlarına JavaScript ile iki yönlü seçim mekanizması entegre edildi:
+    - Bir yemek satırına dokunulduğunda `.selected` sınıfı eklenerek satır 4px sağa kayıyor, kırmızı arka plan ve zarif kırmızı gölgeyle öne çıkıyor.
+    - Aynı satıra **tekrar dokunulduğunda** seçim anında **iptal ediliyor** (`classList.remove('selected')`), satır normal haline dönüyor.
+    - Başka bir yemeğe dokunulduğunda önceki yemeğin seçimi temizlenip yeni yemek seçiliyor.
+    - Menü satırlarının dışına (boş alana veya navigasyona) dokunulduğunda da aktif seçim otomatik olarak kapanıyor.
+- Versiyon kuralı uygulandı (+0.01 ➔ v1.26).
+
+**Dosya Değişiklikleri:**
+- 📝 `index.html` güncellendi (Hover media query, .menu-item.selected stilleri, tıklamayla seçim açma/kapama ve dışarı basınca iptal script'i)
+- 📝 `DEVLOG.md` güncellendi (v1.26 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
@@ -835,7 +858,7 @@ gurman-qr/
 
 ---
 
-## 📊 Mevcut Durum (v1.25)
+## 📊 Mevcut Durum (v1.26)
 
 | Özellik | Durum |
 |---------|-------|
@@ -846,6 +869,7 @@ gurman-qr/
 | Tipografi & Düz Metinler | 🌟 Logo kırmızısının açık pastel tonu (`#ea969c`); fiyat tarihi, ürün gramajları (100gr), nav linkleri ve footer metninde aktif |
 | Metin Seçilebilirliği | 🌟 Global olarak tamamen kapatıldı (`user-select: none;` ile tüm uygulamada hiçbir yazı seçilemez, native app hissi) |
 | Dokunma Geri Bildirimi | 🌟 Mavi flaş efekti tamamen kaldırıldı; menü butonlarında ve tüm öğelerde kırmızı (`rgba(226, 1, 15, 0.3)`) tap highlight aktif |
+| Yemek Satırı Seçimi | 🌟 Akıllı toggle mekanizması; dokununca seçilir, tekrar dokununca veya dışarı basınca seçim iptal olur |
 | Gel-Al Fiyat Tabelaları | 🌟 Daha ferah ve yüksek (41.7px), çerçeveyle birebir eşit kırmızı (`#e2010f`) fiyatlı, satır yüksekliğini kesinlikle artırmayan kilitli tasarım |
 | Hero Bölümü | 🌟 Şeffaf logo + Glow Efektli Pixel Kayan Tabela + Fiyat Tarihi |
 | Pixel Kayan Tabela | 🌟 Mobilde ekranı tam satır kaplayan akıcı şerit, masaüstünde 480px merkezli kompakt kutu, sonsuz döngü |
