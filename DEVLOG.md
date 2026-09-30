@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.35](#v135) | 2026-09-30 | Şalgam Büyük Ayran'ın üzerine alındı, footer sloganında Lezzetlerin büyük harf yapıldı ve ayraç '•' yapıldı |
 | [v1.34](#v134) | 2026-09-30 | v1.33'teki sabit pixel tabela başlık tasarımı geri alındı; Playfair Display tırnaklı fonta ve sol kırmızı çizgiye dönüldü |
 | [v1.33](#v133) | 2026-09-30 | Kategori başlıkları üst tabeladaki VT323 pixel LED tabela stiline uyarlandı; sabit tabela görünümü sağlandı |
 | [v1.32](#v132) | 2026-09-30 | QR kod ve QR sunum afişi görselleri 'https://gurmanusta.github.io/menu/' adresine yeniden üretildi ve doğrulandı |
@@ -1030,6 +1031,30 @@
 
 ---
 
+## v1.35
+**📅 2026-09-30 15:05** · İçecekler Sıralaması (Şalgam) ve Footer Sloganı Tipografi/Ayraç Düzenlemesi
+
+**Prompt:** şalgam'ı büyük ayran'ın üzerine al. ayrıca footer sloganında Lezzetlerin kelimesi küçük harf ile başlıyor, büyük L yap. ayrıca footer'daki "-" işaretini "•" yap.
+
+**Yapılanlar:**
+- **İçecekler Sıralaması:**
+  - `Şalgam` (40 ₺), İçecekler kategorisinde `Büyük Ayran` (35 ₺) ve `Küçük Ayran` (25 ₺) ürünlerinin üzerine taşındı.
+  - Yeni içecek sıralaması: Pepsi/Yedigün Kutu ➔ Şişe ➔ Ice Tea ➔ Niğde Gazozu ➔ **Şalgam** ➔ **Büyük Ayran** ➔ Küçük Ayran ➔ Meyveli Soda ➔ Soda ➔ Su.
+- **Footer Sloganı İyileştirmesi:**
+  - Slogandaki `lezzetlerin` kelimesinin baş harfi büyük yapılarak `Lezzetlerin` standardına yükseltildi.
+  - Gurman Usta yanındaki tire (`-`) işareti şık nokta (`•`) ile değiştirildi:
+    `© 2026 Gurman Usta • İyi Lezzetlerin Yeni Adresi`
+  - `og:description` meta etiketindeki slogan da aynı büyük harf standardına (`İyi Lezzetlerin Yeni Adresi`) eşitlendi.
+- **Dosya İçi Sürüm Bilgisi:**
+  - `index.html` `<head>` bölümündeki `<meta name="version" content="v1.35">` güncellendi.
+- Versiyon kuralı uygulandı (+0.01 ➔ v1.35).
+
+**Dosya Değişiklikleri:**
+- 📝 `index.html` güncellendi (Şalgam öne alındı, footer sloganı güncellendi, v1.35 meta)
+- 📝 `DEVLOG.md` güncellendi (v1.35 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
@@ -1050,7 +1075,7 @@ gurman-menu/
 
 ---
 
-## 📊 Mevcut Durum (v1.34)
+## 📊 Mevcut Durum (v1.35)
 
 | Özellik | Durum |
 |---------|-------|
@@ -1066,13 +1091,13 @@ gurman-menu/
 | Hero Bölümü | 🌟 Şeffaf logo + Glow Efektli Pixel Kayan Tabela + Fiyat Tarihi |
 | Pixel Kayan Tabela | 🌟 Nokta (`•`) ayraçlı akıcı şerit (`DÖNER • TANTUNİ • KÖFTE • LAHMACUN • PİDE • ÇORBA •`), sonsuz döngü |
 | Seçenek Arka Planları | 🌟 Logo kırmızısı bordürlü ve gradyanlı kartlar, arka planla kusursuz bütünleşti |
-| Başlıklar & Hiyerarşi | 🌟 **Zarif Playfair Display tırnaklı fontu ve sol kırmızı çizgi vurgusu (`border-left: 3px solid #e2010f`)** |
-| İçecekler | ✅ Pepsi / Yedigün (Kutu / Şişe sıralaması), Niğde Gazozu, Büyük/Küçük Ayran |
+| Başlıklar & Hiyerarşi | 🌟 Zarif Playfair Display tırnaklı fontu ve sol kırmızı çizgi vurgusu (`border-left: 3px solid #e2010f`) |
+| İçecekler | ✅ Pepsi / Yedigün (Kutu / Şişe sıralaması), Niğde Gazozu, **Şalgam**, Büyük/Küçük Ayran |
 | Spesiyaller | 🌟 Gurman Kapalı Pide ve Yaprak Şiş altın sarısı vurgulu |
 | İletişim Kartı & Simge Butonları | 🌟 Kart üst sınırı ve ödeme yöntemleri ile mesafeler eşitlendi (26px); logolar büyütüldü (36px SVG, 66px dairesel butonlar) |
 | Ödeme Logoları | 🌟 Visa, Mastercard, Pluxee, Sodexo, Ticket Restaurant, Setcard |
-| Dosya İçi Meta Takip | 🌟 Sürüm (`v1.34`) ve son güncelleme tarihi `index.html` meta etiketlerinde kayıtlı (UI'da gizli) |
-| Footer & Slogan | 🌟 Tek tireli sade format: `© 2026 Gurman Usta - İyi lezzetlerin Yeni Adresi` |
+| Dosya İçi Meta Takip | 🌟 Sürüm (`v1.35`) ve son güncelleme tarihi `index.html` meta etiketlerinde kayıtlı (UI'da gizli) |
+| Footer & Slogan | 🌟 **Nokta ayracı ve büyük L standardı: `© 2026 Gurman Usta • İyi Lezzetlerin Yeni Adresi`** |
 | Navigasyon & Scroll | 🚀 8 menü kategorisi + İletişim, akıcı kaydırma ve ortalama |
 | Logo | 🌟 Siyah sınırlı, şeffaf, yüksek çözünürlüklü |
 | Menü doğrulaması | ✅ 41/41 ürün incelendi, Gel-Al hariç 37 aktif ürün |
