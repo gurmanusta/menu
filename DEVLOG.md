@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.32](#v132) | 2026-09-30 | QR kod ve QR sunum afişi görselleri 'https://gurmanusta.github.io/menu/' adresine yeniden üretildi ve doğrulandı |
 | [v1.31](#v131) | 2026-09-30 | Kayan yazıda tireler nokta ('•') ile değiştirildi, footer Gurman Usta yanındaki tire tek tire ('-') yapıldı |
 | [v1.30](#v130) | 2026-09-30 | Yemek satırına tıklanınca yemek isimlerinin anlık renk değiştirmesi engellendi, index.html içine sürüm ve son güncelleme meta etiketleri eklendi |
 | [v1.29](#v129) | 2026-09-30 | Gel-Al kartı & normal fiyat boşluk simetrisi sağlandı, Niğde Gazozu düzeltildi, iletişim butonları-ödeme logoları mesafesi üst sınırla eşitlendi ve logolar büyütüldü |
@@ -956,6 +957,29 @@
 
 ---
 
+## v1.32
+**📅 2026-09-30 11:00** · QR Kod & Sunum Afişi Senkronizasyonu ve Teyidi
+
+**Prompt:** github pages adresini değiştirdik ama qr kodunu değiştirmeyi unuttuk.
+
+**Yapılanlar:**
+- **QR Kod ve Sunum Görselleri Yenilendi:**
+  - `qr-code.png` doğrudan yeni GitHub Pages adresi olan `https://gurmanusta.github.io/menu/` ile Python `qrcode` kütüphanesi kullanılarak en yüksek hata toleransıyla (`ERROR_CORRECT_H`) yeniden üretildi.
+  - `qr-sunum.png` yüksek çözünürlüklü afiş görseli yeni QR kodu ve `🌐 gurmanusta.github.io/menu` bağlantısı ile yeniden render edildi.
+  - Hem çalışma klasöründeki hem de arayüz artefakt dizinindeki QR dosyaları senkronize edildi.
+  - OpenCV `QRCodeDetector` ile her iki görsel taranarak `https://gurmanusta.github.io/menu/` adresine eksiksiz çözündüğü teyit edildi.
+- **Dosya İçi Sürüm Bilgisi:**
+  - `index.html` `<head>` bölümündeki `<meta name="version" content="v1.32">` güncellendi.
+- Versiyon kuralı uygulandı (+0.01 ➔ v1.32).
+
+**Dosya Değişiklikleri:**
+- 📝 `qr-code.png` yeniden üretildi (https://gurmanusta.github.io/menu/)
+- 📝 `qr-sunum.png` güncellendi
+- 📝 `index.html` güncellendi (v1.32 meta)
+- 📝 `DEVLOG.md` güncellendi (v1.32 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
@@ -976,7 +1000,7 @@ gurman-menu/
 
 ---
 
-## 📊 Mevcut Durum (v1.31)
+## 📊 Mevcut Durum (v1.32)
 
 | Özellik | Durum |
 |---------|-------|
@@ -997,7 +1021,7 @@ gurman-menu/
 | Spesiyaller | 🌟 Gurman Kapalı Pide ve Yaprak Şiş altın sarısı vurgulu |
 | İletişim Kartı & Simge Butonları | 🌟 Kart üst sınırı ve ödeme yöntemleri ile mesafeler eşitlendi (26px); logolar büyütüldü (36px SVG, 66px dairesel butonlar) |
 | Ödeme Logoları | 🌟 Visa, Mastercard, Pluxee, Sodexo, Ticket Restaurant, Setcard |
-| Dosya İçi Meta Takip | 🌟 Sürüm (`v1.31`) ve son güncelleme tarihi `index.html` meta etiketlerinde kayıtlı (UI'da gizli) |
+| Dosya İçi Meta Takip | 🌟 Sürüm (`v1.32`) ve son güncelleme tarihi `index.html` meta etiketlerinde kayıtlı (UI'da gizli) |
 | Footer & Slogan | 🌟 Tek tireli sade format: `© 2026 Gurman Usta - İyi lezzetlerin Yeni Adresi` |
 | Navigasyon & Scroll | 🚀 8 menü kategorisi + İletişim, akıcı kaydırma ve ortalama |
 | Logo | 🌟 Siyah sınırlı, şeffaf, yüksek çözünürlüklü |
