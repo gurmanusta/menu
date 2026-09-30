@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.31](#v131) | 2026-09-30 | Kayan yazıda tireler nokta ('•') ile değiştirildi, footer Gurman Usta yanındaki tire tek tire ('-') yapıldı |
 | [v1.30](#v130) | 2026-09-30 | Yemek satırına tıklanınca yemek isimlerinin anlık renk değiştirmesi engellendi, index.html içine sürüm ve son güncelleme meta etiketleri eklendi |
 | [v1.29](#v129) | 2026-09-30 | Gel-Al kartı & normal fiyat boşluk simetrisi sağlandı, Niğde Gazozu düzeltildi, iletişim butonları-ödeme logoları mesafesi üst sınırla eşitlendi ve logolar büyütüldü |
 | [v1.28](#v128) | 2026-09-30 | Proje yerel çalışma dizini masaüstündeki yeni 'gurman-menu' klasörüne taşındı, tüm Git ve geliştirme operasyonları bu klasöre aktarıldı |
@@ -935,6 +936,26 @@
 
 ---
 
+## v1.31
+**📅 2026-09-30 10:55** · Kayan Tabela Nokta ('•') Ayracı & Footer Tek Tire ('-') Düzeltmesi
+
+**Prompt:** DÖNER - TANTUNİ - KÖFTE - LAHMACUN - PİDE - ÇORBA - kayan yazısındaki "-" işaretini "•" ile değiştir. en aşağıdaki 2026 Gurman Usta yazısının yanındaki -- işaretini - yap.
+
+**Yapılanlar:**
+- **Pixel Kayan Tabela Ayracı:**
+  - `DÖNER - TANTUNİ - KÖFTE - LAHMACUN - PİDE - ÇORBA -` kayan yazısındaki tüm tire (`-`) işaretleri şık nokta (`•`) ile değiştirildi (`DÖNER • TANTUNİ • KÖFTE • LAHMACUN • PİDE • ÇORBA •`).
+- **Footer Slogan Ayracı:**
+  - Sayfa en altındaki telif ve slogan yazısındaki uzun tire (`—`) tek standart tire (`-`) yapıldı: `© 2026 Gurman Usta - İyi lezzetlerin Yeni Adresi`.
+- **Dosya İçi Sürüm Bilgisi:**
+  - `index.html` `<head>` bölümündeki `<meta name="version" content="v1.31">` güncellendi.
+- Versiyon kuralı uygulandı (+0.01 ➔ v1.31).
+
+**Dosya Değişiklikleri:**
+- 📝 `index.html` güncellendi (Kayan yazı ayracı `•`, footer ayracı `-`, v1.31 meta)
+- 📝 `DEVLOG.md` güncellendi (v1.31 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
@@ -955,7 +976,7 @@ gurman-menu/
 
 ---
 
-## 📊 Mevcut Durum (v1.30)
+## 📊 Mevcut Durum (v1.31)
 
 | Özellik | Durum |
 |---------|-------|
@@ -969,15 +990,15 @@ gurman-menu/
 | Yemek Satırı Seçimi | 🌟 Akıllı toggle mekanizması; dokununca seçilir, tekrar dokununca veya dışarı basınca seçim iptal olur |
 | Gel-Al Fiyat Tabelaları | 🌟 Çerçeveyle eşit kırmızı (`#e2010f`) fiyatlı, sağındaki normal fiyat ile arasındaki boşluk sağ dış kenarlıkla birebir eşit (16px / desktop 20px) |
 | Hero Bölümü | 🌟 Şeffaf logo + Glow Efektli Pixel Kayan Tabela + Fiyat Tarihi |
-| Pixel Kayan Tabela | 🌟 Mobilde ekranı tam satır kaplayan akıcı şerit, masaüstünde 480px merkezli kompakt kutu, sonsuz döngü |
+| Pixel Kayan Tabela | 🌟 Nokta (`•`) ayraçlı akıcı şerit (`DÖNER • TANTUNİ • KÖFTE • LAHMACUN • PİDE • ÇORBA •`), sonsuz döngü |
 | Seçenek Arka Planları | 🌟 Logo kırmızısı bordürlü ve gradyanlı kartlar, arka planla kusursuz bütünleşti |
 | Başlıklar & Hiyerarşi | 🌟 Et Tantuni ve Tavuk Tantuni bağımsız ana başlık; Et Döner önde |
 | İçecekler | ✅ Pepsi / Yedigün (Kutu / Şişe sıralaması), Niğde Gazozu, Büyük/Küçük Ayran |
 | Spesiyaller | 🌟 Gurman Kapalı Pide ve Yaprak Şiş altın sarısı vurgulu |
 | İletişim Kartı & Simge Butonları | 🌟 Kart üst sınırı ve ödeme yöntemleri ile mesafeler eşitlendi (26px); logolar büyütüldü (36px SVG, 66px dairesel butonlar) |
 | Ödeme Logoları | 🌟 Visa, Mastercard, Pluxee, Sodexo, Ticket Restaurant, Setcard |
-| Dosya İçi Meta Takip | 🌟 Sürüm ve son güncelleme tarihi `index.html` meta etiketlerinde kayıtlı (UI'da gizli) |
-| Footer & Slogan | 🌟 `gurmanusta.com` kaldırıldı; sade ve şık `© 2026 Gurman Usta — İyi lezzetlerin Yeni Adresi` |
+| Dosya İçi Meta Takip | 🌟 Sürüm (`v1.31`) ve son güncelleme tarihi `index.html` meta etiketlerinde kayıtlı (UI'da gizli) |
+| Footer & Slogan | 🌟 Tek tireli sade format: `© 2026 Gurman Usta - İyi lezzetlerin Yeni Adresi` |
 | Navigasyon & Scroll | 🚀 8 menü kategorisi + İletişim, akıcı kaydırma ve ortalama |
 | Logo | 🌟 Siyah sınırlı, şeffaf, yüksek çözünürlüklü |
 | Menü doğrulaması | ✅ 41/41 ürün incelendi, Gel-Al hariç 37 aktif ürün |
