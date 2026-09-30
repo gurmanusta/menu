@@ -8,6 +8,7 @@
 
 | Versiyon | Tarih | Özet |
 |----------|-------|------|
+| [v1.27](#v127) | 2026-09-30 | GitHub repo adı 'menu' olarak güncellendi (gurmanusta.github.io/menu/), QR kod ve sunum afişleri yeni kalıcı adrese uyarlandı |
 | [v1.26](#v126) | 2026-09-30 | Yemek satırları interaktif toggle seçime bağlandı (tekrar dokununca veya dışarı basınca seçim iptal ediliyor, mobil yapışkan hover çözüldü) |
 | [v1.25](#v125) | 2026-09-30 | Gel Al fiyat rengi kart çerçevesiyle (#e2010f) eşitlendi, iletişim butonları 64px'e büyütüldü, footer'daki gurmanusta.com kaldırıldı |
 | [v1.24](#v124) | 2026-09-30 | Tüm metinlerin seçimi engellendi (global user-select: none), menü butonlarına basınca çıkan mavi efekt kırmızı marka tonuna (#e2010f) dönüştürüldü |
@@ -838,6 +839,32 @@
 
 ---
 
+## v1.27
+**📅 2026-09-30 10:10** · GitHub Repo Adının 'menu' Olarak Güncellenmesi (gurmanusta.github.io/menu) ve QR Görsellerinin Yenilenmesi
+
+**Prompt:** repo adresini qr-menu yerine menu yaptım.
+
+**Yapılanlar:**
+- **GitHub Depo & Canlı Yayın Adresi Değişimi:**
+  - Depo adı `gurmanusta/qr-menu` yerine `gurmanusta/menu` olarak güncellendi.
+  - Canlı GitHub Pages adresi doğrudan `https://gurmanusta.github.io/menu/` oldu ve anında HTTP 200 OK yanıtıyla aktifleştiği doğrulandı.
+  - Yerel Git uzak sunucu adresi (remote origin) `https://github.com/gurmanusta/menu.git` olarak güncellendi.
+- **Kusursuz QR Kod Yenilenmesi (`qr-code.png`):**
+  - Python `qrcode` kütüphanesi ile yeni kısa ve akılda kalıcı `https://gurmanusta.github.io/menu/` adresine kodlandı.
+  - OpenCV `QRCodeDetector` ile taranarak yeni URL eksiksiz doğrulandı.
+- **QR Sunum Afişi ve Masa Şablonu Güncellemesi (`qr-sunum.html` & `qr-sunum.png`):**
+  - `qr-sunum.html` içerisindeki doğrudan bağlantı hapı `🌐 gurmanusta.github.io/menu` yapıldı.
+  - 1240x1640 piksel yüksek çözünürlüklü `qr-sunum.png` afiş görseli yeni QR kodu ve link ile headless Edge kullanılarak yeniden render edildi.
+- Versiyon kuralı uygulandı (+0.01 ➔ v1.27).
+
+**Dosya Değişiklikleri:**
+- 📝 `qr-code.png` güncellendi (https://gurmanusta.github.io/menu/ kodlandı)
+- 📝 `qr-sunum.html` güncellendi (URL gurmanusta.github.io/menu yapıldı)
+- 📝 `qr-sunum.png` yeniden render edildi (Yeni QR ve bağlantı ile)
+- 📝 `DEVLOG.md` güncellendi (v1.27 eklendi)
+
+---
+
 ## 📁 Proje Dosya Yapısı
 
 ```
@@ -850,7 +877,7 @@ gurman-qr/
 ├── logo-sodexo.svg     # Resmi Sodexo vektörel logosu
 ├── logo-ticket.png     # Resmi Ticket Restaurant (Edenred) logosu
 ├── logo-setcard.svg    # Resmi Setcard vektörel logosu
-├── qr-code.png         # gurmanusta.github.io/qr-menu yönlendiren güncel QR Kod görseli
+├── qr-code.png         # gurmanusta.github.io/menu yönlendiren güncel QR Kod görseli
 ├── qr-sunum.html       # Masa üstü föyü ve sosyal medya için yazdırılabilir QR sunum sayfası
 ├── qr-sunum.png        # Yüksek çözünürlüklü (1240x1640) QR afiş/sunum görseli
 └── DEVLOG.md           # Bu devlog dosyası
@@ -858,7 +885,7 @@ gurman-qr/
 
 ---
 
-## 📊 Mevcut Durum (v1.26)
+## 📊 Mevcut Durum (v1.27)
 
 | Özellik | Durum |
 |---------|-------|
@@ -885,9 +912,9 @@ gurman-qr/
 | Menü doğrulaması | ✅ 41/41 ürün incelendi, Gel-Al hariç 37 aktif ürün |
 | Gel-Al Fiyat Entegrasyonu | ✅ Belirtilen ürünlerde Gel Al fiyatları satırı genişletmeyen kırmızı tabela olarak solda eklendi |
 | GitHub CLI (gh) | ✅ Kuruldu ve Giriş Yapıldı |
-| GitHub Repo Push | ✅ Yüklendi (`gurmanusta/qr-menu`) |
-| GitHub Pages | 🚀 **CANLI YAYINDA (TÜRKİYE'DE ENGELSİZ VE AÇIK):** `https://gurmanusta.github.io/qr-menu/` |
-| QR Kod Görseli | ✅ Güncellendi (`qr-code.png` ➔ `https://gurmanusta.github.io/qr-menu/`) |
+| GitHub Repo Push | ✅ Yüklendi (`gurmanusta/menu`) |
+| GitHub Pages | 🚀 **CANLI YAYINDA (TÜRKİYE'DE ENGELSİZ VE AÇIK):** `https://gurmanusta.github.io/menu/` |
+| QR Kod Görseli | ✅ Güncellendi (`qr-code.png` ➔ `https://gurmanusta.github.io/menu/`) |
 | QR Sunum Görselleri | ✅ Üretildi (`qr-sunum.png` ve `qr-sunum.html`) |
 | Toplam ürün | 37 (Gel-Al hariç menü kalemi) |
 | Toplam kategori | 8 menü kategorisi (Pideler, Kebaplar, Et Tantuni, Tavuk Tantuni, Et Döner, Tavuk Döner, Çorba, İçecekler) |
